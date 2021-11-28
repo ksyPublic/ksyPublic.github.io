@@ -87,8 +87,7 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  vertical-align: baseline; 
-  font: inherit;
+  vertical-align: baseline;
   font-size: 100%;
 }
 
@@ -110,6 +109,12 @@ section {
 
 body {
   line-height: 1;
+}
+
+body,
+html,
+* {
+  font-family: 'NanumSquare', sans-serif;
 }
 
 ol,
@@ -138,7 +143,20 @@ q {
   }
 }
 
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 table {
-  border-spacing: 0; 
+  border-spacing: 0;
   border-collapse: collapse;
 }
+
+

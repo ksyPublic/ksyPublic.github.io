@@ -1,0 +1,87 @@
+/*
+ Pageable
+ Copyright (c) 2017 Karl Saunders (http://mobius.ovh)
+ Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
+ and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
+ Version: 0.6.8
+*/
+$pip-color: #e96406;
+$pip-size: 20px;
+$pip-hover-size: 20px;
+$pip-active-size: 20px;
+
+.pg-pips {
+  position: fixed;
+  z-index: 1000;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      position: relative;
+      margin-top: 20px;
+      width: $pip-active-size;
+      height: $pip-active-size;
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:hover {
+        a {
+          margin: -#{$pip-hover-size / 2} 0 0 -#{$pip-hover-size / 2};
+          width: $pip-hover-size;
+          height: $pip-hover-size;
+        }
+      }
+
+      a {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        display: block;
+        box-sizing: border-box;
+        margin: -#{$pip-size / 2} 0 0 -#{$pip-size / 2};
+        width: $pip-size;
+        height: $pip-size;
+        border: 1px solid #e96406;
+        border-radius: 50%;
+        background: transparent;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      a.active,
+      &:hover a.active {
+        position: absolute;
+        margin: -#{$pip-active-size / 2} 0 0 -#{$pip-active-size / 2};
+        width: $pip-active-size;
+        height: $pip-active-size;
+        border-radius: 100%;
+        background-color: #e96406;
+        transition: all .4s ease-out;
+      }
+    }
+  }
+}
+
+.pg-vertical .pg-pips {
+  top: 50%;
+  right: 30px;
+  transform: translate3d(0, -50%, 0);
+
+  li {
+    display: block;
+  }
+}
+
+.pg-horizontal .pg-pips {
+  bottom: 10px;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+
+  li {
+    display: inline-block;
+  }
+}

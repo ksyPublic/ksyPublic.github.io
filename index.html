@@ -4,15 +4,159 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- style -->
         <link rel="stylesheet" href="scss/style.css" />
+        <!-- //style -->
+
+        <!-- vendor core -->
+        <script nomodule src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js" crossorigin="anonymous"></script>
+        <script
+            nomodule
+            src="https://polyfill.io/v3/polyfill.min.js?features=Object.assign%2CElement.prototype.append%2CNodeList.prototype.forEach%2CCustomEvent%2Csmoothscroll"
+            crossorigin="anonymous"
+        ></script>
+        <script src="js/vendor/pageable.min.js"></script>
+        <script src="js/vendor/locomotive.min.js"></script>
+
+        <!-- //vendor core -->
+
+        <!-- ui javascript -->
         <script src="js/common.js" defer></script>
+        <!-- //ui javascript -->
+
         <title>메인시안</title>
     </head>
     <body>
-        <div class="default-wrapper">
-            <div class="default-service-img">
-                <img src="img/prepare.jpg" alt="axe/text-alternatives" />
+        <div class="wrap">
+            <div class="gnb">
+                <!-- logo -->
+                <a href="#none" class="logo" alt="홈">
+                    <i class="logo-wrap">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </i>
+                </a>
+                <div class="nav">
+                    <ul>
+                        <li>
+                            <a href="#none">
+                                <div>Who</div>
+                                <div><span>we are</span></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#none">
+                                <div>What</div>
+                                <div><span>we do</span></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#none">
+                                <div>Contact</div>
+                                <div><span>Us</span></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //logo -->
             </div>
+            <!-- main full page -->
+            <div class="pg-wrapper">
+                <div id="container" class="pg-container">
+                    <div data-anchor="page-1" id="page-1" class="pg-page pg-active">
+                        <div class="page-1-bg" data-speed="3"></div>
+                    </div>
+                    <div data-anchor="page-2" id="page-2" class="pg-page">
+                        <div class="cloud">
+                            <div class="cd cloud-bg01"></div>
+                            <div class="cd cloud-bg02"></div>
+                            <div class="cd cloud-bg03"></div>
+                        </div>
+                        <div class="rocket"></div>
+                    </div>
+                    <div data-anchor="page-3" id="page-3" class="pg-page"></div>
+                </div>
+            </div>
+            <!-- //main full page -->
         </div>
     </body>
+    <script>
+        (function () {
+            const cloud = document.querySelector(".cloud");
+            const cloudChild = document.querySelectorAll(".cd");
+            const rocket = document.querySelector(".rocket");
+
+            const pageables = new Pageable("#container", {
+                childSelector: "[data-anchor]", // CSS3 selector string for the pages
+                anchors: [], // define the page anchors
+                pips: true, // display the pips
+                animation: 700, // the duration in ms of the scroll animation
+                delay: 0, // the delay in ms before the scroll animation starts
+                throttle: 1, // the interval in ms that the resize callback is fired
+                orientation: "vertical", // or horizontal
+                swipeThreshold: 1, // swipe / mouse drag distance (px) before firing the page change event
+                freeScroll: true, // allow manual scrolling when dragging instead of automatically moving to next page
+                navPrevEl: false, // define an element to use to scroll to the previous page (CSS3 selector string or Element reference)
+                navNextEl: false, // define an element to use to scroll to the next page (CSS3 selector string or Element reference)
+                infinite: false, // enable infinite scrolling (from 0.4.0)
+                /*
+                slideshow: {
+                    // enable slideshow that cycles through your pages automatically (from 0.4.0)
+                    interval: 3000, // time in ms between page change,
+                    delay: 0, // delay in ms after the interval has ended and before changing page
+                },
+                */
+                events: {
+                    wheel: true, // enable / disable mousewheel scrolling
+                    mouse: false, // enable / disable mouse drag scrolling
+                    touch: false, // enable / disable touch / swipe scrolling
+                    keydown: false, // enable / disable keyboard navigation
+                },
+
+                easing: function (currentTime, startPos, endPos, interval) {
+                    return -endPos * (currentTime /= interval) * (currentTime - 2) + startPos;
+                },
+                onInit: function (currentIndex) {
+                    // do something when the instance is ready
+                },
+                onUpdate: function () {
+                    // do something when the instance updates
+                },
+                onBeforeStart: function () {
+                    // do something before scrolling begins
+                },
+                onStart: function (currentIndex) {
+                    if (currentIndex === "page-2") {
+                        cloud.classList.add("on");
+                        rocket.classList.add("move");
+                    }
+                    // do something when scrolling begins
+                },
+                onScroll: function () {
+                    // do something during scroll
+                },
+                onFinish: function (e) {
+                    if (e.index === 0) {
+                        cloud.classList.remove("on");
+                        rocket.classList.remove("move");
+                    }
+                    // do something when scrolling ends
+                },
+            });
+            /*
+            document.addEventListener("mousemove", parallax);
+
+            function parallax(e) {
+                const id = document.querySelector(".page-1-bg");
+                const speed = id.getAttribute("data-speed");
+                const x = (window.innerWidth - e.pageX * speed) / 100;
+                const y = (window.innerWidth - e.pageY * speed) / 100;
+                id.style.transform = "translate(" + x + "px, " + y + "px)";
+            }
+            */
+        })();
+    </script>
 </html>

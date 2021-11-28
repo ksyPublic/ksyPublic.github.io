@@ -1,0 +1,36 @@
+@font-face {
+    //레귤러
+    font-family: 'NanumSquare';
+    font-weight: 400;
+    src: url(../font/NanumSquare/NanumSquareR.eot);
+    src: url(../font/NanumSquare/NanumSquareR.eot?#iefix) format('embedded-opentype'),
+         url(../font/NanumSquare/NanumSquareR.woff) format('woff'),
+         url(../font/NanumSquare/NanumSquareR.ttf) format('truetype');
+   }
+   @font-face {
+     //볼드
+    font-family: 'NanumSquare';
+    font-weight: bold;
+    src: url(../font/NanumSquare/NanumSquareB.eot);
+    src: url(../font/NanumSquare/NanumSquareB.eot?#iefix) format('embedded-opentype'),
+         url(../font/NanumSquare/NanumSquareB.woff) format('woff'),
+         url(../font/NanumSquare/NanumSquareB.ttf) format('truetype');
+   }
+   @font-face {
+     //볼더
+    font-family: 'NanumSquare';
+    font-weight: bolder;
+    src: url(../font/NanumSquare/NanumSquareEB.eot);
+    src: url(../font/NanumSquare/NanumSquareEB.eot?#iefix) format('embedded-opentype'),
+         url(../font/NanumSquare/NanumSquareEB.woff) format('woff'),
+         url(../font/NanumSquare/NanumSquareEB.ttf) format('truetype');
+   }
+   @font-face {
+     //라지
+    font-family: 'NanumSquare';
+    font-weight: 300;
+    src: url(../font/NanumSquare/NanumSquareL.eot);
+    src: url(../font/NanumSquare/NanumSquareL.eot?#iefix) format('embedded-opentype'),
+         url(../font/NanumSquare/NanumSquareL.woff) format('woff'),
+         url(../font/NanumSquare/NanumSquareL.ttf) format('truetype');
+   }
