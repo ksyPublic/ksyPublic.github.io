@@ -28,6 +28,7 @@
     </head>
     <body>
         <div class="wrap">
+            <!-- 좌측메뉴 -->
             <div class="gnb">
                 <!-- logo -->
                 <a href="#none" class="logo" alt="홈">
@@ -63,24 +64,95 @@
                 </div>
                 <!-- //logo -->
             </div>
-            <!-- main full page -->
+            <!-- //좌측메뉴 -->
+
+            <!-- 비쥬얼 로고 -->
+            <div class="visual-logo">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- //비쥬얼 로고 -->
+
+            <!-- 메인 풀페이지 -->
             <div class="pg-wrapper">
                 <div id="container" class="pg-container">
                     <div data-anchor="page-1" id="page-1" class="pg-page pg-active">
                         <div class="page-1-bg" data-speed="3"></div>
+                        <!-- 01. 비쥬얼 텍스트 -->
+                        <div class="visual">
+                            <div class="visual-text">
+                                <span>MERCURY</span>
+                                <span>PROJECT</span>
+                                <span class="small">INSPIRATIONS THROUGH MEDIA</span>
+                            </div>
+                        </div>
+                        <!-- //01. 비쥬얼 텍스트 -->
+
+                        <!-- 별 -->
+                        <div class="night">
+                            <div class="shooting-star"></div>
+                            <div class="shooting-star"></div>
+                            <div class="shooting-star"></div>
+                            <div class="shooting-star"></div>
+                        </div>
+                        <!-- //별 -->
+
+                        <!-- //01. 비쥬얼 -->
                     </div>
                     <div data-anchor="page-2" id="page-2" class="pg-page">
+                        <!-- 02. 비쥬얼 텍스트 -->
+                        <div class="visual">
+                            <div class="visual-text">
+                                <span>WHO WE ARE</span>
+                                <span class="small">MAKE OUR PARTNERS WINNER</span>
+                            </div>
+
+                            <div class="visual-text-subline">
+                                <span>머큐리프로젝트는</span>
+                                <span>최상의 비지니스 파트너입니다.</span>
+                                <span class="small">머큐리프로젝트는 온/오프라인 광고에 필요한 전 프로세스를 관장하며</span>
+                                <span class="small">다양한 브랜드 상황에 맞는 최상의 마케팅 플랫폼을 제공합니다.</span>
+                            </div>
+                        </div>
+                        <!-- //02. 비쥬얼 텍스트 -->
+
+                        <!-- 구름 이미지 -->
                         <div class="cloud">
                             <div class="cd cloud-bg01"></div>
                             <div class="cd cloud-bg02"></div>
                             <div class="cd cloud-bg03"></div>
                         </div>
-                        <div class="rocket"></div>
+                        <!-- //구름 이미지 -->
+
+                        <!-- 별 -->
+                        <div class="night">
+                            <div class="shooting-star"></div>
+                            <div class="shooting-star"></div>
+                        </div>
+                        <!-- //별 -->
+
+                        <!-- 로켓 애니메이션 -->
+                        <div class="rocket-wrap">
+                            <div class="rocket"></div>
+                        </div>
+                        <!-- //로켓 애니메이션 -->
                     </div>
-                    <div data-anchor="page-3" id="page-3" class="pg-page"></div>
+                    <div data-anchor="page-3" id="page-3" class="pg-page">
+                        <!-- 03. 비쥬얼 텍스트 -->
+                        <div class="visual">
+                            <div class="visual-text">
+                                <span>WHO WE ARE</span>
+                                <span class="small">MERCURY PROCESS TO SUCCESS</span>
+                            </div>
+                        </div>
+                        <!-- //03. 비쥬얼 텍스트 -->
+                    </div>
                 </div>
             </div>
-            <!-- //main full page -->
+            <!-- //메인 풀페이지 -->
         </div>
     </body>
     <script>
@@ -88,12 +160,38 @@
             const cloud = document.querySelector(".cloud");
             const cloudChild = document.querySelectorAll(".cd");
             const rocket = document.querySelector(".rocket");
+            const logo = document.querySelector(".visual-logo");
+            const visualText = document.querySelectorAll(".visual");
+            const visualSubTxt = document.querySelector(".visual-text-subline");
+
+            function visualTxt() {
+                if (!visualText) {
+                    return;
+                }
+
+                const added = function () {
+                    return [].forEach.call(visualText, function (x) {
+                        x.classList.add("move");
+                    });
+                };
+
+                const removed = function () {
+                    return [].forEach.call(visualText, function (x) {
+                        x.classList.remove("move");
+                    });
+                };
+
+                return {
+                    added,
+                    removed,
+                };
+            }
 
             const pageables = new Pageable("#container", {
                 childSelector: "[data-anchor]", // CSS3 selector string for the pages
                 anchors: [], // define the page anchors
                 pips: true, // display the pips
-                animation: 700, // the duration in ms of the scroll animation
+                animation: 800, // the duration in ms of the scroll animation
                 delay: 0, // the delay in ms before the scroll animation starts
                 throttle: 1, // the interval in ms that the resize callback is fired
                 orientation: "vertical", // or horizontal
@@ -122,7 +220,12 @@
                 onInit: function (currentIndex) {
                     // do something when the instance is ready
                 },
-                onUpdate: function () {
+                onUpdate: function (x) {
+                    if (x.index === 1) {
+                        logo.classList.add("rebuild");
+                    } else {
+                        logo.classList.remove("rebuild");
+                    }
                     // do something when the instance updates
                 },
                 onBeforeStart: function () {
@@ -132,7 +235,14 @@
                     if (currentIndex === "page-2") {
                         cloud.classList.add("on");
                         rocket.classList.add("move");
+                        logo.classList.add("rebuild");
+                    } else {
+                        logo.classList.remove("rebuild");
                     }
+                    logo.classList.add("move");
+                    visualSubTxt.classList.add("move");
+                    visualTxt().added();
+
                     // do something when scrolling begins
                 },
                 onScroll: function () {
@@ -142,8 +252,13 @@
                     if (e.index === 0) {
                         cloud.classList.remove("on");
                         rocket.classList.remove("move");
+                    } else if (e.index === 2) {
+                        cloud.classList.add("on");
+                        rocket.classList.add("move");
                     }
-                    // do something when scrolling ends
+                    logo.classList.remove("move");
+                    visualSubTxt.classList.remove("move");
+                    visualTxt().removed();
                 },
             });
             /*

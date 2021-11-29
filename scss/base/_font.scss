@@ -1,3 +1,4 @@
+@charset "utf-8";
 @font-face {
     //레귤러
     font-family: 'NanumSquare';
@@ -34,3 +35,101 @@
          url(../font/NanumSquare/NanumSquareL.woff) format('woff'),
          url(../font/NanumSquare/NanumSquareL.ttf) format('truetype');
    }
+
+   @font-face {
+      font-family: 'GmarketSans';
+      font-weight: 400; 
+      font-style: normal; 
+      src: url(../font/GmarketSans/GmarketSansTTFBold.woff2) format('woff2'),
+           url(../font/GmarketSans/GmarketSansTTFBold.woff) format('woff');
+      font-display: swap;
+  }
+  @font-face {
+      font-family: 'GmarketSans';
+      font-weight: 500; 
+      font-style: normal; 
+      src: url(../font/GmarketSans/GmarketSansTTFMedium.woff2) format('woff2'),
+           url(../font/GmarketSans/GmarketSansTTFMedium.woff) format('woff');
+      font-display: swap;
+  }
+  @font-face {
+      font-family: 'GmarketSans';
+      font-weight: 300; 
+      font-style: normal; 
+      src: url(../font/GmarketSans/GmarketSansTTFLight.woff2) format('woff2'),
+           url(../font/GmarketSans/GmarketSansTTFLight.woff) format('woff');
+      font-display: swap;
+  }
+
+  /**
+ * Copyright (c) 2020 Spoqa, Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+@font-face {
+      font-family: 'Spoqa Han Sans Neo';
+      font-weight: bold;
+      font-display: swap;
+      src: local('Spoqa Han Sans Neo Bold'),
+      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Bold.woff2') format('woff2'),
+      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Bold.woff') format('woff'),
+      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Bold.ttf') format('truetype');
+  }
+  
+  @font-face {
+      font-family: 'Spoqa Han Sans Neo';
+      font-weight: 500;
+      font-display: swap;
+      src: local('Spoqa Han Sans Neo Medium'),
+      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Medium.woff2') format('woff2'),
+      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Medium.woff') format('woff'),
+      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Medium.ttf') format('truetype');
+  }
+  
+  @font-face {
+      font-family: 'Spoqa Han Sans Neo';
+      font-weight: 400;
+      font-display: swap;
+      src: local('Spoqa Han Sans Neo Regular'),
+      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Regular.woff2') format('woff2'),
+      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Regular.woff') format('woff'),
+      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Regular.ttf') format('truetype');
+  }
+  
+  @font-face {
+      font-family: 'Spoqa Han Sans Neo';
+      font-weight: 300;
+      font-display: swap;
+      src: local('Spoqa Han Sans Neo Light'),
+      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Light.woff2') format('woff2'),
+      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Light.woff') format('woff'),
+      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Light.ttf') format('truetype');
+  }
+  
+  @font-face {
+      font-family: 'Spoqa Han Sans Neo';
+      font-weight: 100;
+      font-display: swap;
+      src: local('Spoqa Han Sans Neo Thin'),
+      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Thin.woff2') format('woff2'),
+      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Thin.woff') format('woff'),
+      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Thin.ttf') format('truetype');
+  }
