@@ -13,9 +13,10 @@
 @import 'layout/container';
 
 //vendor
-@import 'vendor/pageable';
+@import 'vendor/fullpage';
 
-
-
-
-
+body,
+html,
+* {
+  font-family: 'Graphik', sans-serif;
+}

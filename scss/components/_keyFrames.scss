@@ -1,5 +1,3 @@
-
-
 @keyframes showup {
   0% {
     opacity: 0;
@@ -12,6 +10,20 @@
   }
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes rotated {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
 
@@ -51,6 +63,36 @@
 @keyframes hideed {
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: .3;
+  }
+
+  40% {
+    opacity: .7;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: .7;
+  }
+
+  80% {
+    opacity: .3;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
@@ -122,6 +164,45 @@
   }
 }
 
+@keyframes scale-in {
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-in2 {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-out {
+  0% {
+    transform: scale(.8);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(.8);
+  }
+}
+
 @keyframes shake {
   0% {
     transform: translate(1px, 1px) rotate(0deg);
@@ -147,7 +228,6 @@
   22% {
     transform: translate(3px, 1px) rotate(-1deg);
   }
-
 
   100% {
     transform: none;
@@ -184,8 +264,7 @@ $shooting-time: 3000ms;
   border-radius: 999px;
   background: linear-gradient(-45deg, rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));
   filter: drop-shadow(0 0 6px rgba(105, 155, 255, 1));
-  animation: tail $shooting-time ease-in-out infinite,
-  shooting $shooting-time ease-in-out infinite;
+  animation: tail $shooting-time ease-in-out infinite, shooting $shooting-time ease-in-out infinite;
 
   $delay: 1000;
   &::before {
@@ -302,7 +381,6 @@ $shooting-time: 3000ms;
   }
 }
 
-
 @keyframes slideDown {
   0% {
     opacity: 0;
@@ -326,5 +404,3 @@ $shooting-time: 3000ms;
     transform: translateY(180px);
   }
 }
-
-

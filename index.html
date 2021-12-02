@@ -7,17 +7,14 @@
         <!-- style -->
         <link rel="stylesheet" href="scss/style.css" />
         <!-- //style -->
-
         <!-- vendor core -->
+        <script src="js/vendor/fullpage.js"></script>
         <script nomodule src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js" crossorigin="anonymous"></script>
         <script
             nomodule
             src="https://polyfill.io/v3/polyfill.min.js?features=Object.assign%2CElement.prototype.append%2CNodeList.prototype.forEach%2CCustomEvent%2Csmoothscroll"
             crossorigin="anonymous"
         ></script>
-        <script src="js/vendor/pageable.min.js"></script>
-        <script src="js/vendor/locomotive.min.js"></script>
-
         <!-- //vendor core -->
 
         <!-- ui javascript -->
@@ -42,22 +39,35 @@
                 </a>
                 <div class="nav">
                     <ul>
-                        <li>
+                        <li class="nav-depth" data-id="1">
                             <a href="#none">
                                 <div>Who</div>
                                 <div><span>we are</span></div>
+                                <ul class="nav-list">
+                                    <li><a href="#none" alt="About">About</a></li>
+                                    <li><a href="#none" alt="History">History</a></li>
+                                    <li><a href="#none" alt="Our team">Our team</a></li>
+                                    <li><a href="#none" alt="Service">Service</a></li>
+                                </ul>
                             </a>
                         </li>
-                        <li>
+                        <li class="nav-depth" data-id="2">
                             <a href="#none">
                                 <div>What</div>
                                 <div><span>we do</span></div>
+                                <ul class="nav-list">
+                                    <li><a href="#none" alt="Technical consulting">Technical consulting</a></li>
+                                    <li><a href="#none" alt="Mercury media viewability">Mercury media viewability</a></li>
+                                    <li><a href="#none" alt="Audience funnel planning">Audience funnel planning</a></li>
+                                    <li><a href="#none" alt="Operations by Mercury’s expert">Operations by Mercury’s expert</a></li>
+                                    <li><a href="#none" alt="Multi measurement & analysis">Multi measurement & analysis</a></li>
+                                </ul>
                             </a>
                         </li>
-                        <li>
+                        <li class="nav-depth" data-id="3">
                             <a href="#none">
                                 <div>Contact</div>
-                                <div><span>Us</span></div>
+                                <div><span>us</span></div>
                             </a>
                         </li>
                     </ul>
@@ -76,10 +86,25 @@
             </div>
             <!-- //비쥬얼 로고 -->
 
-            <!-- 메인 풀페이지 -->
             <div class="pg-wrapper">
-                <div id="container" class="pg-container">
-                    <div data-anchor="page-1" id="page-1" class="pg-page pg-active">
+                <div class="pg-vertical">
+                    <div class="pg-pips">
+                        <ul>
+                            <li data-menuanchor="anchors1" class="active">
+                                <a href="#anchors1"></a>
+                            </li>
+                            <li data-menuanchor="anchors2">
+                                <a href="#anchors2"></a>
+                            </li>
+                            <li data-menuanchor="anchors3">
+                                <a href="#anchors3"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 메인 풀페이지 -->
+                <div class="pg-container" id="fullpage">
+                    <div id="page-1" class="section">
                         <div class="page-1-bg" data-speed="3"></div>
                         <!-- 01. 비쥬얼 텍스트 -->
                         <div class="visual">
@@ -102,19 +127,22 @@
 
                         <!-- //01. 비쥬얼 -->
                     </div>
-                    <div data-anchor="page-2" id="page-2" class="pg-page">
+                    <div id="page-2" class="section">
                         <!-- 02. 비쥬얼 텍스트 -->
                         <div class="visual">
                             <div class="visual-text">
                                 <span>WHO WE ARE</span>
                                 <span class="small">MAKE OUR PARTNERS WINNER</span>
+                                <ul class="snb">
+                                    <li><a href="#none" alt="ABOUT">ABOUT</a></li>
+                                    <li><a href="#none" alt="HISTORY">HISTORY</a></li>
+                                    <li><a href="#none" alt="OUR TEAM">OUR TEAM</a></li>
+                                    <li><a href="#none" alt="SERVICE">SERVICE</a></li>
+                                </ul>
                             </div>
 
                             <div class="visual-text-subline">
-                                <span>머큐리프로젝트는</span>
-                                <span>최상의 비지니스 파트너입니다.</span>
-                                <span class="small">머큐리프로젝트는 온/오프라인 광고에 필요한 전 프로세스를 관장하며</span>
-                                <span class="small">다양한 브랜드 상황에 맞는 최상의 마케팅 플랫폼을 제공합니다.</span>
+                                <span class="small">다양한 브랜드 상황에 맞는 서비스를 제공하는 최상의 비즈니스 파트너 머큐리프로젝트입니다.</span>
                             </div>
                         </div>
                         <!-- //02. 비쥬얼 텍스트 -->
@@ -123,7 +151,6 @@
                         <div class="cloud">
                             <div class="cd cloud-bg01"></div>
                             <div class="cd cloud-bg02"></div>
-                            <div class="cd cloud-bg03"></div>
                         </div>
                         <!-- //구름 이미지 -->
 
@@ -140,128 +167,96 @@
                         </div>
                         <!-- //로켓 애니메이션 -->
                     </div>
-                    <div data-anchor="page-3" id="page-3" class="pg-page">
+                    <div id="page-3" class="section">
                         <!-- 03. 비쥬얼 텍스트 -->
                         <div class="visual">
                             <div class="visual-text">
-                                <span>WHO WE ARE</span>
+                                <span>WHAT WE DO</span>
                                 <span class="small">MERCURY PROCESS TO SUCCESS</span>
                             </div>
                         </div>
                         <!-- //03. 비쥬얼 텍스트 -->
+
+                        <!-- 컨텐츠 -->
+                        <div class="main-contents">
+                            <ul>
+                                <li class="main-contents-list">
+                                    <a href="#none" alt="Technical consulting">
+                                        <dl class="icon icon-tech">
+                                            <dt></dt>
+                                            <dd>Technical<br />consulting</dd>
+                                        </dl>
+                                    </a>
+                                </li>
+                                <li class="main-contents-list">
+                                    <a href="#none" alt="Mercury media viewability">
+                                        <dl class="icon icon-mercury">
+                                            <dt>
+                                                <div class="core-detail-wrap">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </dt>
+                                            <dd>Mercury media<br />viewability</dd>
+                                        </dl>
+                                    </a>
+                                </li>
+                                <li class="main-contents-list">
+                                    <a href="#none" alt="Audience funnel planning">
+                                        <dl class="icon icon-aud">
+                                            <dt></dt>
+                                            <dd>Audience funnel<br />planning</dd>
+                                        </dl>
+                                    </a>
+                                </li>
+                                <li class="main-contents-list">
+                                    <a href="#none" alt="Operations by Mercury’s expert">
+                                        <dl class="icon icon-oper">
+                                            <dt></dt>
+                                            <dd>Operations by<br />Mercury’s expert</dd>
+                                        </dl>
+                                    </a>
+                                </li>
+                                <li class="main-contents-list">
+                                    <a href="#none" alt="Multi measurement & analysis">
+                                        <dl class="icon icon-multi">
+                                            <dt>
+                                                <div class="core-detail-wrap">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </dt>
+                                            <dd>Multi measurement<br />& analysis</dd>
+                                        </dl>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- //컨텐츠 -->
                     </div>
+
+                    <!-- 04. 푸터 -->
+                    <div id="page-4" class="section fp-auto-height">
+                        <footer>
+                            <ul>
+                                <li><a href="#none" alt="개인정보 처리방침">개인정보 처리방침</a></li>
+                                <li>Copyright ⓒ 2021 Mercury Project All rights reserved</li>
+                            </ul>
+                        </footer>
+                    </div>
+                    <!-- //04. 푸터 -->
                 </div>
+                <!-- //메인 풀페이지 -->
             </div>
-            <!-- //메인 풀페이지 -->
         </div>
     </body>
+
     <script>
-        (function () {
-            const cloud = document.querySelector(".cloud");
-            const cloudChild = document.querySelectorAll(".cd");
-            const rocket = document.querySelector(".rocket");
-            const logo = document.querySelector(".visual-logo");
-            const visualText = document.querySelectorAll(".visual");
-            const visualSubTxt = document.querySelector(".visual-text-subline");
-
-            function visualTxt() {
-                if (!visualText) {
-                    return;
-                }
-
-                const added = function () {
-                    return [].forEach.call(visualText, function (x) {
-                        x.classList.add("move");
-                    });
-                };
-
-                const removed = function () {
-                    return [].forEach.call(visualText, function (x) {
-                        x.classList.remove("move");
-                    });
-                };
-
-                return {
-                    added,
-                    removed,
-                };
-            }
-
-            const pageables = new Pageable("#container", {
-                childSelector: "[data-anchor]", // CSS3 selector string for the pages
-                anchors: [], // define the page anchors
-                pips: true, // display the pips
-                animation: 800, // the duration in ms of the scroll animation
-                delay: 0, // the delay in ms before the scroll animation starts
-                throttle: 1, // the interval in ms that the resize callback is fired
-                orientation: "vertical", // or horizontal
-                swipeThreshold: 1, // swipe / mouse drag distance (px) before firing the page change event
-                freeScroll: true, // allow manual scrolling when dragging instead of automatically moving to next page
-                navPrevEl: false, // define an element to use to scroll to the previous page (CSS3 selector string or Element reference)
-                navNextEl: false, // define an element to use to scroll to the next page (CSS3 selector string or Element reference)
-                infinite: false, // enable infinite scrolling (from 0.4.0)
-                /*
-                slideshow: {
-                    // enable slideshow that cycles through your pages automatically (from 0.4.0)
-                    interval: 3000, // time in ms between page change,
-                    delay: 0, // delay in ms after the interval has ended and before changing page
-                },
-                */
-                events: {
-                    wheel: true, // enable / disable mousewheel scrolling
-                    mouse: false, // enable / disable mouse drag scrolling
-                    touch: false, // enable / disable touch / swipe scrolling
-                    keydown: false, // enable / disable keyboard navigation
-                },
-
-                easing: function (currentTime, startPos, endPos, interval) {
-                    return -endPos * (currentTime /= interval) * (currentTime - 2) + startPos;
-                },
-                onInit: function (currentIndex) {
-                    // do something when the instance is ready
-                },
-                onUpdate: function (x) {
-                    if (x.index === 1) {
-                        logo.classList.add("rebuild");
-                    } else {
-                        logo.classList.remove("rebuild");
-                    }
-                    // do something when the instance updates
-                },
-                onBeforeStart: function () {
-                    // do something before scrolling begins
-                },
-                onStart: function (currentIndex) {
-                    if (currentIndex === "page-2") {
-                        cloud.classList.add("on");
-                        rocket.classList.add("move");
-                        logo.classList.add("rebuild");
-                    } else {
-                        logo.classList.remove("rebuild");
-                    }
-                    logo.classList.add("move");
-                    visualSubTxt.classList.add("move");
-                    visualTxt().added();
-
-                    // do something when scrolling begins
-                },
-                onScroll: function () {
-                    // do something during scroll
-                },
-                onFinish: function (e) {
-                    if (e.index === 0) {
-                        cloud.classList.remove("on");
-                        rocket.classList.remove("move");
-                    } else if (e.index === 2) {
-                        cloud.classList.add("on");
-                        rocket.classList.add("move");
-                    }
-                    logo.classList.remove("move");
-                    visualSubTxt.classList.remove("move");
-                    visualTxt().removed();
-                },
-            });
-            /*
+        /*
             document.addEventListener("mousemove", parallax);
 
             function parallax(e) {
@@ -272,6 +267,5 @@
                 id.style.transform = "translate(" + x + "px, " + y + "px)";
             }
             */
-        })();
     </script>
 </html>

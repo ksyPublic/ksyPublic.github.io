@@ -1,67 +1,60 @@
 @charset "utf-8";
 @font-face {
     //레귤러
-    font-family: 'NanumSquare';
+    font-family: "NanumSquare";
     font-weight: 400;
     src: url(../font/NanumSquare/NanumSquareR.eot);
-    src: url(../font/NanumSquare/NanumSquareR.eot?#iefix) format('embedded-opentype'),
-         url(../font/NanumSquare/NanumSquareR.woff) format('woff'),
-         url(../font/NanumSquare/NanumSquareR.ttf) format('truetype');
-   }
-   @font-face {
-     //볼드
-    font-family: 'NanumSquare';
+    src: url(../font/NanumSquare/NanumSquareR.eot?#iefix) format("embedded-opentype"), url(../font/NanumSquare/NanumSquareR.woff) format("woff"),
+        url(../font/NanumSquare/NanumSquareR.ttf) format("truetype");
+}
+@font-face {
+    //볼드
+    font-family: "NanumSquare";
     font-weight: bold;
     src: url(../font/NanumSquare/NanumSquareB.eot);
-    src: url(../font/NanumSquare/NanumSquareB.eot?#iefix) format('embedded-opentype'),
-         url(../font/NanumSquare/NanumSquareB.woff) format('woff'),
-         url(../font/NanumSquare/NanumSquareB.ttf) format('truetype');
-   }
-   @font-face {
-     //볼더
-    font-family: 'NanumSquare';
+    src: url(../font/NanumSquare/NanumSquareB.eot?#iefix) format("embedded-opentype"), url(../font/NanumSquare/NanumSquareB.woff) format("woff"),
+        url(../font/NanumSquare/NanumSquareB.ttf) format("truetype");
+}
+@font-face {
+    //볼더
+    font-family: "NanumSquare";
     font-weight: bolder;
     src: url(../font/NanumSquare/NanumSquareEB.eot);
-    src: url(../font/NanumSquare/NanumSquareEB.eot?#iefix) format('embedded-opentype'),
-         url(../font/NanumSquare/NanumSquareEB.woff) format('woff'),
-         url(../font/NanumSquare/NanumSquareEB.ttf) format('truetype');
-   }
-   @font-face {
-     //라지
-    font-family: 'NanumSquare';
+    src: url(../font/NanumSquare/NanumSquareEB.eot?#iefix) format("embedded-opentype"), url(../font/NanumSquare/NanumSquareEB.woff) format("woff"),
+        url(../font/NanumSquare/NanumSquareEB.ttf) format("truetype");
+}
+@font-face {
+    //라지
+    font-family: "NanumSquare";
     font-weight: 300;
     src: url(../font/NanumSquare/NanumSquareL.eot);
-    src: url(../font/NanumSquare/NanumSquareL.eot?#iefix) format('embedded-opentype'),
-         url(../font/NanumSquare/NanumSquareL.woff) format('woff'),
-         url(../font/NanumSquare/NanumSquareL.ttf) format('truetype');
-   }
+    src: url(../font/NanumSquare/NanumSquareL.eot?#iefix) format("embedded-opentype"), url(../font/NanumSquare/NanumSquareL.woff) format("woff"),
+        url(../font/NanumSquare/NanumSquareL.ttf) format("truetype");
+}
 
-   @font-face {
-      font-family: 'GmarketSans';
-      font-weight: 400; 
-      font-style: normal; 
-      src: url(../font/GmarketSans/GmarketSansTTFBold.woff2) format('woff2'),
-           url(../font/GmarketSans/GmarketSansTTFBold.woff) format('woff');
-      font-display: swap;
-  }
-  @font-face {
-      font-family: 'GmarketSans';
-      font-weight: 500; 
-      font-style: normal; 
-      src: url(../font/GmarketSans/GmarketSansTTFMedium.woff2) format('woff2'),
-           url(../font/GmarketSans/GmarketSansTTFMedium.woff) format('woff');
-      font-display: swap;
-  }
-  @font-face {
-      font-family: 'GmarketSans';
-      font-weight: 300; 
-      font-style: normal; 
-      src: url(../font/GmarketSans/GmarketSansTTFLight.woff2) format('woff2'),
-           url(../font/GmarketSans/GmarketSansTTFLight.woff) format('woff');
-      font-display: swap;
-  }
+@font-face {
+    font-family: "GmarketSans";
+    font-weight: 400;
+    font-style: normal;
+    src: url(../font/GmarketSans/GmarketSansTTFBold.woff2) format("woff2"), url(../font/GmarketSans/GmarketSansTTFBold.woff) format("woff");
+    font-display: swap;
+}
+@font-face {
+    font-family: "GmarketSans";
+    font-weight: 500;
+    font-style: normal;
+    src: url(../font/GmarketSans/GmarketSansTTFMedium.woff2) format("woff2"), url(../font/GmarketSans/GmarketSansTTFMedium.woff) format("woff");
+    font-display: swap;
+}
+@font-face {
+    font-family: "GmarketSans";
+    font-weight: 300;
+    font-style: normal;
+    src: url(../font/GmarketSans/GmarketSansTTFLight.woff2) format("woff2"), url(../font/GmarketSans/GmarketSansTTFLight.woff) format("woff");
+    font-display: swap;
+}
 
-  /**
+/**
  * Copyright (c) 2020 Spoqa, Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining
@@ -85,51 +78,72 @@
  */
 
 @font-face {
-      font-family: 'Spoqa Han Sans Neo';
-      font-weight: bold;
-      font-display: swap;
-      src: local('Spoqa Han Sans Neo Bold'),
-      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Bold.woff2') format('woff2'),
-      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Bold.woff') format('woff'),
-      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Bold.ttf') format('truetype');
-  }
-  
-  @font-face {
-      font-family: 'Spoqa Han Sans Neo';
-      font-weight: 500;
-      font-display: swap;
-      src: local('Spoqa Han Sans Neo Medium'),
-      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Medium.woff2') format('woff2'),
-      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Medium.woff') format('woff'),
-      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Medium.ttf') format('truetype');
-  }
-  
-  @font-face {
-      font-family: 'Spoqa Han Sans Neo';
-      font-weight: 400;
-      font-display: swap;
-      src: local('Spoqa Han Sans Neo Regular'),
-      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Regular.woff2') format('woff2'),
-      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Regular.woff') format('woff'),
-      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Regular.ttf') format('truetype');
-  }
-  
-  @font-face {
-      font-family: 'Spoqa Han Sans Neo';
-      font-weight: 300;
-      font-display: swap;
-      src: local('Spoqa Han Sans Neo Light'),
-      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Light.woff2') format('woff2'),
-      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Light.woff') format('woff'),
-      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Light.ttf') format('truetype');
-  }
-  
-  @font-face {
-      font-family: 'Spoqa Han Sans Neo';
-      font-weight: 100;
-      font-display: swap;
-      src: local('Spoqa Han Sans Neo Thin'),
-      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Thin.woff2') format('woff2'),
-      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Thin.woff') format('woff'),
-      url('../font/SpoqaHanSans/SpoqaHanSansNeo-Thin.ttf') format('truetype');
-  }
+    font-family: "Spoqa Han Sans Neo";
+    font-weight: bold;
+    font-display: swap;
+    src: local("Spoqa Han Sans Neo Bold"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Bold.woff2") format("woff2"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Bold.woff") format("woff"),
+        url("../font/SpoqaHanSans/SpoqaHanSansNeo-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Spoqa Han Sans Neo";
+    font-weight: 500;
+    font-display: swap;
+    src: local("Spoqa Han Sans Neo Medium"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Medium.woff2") format("woff2"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Medium.woff") format("woff"),
+        url("../font/SpoqaHanSans/SpoqaHanSansNeo-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Spoqa Han Sans Neo";
+    font-weight: 400;
+    font-display: swap;
+    src: local("Spoqa Han Sans Neo Regular"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Regular.woff2") format("woff2"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Regular.woff") format("woff"),
+        url("../font/SpoqaHanSans/SpoqaHanSansNeo-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Spoqa Han Sans Neo";
+    font-weight: 300;
+    font-display: swap;
+    src: local("Spoqa Han Sans Neo Light"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Light.woff2") format("woff2"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Light.woff") format("woff"),
+        url("../font/SpoqaHanSans/SpoqaHanSansNeo-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Spoqa Han Sans Neo";
+    font-weight: 100;
+    font-display: swap;
+    src: local("Spoqa Han Sans Neo Thin"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Thin.woff2") format("woff2"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Thin.woff") format("woff"),
+        url("../font/SpoqaHanSans/SpoqaHanSansNeo-Thin.ttf") format("truetype");
+}
+
+//Graphik
+@font-face {
+    font-family: "Graphik";
+    font-weight: bolder;
+    font-display: swap;
+    src: url("../font/Graphik/2aa5f6db10ab7b69465c95555c235503.eot");
+    src: url("../font/Graphik/2aa5f6db10ab7b69465c95555c235503.eot?#iefix") format("embedded-opentype"), url("../font/Graphik/2aa5f6db10ab7b69465c95555c235503.woff2") format("woff2"),
+        url("../font/Graphik/2aa5f6db10ab7b69465c95555c235503.woff") format("woff"), url("../font/Graphik/2aa5f6db10ab7b69465c95555c235503.ttf") format("truetype"),
+        url("../font/Graphik/2aa5f6db10ab7b69465c95555c235503.svg#Graphik Semibold") format("svg");
+}
+
+@font-face {
+    font-family: "Graphik";
+    font-weight: 500;
+    font-display: swap;
+    src: url("../font/Graphik/373efd69166d31c2b5052a505527acbf.eot");
+    src: url("../font/Graphik/373efd69166d31c2b5052a505527acbf.eot?#iefix") format("embedded-opentype"), url("../font/Graphik/373efd69166d31c2b5052a505527acbf.woff2") format("woff2"),
+        url("../font/Graphik/373efd69166d31c2b5052a505527acbf.woff") format("woff"), url("../font/Graphik/373efd69166d31c2b5052a505527acbf.ttf") format("truetype"),
+        url("../font/Graphik/373efd69166d31c2b5052a505527acbf.svg#Graphik-Medium") format("svg");
+}
+
+@font-face {
+    font-family: "Graphik";
+    font-weight: 400;
+    font-display: swap;
+    src: url("../font/Graphik/105007d99d9df64c50cc24d696d79555.eot");
+    src: url("../font/Graphik/105007d99d9df64c50cc24d696d79555.eot?#iefix") format("embedded-opentype"), url("../font/Graphik/105007d99d9df64c50cc24d696d79555.woff2") format("woff2"),
+        url("../font/Graphik/105007d99d9df64c50cc24d696d79555.woff") format("woff"), url("../font/Graphik/105007d99d9df64c50cc24d696d79555.ttf") format("truetype"),
+        url("../font/Graphik/105007d99d9df64c50cc24d696d79555.svg#Graphik Web Regular") format("svg");
+}
