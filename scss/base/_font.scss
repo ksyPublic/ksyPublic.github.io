@@ -80,7 +80,7 @@
 @font-face {
     font-family: "Spoqa Han Sans Neo";
     font-weight: bold;
-    font-display: swap;
+    font-display: fallback;
     src: local("Spoqa Han Sans Neo Bold"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Bold.woff2") format("woff2"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Bold.woff") format("woff"),
         url("../font/SpoqaHanSans/SpoqaHanSansNeo-Bold.ttf") format("truetype");
 }
@@ -88,7 +88,7 @@
 @font-face {
     font-family: "Spoqa Han Sans Neo";
     font-weight: 500;
-    font-display: swap;
+    font-display: fallback;
     src: local("Spoqa Han Sans Neo Medium"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Medium.woff2") format("woff2"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Medium.woff") format("woff"),
         url("../font/SpoqaHanSans/SpoqaHanSansNeo-Medium.ttf") format("truetype");
 }
@@ -96,7 +96,7 @@
 @font-face {
     font-family: "Spoqa Han Sans Neo";
     font-weight: 400;
-    font-display: swap;
+    font-display: fallback;
     src: local("Spoqa Han Sans Neo Regular"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Regular.woff2") format("woff2"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Regular.woff") format("woff"),
         url("../font/SpoqaHanSans/SpoqaHanSansNeo-Regular.ttf") format("truetype");
 }
@@ -104,7 +104,7 @@
 @font-face {
     font-family: "Spoqa Han Sans Neo";
     font-weight: 300;
-    font-display: swap;
+    font-display: fallback;
     src: local("Spoqa Han Sans Neo Light"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Light.woff2") format("woff2"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Light.woff") format("woff"),
         url("../font/SpoqaHanSans/SpoqaHanSansNeo-Light.ttf") format("truetype");
 }
@@ -112,7 +112,7 @@
 @font-face {
     font-family: "Spoqa Han Sans Neo";
     font-weight: 100;
-    font-display: swap;
+    font-display: fallback;
     src: local("Spoqa Han Sans Neo Thin"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Thin.woff2") format("woff2"), url("../font/SpoqaHanSans/SpoqaHanSansNeo-Thin.woff") format("woff"),
         url("../font/SpoqaHanSans/SpoqaHanSansNeo-Thin.ttf") format("truetype");
 }
@@ -121,7 +121,7 @@
 @font-face {
     font-family: "Graphik";
     font-weight: bolder;
-    font-display: swap;
+    font-display: fallback;
     src: url("../font/Graphik/2aa5f6db10ab7b69465c95555c235503.eot");
     src: url("../font/Graphik/2aa5f6db10ab7b69465c95555c235503.eot?#iefix") format("embedded-opentype"), url("../font/Graphik/2aa5f6db10ab7b69465c95555c235503.woff2") format("woff2"),
         url("../font/Graphik/2aa5f6db10ab7b69465c95555c235503.woff") format("woff"), url("../font/Graphik/2aa5f6db10ab7b69465c95555c235503.ttf") format("truetype"),
@@ -131,7 +131,7 @@
 @font-face {
     font-family: "Graphik";
     font-weight: 500;
-    font-display: swap;
+    font-display: fallback;
     src: url("../font/Graphik/373efd69166d31c2b5052a505527acbf.eot");
     src: url("../font/Graphik/373efd69166d31c2b5052a505527acbf.eot?#iefix") format("embedded-opentype"), url("../font/Graphik/373efd69166d31c2b5052a505527acbf.woff2") format("woff2"),
         url("../font/Graphik/373efd69166d31c2b5052a505527acbf.woff") format("woff"), url("../font/Graphik/373efd69166d31c2b5052a505527acbf.ttf") format("truetype"),
@@ -141,7 +141,7 @@
 @font-face {
     font-family: "Graphik";
     font-weight: 400;
-    font-display: swap;
+    font-display: fallback;
     src: url("../font/Graphik/105007d99d9df64c50cc24d696d79555.eot");
     src: url("../font/Graphik/105007d99d9df64c50cc24d696d79555.eot?#iefix") format("embedded-opentype"), url("../font/Graphik/105007d99d9df64c50cc24d696d79555.woff2") format("woff2"),
         url("../font/Graphik/105007d99d9df64c50cc24d696d79555.woff") format("woff"), url("../font/Graphik/105007d99d9df64c50cc24d696d79555.ttf") format("truetype"),
