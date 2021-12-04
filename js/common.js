@@ -4,61 +4,23 @@
     const nav = document.querySelector(".nav");
     const navList = nav.querySelectorAll("li");
     const navDepth = nav.querySelectorAll("li.nav-depth");
-
     const cloud = document.querySelector(".cloud");
-    const cloudChild = document.querySelectorAll(".cd");
     const rocket = document.querySelector(".rocket");
-    const logo = document.querySelector(".visual-logo");
+    const logoAll = document.querySelectorAll(".visual-logo");
     const visualText = document.querySelectorAll(".visual");
-    const visualSubTxt = document.querySelector(".visual-text-subline");
     const pipe = document.querySelector(".pg-pips");
-    const contentsList = document.querySelectorAll(".main-contents-list");
+    const mainContents = document.querySelector(".main-contents");
 
-    function visualTxt() {
-        if (!visualText) {
-            return;
-        }
+    const splashWrap = document.querySelectorAll(".splash-container");
+    const total = 1920 / 40;
 
-        const added = function () {
-            return [].forEach.call(visualText, function (x) {
-                x.classList.add("move");
-            });
-        };
+    let createSpan = null;
+    let spanedBar = null;
 
-        const removed = function () {
-            return [].forEach.call(visualText, function (x) {
-                x.classList.remove("move");
-            });
-        };
-
-        return {
-            added,
-            removed,
-        };
-    }
-
-    function contents() {
-        if (!contentsList) {
-            return;
-        }
-
-        const added = function () {
-            return [].forEach.call(contentsList, function (x) {
-                x.classList.add("on");
-            });
-        };
-
-        const removed = function () {
-            return [].forEach.call(contentsList, function (x) {
-                x.classList.remove("on");
-            });
-        };
-
-        return {
-            added,
-            removed,
-        };
-    }
+    let target = total / 2;
+    let near = 0;
+    let abs = 0;
+    let min = total;
 
     let options = {
         //Navigation
@@ -108,69 +70,77 @@
         // paddingTop: "3em",
         // paddingBottom: "10px",
         //fixedElements: "#header, .footer",
-        // responsiveWidth: 1366,
+        responsiveWidth: 1366,
         // responsiveHeight: 768,
-
         //Custom selectors
         sectionSelector: ".section",
         //slideSelector: ".slide",
 
-        //lazyLoading: true,
+        // lazyLoading: true,
 
         //events
         onLeave: function (origin, destination, direction) {
-            if (destination.index === 1) {
-                visualTxt().added();
-                logo.classList.add("move");
-                visualSubTxt.classList.add("move");
-                //add
-                cloud.classList.add("on");
-                rocket.classList.add("move");
-                logo.classList.add("second");
-                //remove
-                contents().removed();
-                logo.classList.remove("third");
-                pipe.classList.remove("hide");
-            } else if (destination.index === 2) {
-                //add
-                visualTxt().added();
-                contents().added();
+            //데이터
+            const data = document.querySelector("[data-id='" + destination.index + "']");
+            const allData = document.querySelectorAll("[data-id]");
 
-                logo.classList.add("move");
-                logo.classList.add("third");
-                visualSubTxt.classList.add("move");
-                cloud.classList.add("on");
-                rocket.classList.add("move");
-                //remove
-                logo.classList.remove("stop");
-                logo.classList.remove("second");
-                pipe.classList.remove("hide");
-            } else if (destination.index === 3) {
-                //add
-                pipe.classList.add("hide");
-                logo.classList.add("stop");
-                //remove
-                contents().added();
-                visualTxt().removed();
-                logo.classList.remove("move");
-                logo.classList.remove("third");
-                visualSubTxt.classList.remove("move");
+            //로고
+            const logoNumber = document.querySelector("[data-logo='" + destination.index + "']");
+            const lastLogo = document.querySelector("[data-logo='2']");
+
+            //비쥬얼 텍스트
+            const _visualText = document.querySelector("[data-text='" + destination.index + "']");
+            const lastText = document.querySelector("[data-text='2']");
+
+            [].forEach.call(logoAll, function (l, index) {
+                l.classList.add("on");
+                visualText[index].classList.add("on");
+            });
+
+            //전체 설정
+            if (logoNumber && _visualText) {
+                logoNumber.classList.remove("on");
+                _visualText.classList.remove("on");
+            }
+
+            //개별 설정
+            if (direction === "down") {
+                //down
+                if (destination.index === 1) {
+                    cloud.classList.add("on");
+                    rocket.classList.add("on");
+                    //
+                } else if (destination.index === 2) {
+                    mainContents.classList.add("on");
+                    //
+                } else if (destination.index === 3) {
+                    if (lastLogo && lastText) {
+                        lastLogo.classList.remove("on");
+                        lastText.classList.remove("on");
+                    }
+
+                    pipe.classList.add("hide");
+                    mainContents.classList.add("on");
+                } else {
+                    // index === 0
+                }
             } else {
-                visualTxt().added();
-                contents().added();
-
-                logo.classList.add("move");
-                visualSubTxt.classList.add("move");
-
-                //remove
-                logo.classList.remove("second");
-                logo.classList.remove("third");
-                pipe.classList.remove("hide");
+                //up
+                if (destination.index === 1) {
+                    mainContents.classList.remove("on");
+                } else if (destination.index === 2) {
+                    pipe.classList.remove("hide");
+                } else if (destination.index === 3) {
+                    //
+                } else {
+                    //index === 0
+                    cloud.classList.remove("on");
+                    rocket.classList.remove("on");
+                }
             }
 
             //좌측메뉴
-            const data = document.querySelector("[data-id='" + destination.index + "']");
-            const allData = document.querySelectorAll("[data-id]");
+
             [].forEach.call(allData, function (el, i) {
                 el.classList.remove("active");
                 el.style.height = "";
@@ -185,36 +155,22 @@
                 }
             }
         },
-        afterLoad: function (origin, destination, direction) {
-            if (destination.index === 0) {
-                cloud.classList.remove("on");
-                rocket.classList.remove("move");
-            } else if (destination.index === 1) {
-                cloud.classList.add("on");
-                rocket.classList.add("move");
-            } else if (destination.index === 2) {
-                cloud.classList.add("on");
-                rocket.classList.add("move");
-            }
-            logo.classList.remove("move");
-            visualSubTxt.classList.remove("move");
-            visualTxt().removed();
-        },
+        //load 및 이벤트가 완전히 끝난뒤 실행
+        afterLoad: function (origin, destination, direction) {},
+
+        //랜더링
         afterRender: function () {
-            const pluginContainer = this;
+            //초기화
+            const _logoNumber = document.querySelector("[data-logo='" + this.index + "']");
+            const _visualText = document.querySelector("[data-text='" + this.index + "']");
 
-            if (pluginContainer.index === 1) {
-                logo.classList.add("second");
-                logo.classList.remove("third");
-            } else if (pluginContainer.index === 2) {
-                logo.classList.add("third");
-                logo.classList.remove("second");
-            } else {
-                contents().added();
+            [].forEach.call(logoAll, function (x, index) {
+                x.classList.add("on");
+                visualText[index].classList.add("on");
+            });
 
-                logo.classList.remove("second");
-                logo.classList.remove("third");
-            }
+            _logoNumber.classList.remove("on");
+            _visualText.classList.remove("on");
         },
         afterResize: function (width, height) {},
         afterReBuild: function () {},
@@ -249,12 +205,40 @@
         //
 
         //애니메이션
-        animation: function () {
-            // if (nav) {
-            //     [].forEach.call(navList, function (item, index) {
-            //         item.classList.add("on");
-            //     });
-            // }
+        splashAnimate: function () {
+            for (let i = 0; i < total; i++) {
+                createSpan = document.createElement("SPAN");
+                spanedBar = createSpan.classList.add("splash-bar");
+
+                if (i - target > -1) {
+                    if (i % 2 == 0) {
+                        splashWrap[0].appendChild(createSpan);
+                        createSpan.style.animation = "splsh-down 1s cubic-bezier(0.4, 0, 1, 1) forwards";
+                        createSpan.style.animationDelay = i * 0.03 + "s";
+                    } else {
+                        splashWrap[0].appendChild(createSpan);
+                        createSpan.style.animation = "splsh-up 1s cubic-bezier(0.4, 0, 1, 1) forwards";
+                        createSpan.style.animationDelay = i * 0.03 + "s";
+                    }
+                }
+            }
+
+            for (let i = 0; i < total; i++) {
+                createSpan = document.createElement("SPAN");
+                spanedBar = createSpan.classList.add("splash-bar");
+
+                if (i - target > -1) {
+                    if (i % 2 == 0) {
+                        splashWrap[1].appendChild(createSpan);
+                        createSpan.style.animation = "splsh-down 1s cubic-bezier(0.4, 0, 1, 1) forwards";
+                        createSpan.style.animationDelay = i * 0.03 + "s";
+                    } else {
+                        splashWrap[1].appendChild(createSpan);
+                        createSpan.style.animation = "splsh-up 1s cubic-bezier(0.4, 0, 1, 1) forwards";
+                        createSpan.style.animationDelay = i * 0.03 + "s";
+                    }
+                }
+            }
         },
 
         //window resize
@@ -276,7 +260,7 @@
 
     //init
     function init() {
-        ui.animation();
+        ui.splashAnimate();
         ui.fullpages();
         ui.gnb();
     }

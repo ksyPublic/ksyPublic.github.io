@@ -9,12 +9,6 @@
         <!-- //style -->
         <!-- vendor core -->
         <script src="js/vendor/fullpage.js"></script>
-        <script nomodule src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js" crossorigin="anonymous"></script>
-        <script
-            nomodule
-            src="https://polyfill.io/v3/polyfill.min.js?features=Object.assign%2CElement.prototype.append%2CNodeList.prototype.forEach%2CCustomEvent%2Csmoothscroll"
-            crossorigin="anonymous"
-        ></script>
         <!-- //vendor core -->
 
         <!-- ui javascript -->
@@ -25,7 +19,7 @@
     </head>
     <body>
         <div class="wrap">
-            <!-- 좌측메뉴 -->
+            <!-- 좌측 고정 메뉴 -->
             <div class="gnb">
                 <!-- logo -->
                 <a href="#none" class="logo" alt="홈">
@@ -74,19 +68,10 @@
                 </div>
                 <!-- //logo -->
             </div>
-            <!-- //좌측메뉴 -->
-
-            <!-- 비쥬얼 로고 -->
-            <div class="visual-logo">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <!-- //비쥬얼 로고 -->
+            <!-- //좌측 고정 메뉴 -->
 
             <div class="pg-wrapper">
+                <!-- 우측 앵커 -->
                 <div class="pg-vertical">
                     <div class="pg-pips">
                         <ul>
@@ -102,20 +87,39 @@
                         </ul>
                     </div>
                 </div>
+                <!--// 우측 앵커 -->
                 <!-- 메인 풀페이지 -->
                 <div class="pg-container" id="fullpage">
                     <div id="page-1" class="section">
-                        <div class="page-1-bg" data-speed="3"></div>
-                        <!-- 01. 비쥬얼 텍스트 -->
-                        <div class="visual">
-                            <div class="visual-text">
-                                <span>MERCURY</span>
-                                <span>PROJECT</span>
-                                <span class="small">INSPIRATIONS THROUGH MEDIA</span>
-                            </div>
+                        <!-- 스플래시 -->
+                        <div class="splash-interative">
+                            <div class="splash-wrap up"></div>
+                            <div class="splash-container left"></div>
+                            <div class="splash-container right"></div>
                         </div>
-                        <!-- //01. 비쥬얼 텍스트 -->
+                        <!-- //스플래시 -->
 
+                        <div class="visual-wrap">
+                            <!-- 비쥬얼 로고 -->
+                            <div class="visual-logo" data-logo="0">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <!-- //비쥬얼 로고 -->
+
+                            <!-- 01. 비쥬얼 텍스트 -->
+                            <div class="visual" data-text="0">
+                                <div class="visual-text">
+                                    <span>MERCURY</span>
+                                    <span>PROJECT</span>
+                                    <span class="small">INSPIRATIONS THROUGH MEDIA</span>
+                                </div>
+                            </div>
+                            <!-- //01. 비쥬얼 텍스트 -->
+                        </div>
                         <!-- 별 -->
                         <div class="night">
                             <div class="shooting-star"></div>
@@ -124,29 +128,38 @@
                             <div class="shooting-star"></div>
                         </div>
                         <!-- //별 -->
-
-                        <!-- //01. 비쥬얼 -->
                     </div>
                     <div id="page-2" class="section">
-                        <!-- 02. 비쥬얼 텍스트 -->
-                        <div class="visual">
-                            <div class="visual-text">
-                                <span>WHO WE ARE</span>
-                                <span class="small">MAKE OUR PARTNERS WINNER</span>
-                                <ul class="snb">
-                                    <li><a href="#none" alt="ABOUT">ABOUT</a></li>
-                                    <li><a href="#none" alt="HISTORY">HISTORY</a></li>
-                                    <li><a href="#none" alt="OUR TEAM">OUR TEAM</a></li>
-                                    <li><a href="#none" alt="SERVICE">SERVICE</a></li>
-                                </ul>
+                        <div class="visual-wrap">
+                            <!-- 비쥬얼 로고 -->
+                            <div class="visual-logo" data-logo="1">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
                             </div>
+                            <!-- //비쥬얼 로고 -->
 
-                            <div class="visual-text-subline">
-                                <span class="small">다양한 브랜드 상황에 맞는 서비스를 제공하는 최상의 비즈니스 파트너 머큐리프로젝트입니다.</span>
+                            <!-- 02. 비쥬얼 텍스트 -->
+                            <div class="visual" data-text="1">
+                                <div class="visual-text">
+                                    <span>WHO WE ARE</span>
+                                    <span class="small">MAKE OUR PARTNERS WINNER</span>
+                                    <ul class="snb">
+                                        <li><a href="#none" alt="ABOUT">ABOUT</a></li>
+                                        <li><a href="#none" alt="HISTORY">HISTORY</a></li>
+                                        <li><a href="#none" alt="OUR TEAM">OUR TEAM</a></li>
+                                        <li><a href="#none" alt="SERVICE">SERVICE</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="visual-text-subline">
+                                    <span class="small">다양한 브랜드 상황에 맞는 서비스를 제공하는 최상의 비즈니스 파트너 머큐리프로젝트입니다.</span>
+                                </div>
                             </div>
+                            <!-- //02. 비쥬얼 텍스트 -->
                         </div>
-                        <!-- //02. 비쥬얼 텍스트 -->
-
                         <!-- 구름 이미지 -->
                         <div class="cloud">
                             <div class="cd cloud-bg01"></div>
@@ -168,75 +181,87 @@
                         <!-- //로켓 애니메이션 -->
                     </div>
                     <div id="page-3" class="section">
-                        <!-- 03. 비쥬얼 텍스트 -->
-                        <div class="visual">
-                            <div class="visual-text">
-                                <span>WHAT WE DO</span>
-                                <span class="small">MERCURY PROCESS TO SUCCESS</span>
+                        <div class="visual-wrap">
+                            <!-- 비쥬얼 로고 -->
+                            <div class="visual-logo" data-logo="2">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
                             </div>
-                        </div>
-                        <!-- //03. 비쥬얼 텍스트 -->
+                            <!-- //비쥬얼 로고 -->
 
-                        <!-- 컨텐츠 -->
-                        <div class="main-contents">
-                            <ul>
-                                <li class="main-contents-list">
-                                    <a href="#none" alt="Technical consulting">
-                                        <dl class="icon icon-tech">
-                                            <dt></dt>
-                                            <dd>Technical<br />consulting</dd>
-                                        </dl>
-                                    </a>
-                                </li>
-                                <li class="main-contents-list">
-                                    <a href="#none" alt="Mercury media viewability">
-                                        <dl class="icon icon-mercury">
-                                            <dt>
-                                                <div class="core-detail-wrap">
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                </div>
-                                            </dt>
-                                            <dd>Mercury media<br />viewability</dd>
-                                        </dl>
-                                    </a>
-                                </li>
-                                <li class="main-contents-list">
-                                    <a href="#none" alt="Audience funnel planning">
-                                        <dl class="icon icon-aud">
-                                            <dt></dt>
-                                            <dd>Audience funnel<br />planning</dd>
-                                        </dl>
-                                    </a>
-                                </li>
-                                <li class="main-contents-list">
-                                    <a href="#none" alt="Operations by Mercury’s expert">
-                                        <dl class="icon icon-oper">
-                                            <dt></dt>
-                                            <dd>Operations by<br />Mercury’s expert</dd>
-                                        </dl>
-                                    </a>
-                                </li>
-                                <li class="main-contents-list">
-                                    <a href="#none" alt="Multi measurement & analysis">
-                                        <dl class="icon icon-multi">
-                                            <dt>
-                                                <div class="core-detail-wrap">
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                </div>
-                                            </dt>
-                                            <dd>Multi measurement<br />& analysis</dd>
-                                        </dl>
-                                    </a>
-                                </li>
-                            </ul>
+                            <!-- 03. 비쥬얼 텍스트 -->
+                            <div class="visual" data-text="2">
+                                <div class="visual-text">
+                                    <span>WHAT WE DO</span>
+                                    <span class="small">MERCURY PROCESS TO SUCCESS</span>
+                                </div>
+                            </div>
+                            <!-- //03. 비쥬얼 텍스트 -->
+
+                            <!-- 컨텐츠 -->
+                            <div class="main-contents">
+                                <ul>
+                                    <li class="main-contents-list">
+                                        <a href="#none" alt="Technical consulting">
+                                            <dl class="icon icon-tech">
+                                                <dt></dt>
+                                                <dd>Technical<br />consulting</dd>
+                                            </dl>
+                                        </a>
+                                    </li>
+                                    <li class="main-contents-list">
+                                        <a href="#none" alt="Mercury media viewability">
+                                            <dl class="icon icon-mercury">
+                                                <dt>
+                                                    <div class="core-detail-wrap">
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                    </div>
+                                                </dt>
+                                                <dd>Mercury media<br />viewability</dd>
+                                            </dl>
+                                        </a>
+                                    </li>
+                                    <li class="main-contents-list">
+                                        <a href="#none" alt="Audience funnel planning">
+                                            <dl class="icon icon-aud">
+                                                <dt></dt>
+                                                <dd>Audience funnel<br />planning</dd>
+                                            </dl>
+                                        </a>
+                                    </li>
+                                    <li class="main-contents-list">
+                                        <a href="#none" alt="Operations by Mercury’s expert">
+                                            <dl class="icon icon-oper">
+                                                <dt></dt>
+                                                <dd>Operations by<br />Mercury’s expert</dd>
+                                            </dl>
+                                        </a>
+                                    </li>
+                                    <li class="main-contents-list">
+                                        <a href="#none" alt="Multi measurement & analysis">
+                                            <dl class="icon icon-multi">
+                                                <dt>
+                                                    <div class="core-detail-wrap">
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                    </div>
+                                                </dt>
+                                                <dd>Multi measurement<br />& analysis</dd>
+                                            </dl>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- //컨텐츠 -->
                         </div>
-                        <!-- //컨텐츠 -->
                     </div>
 
                     <!-- 04. 푸터 -->
@@ -254,18 +279,4 @@
             </div>
         </div>
     </body>
-
-    <script>
-        /*
-            document.addEventListener("mousemove", parallax);
-
-            function parallax(e) {
-                const id = document.querySelector(".page-1-bg");
-                const speed = id.getAttribute("data-speed");
-                const x = (window.innerWidth - e.pageX * speed) / 100;
-                const y = (window.innerWidth - e.pageY * speed) / 100;
-                id.style.transform = "translate(" + x + "px, " + y + "px)";
-            }
-            */
-    </script>
 </html>
