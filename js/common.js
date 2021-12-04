@@ -206,39 +206,36 @@
 
         //애니메이션
         splashAnimate: function () {
-            for (let i = 0; i < total; i++) {
-                createSpan = document.createElement("SPAN");
-                spanedBar = createSpan.classList.add("splash-bar");
-
-                if (i - target > -1) {
-                    if (i % 2 == 0) {
-                        splashWrap[0].appendChild(createSpan);
-                        createSpan.style.animation = "splsh-down 1s cubic-bezier(0.4, 0, 1, 1) forwards";
-                        createSpan.style.animationDelay = i * 0.03 + "s";
-                    } else {
-                        splashWrap[0].appendChild(createSpan);
-                        createSpan.style.animation = "splsh-up 1s cubic-bezier(0.4, 0, 1, 1) forwards";
-                        createSpan.style.animationDelay = i * 0.03 + "s";
-                    }
-                }
-            }
-
-            for (let i = 0; i < total; i++) {
-                createSpan = document.createElement("SPAN");
-                spanedBar = createSpan.classList.add("splash-bar");
-
-                if (i - target > -1) {
-                    if (i % 2 == 0) {
-                        splashWrap[1].appendChild(createSpan);
-                        createSpan.style.animation = "splsh-down 1s cubic-bezier(0.4, 0, 1, 1) forwards";
-                        createSpan.style.animationDelay = i * 0.03 + "s";
-                    } else {
-                        splashWrap[1].appendChild(createSpan);
-                        createSpan.style.animation = "splsh-up 1s cubic-bezier(0.4, 0, 1, 1) forwards";
-                        createSpan.style.animationDelay = i * 0.03 + "s";
-                    }
-                }
-            }
+            // for (let i = 0; i < total; i++) {
+            //     createSpan = document.createElement("SPAN");
+            //     spanedBar = createSpan.classList.add("splash-bar");
+            //     if (i - target > -1) {
+            //         if (i % 2 == 0) {
+            //             splashWrap[0].appendChild(createSpan);
+            //             createSpan.style.animation = "splsh-down 1s cubic-bezier(0.4, 0, 1, 1) forwards";
+            //             createSpan.style.animationDelay = i * 0.03 + "s";
+            //         } else {
+            //             splashWrap[0].appendChild(createSpan);
+            //             createSpan.style.animation = "splsh-up 1s cubic-bezier(0.4, 0, 1, 1) forwards";
+            //             createSpan.style.animationDelay = i * 0.03 + "s";
+            //         }
+            //     }
+            // }
+            // for (let i = 0; i < total; i++) {
+            //     createSpan = document.createElement("SPAN");
+            //     spanedBar = createSpan.classList.add("splash-bar");
+            //     if (i - target > -1) {
+            //         if (i % 2 == 0) {
+            //             splashWrap[1].appendChild(createSpan);
+            //             createSpan.style.animation = "splsh-down 1s cubic-bezier(0.4, 0, 1, 1) forwards";
+            //             createSpan.style.animationDelay = i * 0.03 + "s";
+            //         } else {
+            //             splashWrap[1].appendChild(createSpan);
+            //             createSpan.style.animation = "splsh-up 1s cubic-bezier(0.4, 0, 1, 1) forwards";
+            //             createSpan.style.animationDelay = i * 0.03 + "s";
+            //         }
+            //     }
+            // }
         },
 
         //window resize
