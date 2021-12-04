@@ -548,8 +548,10 @@
   display: inline-block;
   width: 100%;
   height: 100%;
+  transition: all .4s ease-out;
   animation: shake 6s infinite;
   animation-delay: 6s;
+
   .rocket {
     position: absolute;
     right: 126px;
@@ -571,7 +573,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  z-index: 1;
+  z-index: 10;
   width: 100%;
   height: 100%;
   &-bg02 {
@@ -637,7 +639,7 @@
 }
 
 @media all and (max-height: 768px) {
-  .rocket-wrap .rocket {
+  .rocket-wrap {
     opacity: 0;
     transition: all .4s ease-out;
   }
