@@ -70,7 +70,7 @@
         // paddingTop: "3em",
         // paddingBottom: "10px",
         //fixedElements: "#header, .footer",
-        responsiveWidth: 1366,
+        // responsiveWidth: 1366,
         // responsiveHeight: 768,
         //Custom selectors
         sectionSelector: ".section",
