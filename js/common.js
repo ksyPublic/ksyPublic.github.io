@@ -37,7 +37,7 @@
 
         //Scrolling
         css3: true,
-        scrollingSpeed: 1500,
+        scrollingSpeed: 1200,
         fitToSection: true,
         scrollBar: false,
         easing: "easeInOutCubic",
@@ -89,18 +89,14 @@
             const lastLogo = document.querySelector("[data-logo='2']");
 
             //비쥬얼 텍스트
-            const _visualText = document.querySelector("[data-text='" + destination.index + "']");
-            const lastText = document.querySelector("[data-text='2']");
 
             [].forEach.call(logoAll, function (l, index) {
                 l.classList.add("on");
-                visualText[index].classList.add("on");
             });
 
             //전체 설정
-            if (logoNumber && _visualText) {
+            if (logoNumber) {
                 logoNumber.classList.remove("on");
-                _visualText.classList.remove("on");
             }
 
             //개별 설정
@@ -108,26 +104,22 @@
                 //down
                 if (destination.index === 1) {
                     cloud.classList.add("on");
-                    rocket.classList.add("on");
                     //
                 } else if (destination.index === 2) {
-                    mainContents.classList.add("on");
                     //
                 } else if (destination.index === 3) {
-                    if (lastLogo && lastText) {
+                    if (lastLogo) {
                         lastLogo.classList.remove("on");
-                        lastText.classList.remove("on");
                     }
 
                     pipe.classList.add("hide");
-                    mainContents.classList.add("on");
                 } else {
                     // index === 0
                 }
             } else {
                 //up
                 if (destination.index === 1) {
-                    mainContents.classList.remove("on");
+                    // mainContents.classList.remove("on");
                 } else if (destination.index === 2) {
                     pipe.classList.remove("hide");
                 } else if (destination.index === 3) {
@@ -135,7 +127,7 @@
                 } else {
                     //index === 0
                     cloud.classList.remove("on");
-                    rocket.classList.remove("on");
+                    // rocket.classList.remove("on");
                 }
             }
 
@@ -156,7 +148,54 @@
             }
         },
         //load 및 이벤트가 완전히 끝난뒤 실행
-        afterLoad: function (origin, destination, direction) {},
+        afterLoad: function (origin, destination, direction) {
+            //로고
+
+            //비쥬얼 텍스트
+            const _visualText = document.querySelector("[data-text='" + destination.index + "']");
+            const lastText = document.querySelector("[data-text='2']");
+
+            [].forEach.call(visualText, function (x, index) {
+                x.classList.add("on");
+            });
+
+            //전체 설정
+            if (_visualText) {
+                _visualText.classList.remove("on");
+            }
+
+            //개별 설정
+            if (direction === "down") {
+                //down
+                if (destination.index === 1) {
+                    rocket.classList.add("on");
+                    //
+                } else if (destination.index === 2) {
+                    mainContents.classList.add("on");
+                    rocket.classList.remove("on");
+                    //
+                } else if (destination.index === 3) {
+                    if (lastText) {
+                        lastText.classList.remove("on");
+                    }
+                    mainContents.classList.add("on");
+                } else {
+                    // index === 0
+                }
+            } else {
+                //up
+                if (destination.index === 1) {
+                    mainContents.classList.remove("on");
+                    rocket.classList.add("on");
+                } else if (destination.index === 2) {
+                } else if (destination.index === 3) {
+                    //
+                } else {
+                    //index === 0
+                    rocket.classList.remove("on");
+                }
+            }
+        },
 
         //랜더링
         afterRender: function () {
