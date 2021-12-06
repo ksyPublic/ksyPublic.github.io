@@ -242,27 +242,22 @@
       vertical-align: top;
       &:nth-child(1) {
         animation: slideDown 1.5s cubic-bezier(.68, -.55, .265, 1.55) forwards;
-        animation-delay: .2s;
       }
 
       &:nth-child(2) {
         animation: slideUp2 1.4s cubic-bezier(.68, -.55, .265, 1.55) forwards;
-        animation-delay: .2s;
       }
 
       &:nth-child(3) {
         animation: slideDown 1.3s cubic-bezier(.68, -.55, .265, 1.55) forwards;
-        animation-delay: .2s;
       }
 
       &:nth-child(4) {
         animation: slideUp2 1.2s cubic-bezier(.68, -.55, .265, 1.55) forwards;
-        animation-delay: .2s;
       }
 
       &:nth-child(5) {
         animation: slideDown 1s cubic-bezier(.68, -.55, .265, 1.55) forwards;
-        animation-delay: .2s;
       }
       &:nth-child(1),
       &:nth-child(3),
