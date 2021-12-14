@@ -8,7 +8,10 @@
         <link rel="stylesheet" href="scss/style.css" />
         <!-- //style -->
         <!-- vendor core -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
         <script src="js/vendor/fullpage.js"></script>
+        <script src="js/vendor/ClipPath.js"></script>
         <!-- //vendor core -->
 
         <!-- ui javascript -->
@@ -18,15 +21,90 @@
         <title>메인시안</title>
     </head>
     <body>
-        <div class="wrap">
-            <!-- 스플래시 -->
-            <!-- <div class="splash-interative">
-                <div class="splash-wrap up"></div>
-                <div class="splash-container left"></div>
-                <div class="splash-container right"></div>
-            </div> -->
-            <!-- //스플래시 -->
+        <script>
+            const total = 1920 / 40;
 
+            let createSpan = null;
+
+            //메인 스플래쉬 애니메이션
+            function splashAnimate(splashWrap) {
+                const total = window.innerWidth / 2;
+                const min = total / 24 + 2;
+                //바르게 출력
+
+                for (let i = 0; i < Number(min.toFixed(0)); i++) {
+                    createSpan = document.createElement("SPAN");
+                    spanedBar = createSpan.classList.add("splash-bar");
+                    splashWrap[1].appendChild(createSpan);
+
+                    if (i.toFixed(0) % 2 == 0) {
+                        createSpan.classList.add("clipathed" + i);
+                        createSpan.style.animation = "splsh-down 1s cubic-bezier(0.3, 0.71, 0.51, 0.9) forwards";
+                        createSpan.style.animationDelay = i.toFixed(0) * 0.03 + "s";
+                        createSpan.style.right = i * 40 + "px";
+                        // ClipPath(".clipathed" + i + "", "" + i * 24 + "px 0, " + ((i * 24) + 24) + "px 0, " + ((i * 24) + 24) + "px 100%, " + i * 24 + "px 100%");
+                    } else {
+                        createSpan.classList.add("clipathed" + i);
+                        createSpan.style.animation = "splsh-up 1s cubic-bezier(0.3, 0.71, 0.51, 0.9) forwards";
+                        createSpan.style.animationDelay = i.toFixed(0) * 0.03 + "s";
+                        createSpan.style.right = i * 40 + "px";
+                        // ClipPath(".clipathed" + i + "", "" + i * 24 + "px 0, " + ((i * 24) + 24) + "px 0, " + ((i * 24) + 24) + "px 100%, " + i * 24 + "px 100%");
+                    }
+                }
+
+                //거꾸로 출력
+                for (let i = Number(min.toFixed(0)); i >= 0; i--) {
+                    createSpan = document.createElement("SPAN");
+                    spanedBar = createSpan.classList.add("splash-bar");
+                    splashWrap[0].appendChild(createSpan);
+
+                    if (i.toFixed(0) % 2 == 0) {
+                        createSpan.classList.add("clipathed" + i);
+                        createSpan.style.animation = "splsh-down 1s cubic-bezier(0.3, 0.71, 0.51, 0.9) forwards";
+                        createSpan.style.animationDelay = i.toFixed(0) * 0.03 + "s";
+                        createSpan.style.left = i * 40 + "px";
+                        // ClipPath(".clipathed" + i + "", "" + i * 24 + "px 0, " + ((i * 24) + 24) + "px 0, " + ((i * 24) + 24) + "px 100%, " + i * 24 + "px 100%");
+                    } else {
+                        createSpan.classList.add("clipathed" + i);
+                        createSpan.style.animation = "splsh-up 1s cubic-bezier(0.3, 0.71, 0.51, 0.9) forwards";
+                        createSpan.style.animationDelay = i.toFixed(0) * 0.03 + "s";
+                        createSpan.style.left = i * 40 + "px";
+                        // ClipPath(".clipathed" + i + "", "" + i * 24 + "px 0, " + ((i * 24) + 24) + "px 0, " + ((i * 24) + 24) + "px 100%, " + i * 24 + "px 100%");
+                    }
+                }
+            }
+
+            $(document).ready(function () {
+                $.ajax({
+                    url: "main-splash.html",
+
+                    //조회 성공일때
+                    success: function (result) {
+                        $("#root").append(result);
+
+                        //스플래시 실행시 페이지 1번에서 실행 이후 쿠키 작업예정
+                        window.location.href = location.origin + "/index.html#anchors1";
+
+                        const splashWrap = document.querySelectorAll(".splash-container");
+                        splashAnimate(splashWrap);
+                    },
+
+                    beforeSend: function () {
+                        //add
+                    },
+
+                    complete: function () {
+                        //remove
+                    },
+
+                    error: function (e) {},
+
+                    timeout: 100000,
+                });
+            });
+        </script>
+
+        <div class="wrap" id="root">
             <!-- 좌측 고정 메뉴 -->
             <div class="gnb">
                 <!-- logo -->
