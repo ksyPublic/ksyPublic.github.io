@@ -22,6 +22,22 @@
     </head>
     <body>
         <script>
+            const setCookie = function (name, value, day) {
+                var date = new Date();
+                date.setTime(date.getTime() + day * 60 * 60 * 24 * 1000);
+                document.cookie = name + "=" + value + ";expires=" + date.toUTCString() + ";path=/";
+            };
+
+            const getCookie = function (name) {
+                var value = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
+                return value ? value[2] : null;
+            };
+
+            const deleteCookie = function (name) {
+                var date = new Date();
+                document.cookie = name + "= " + "; expires=" + date.toUTCString() + "; path=/";
+            };
+
             const total = 1920 / 40;
 
             let createSpan = null;
@@ -75,32 +91,35 @@
             }
 
             $(document).ready(function () {
-                $.ajax({
-                    url: "main-splash.html",
+                if (getCookie("test") !== "Y") {
+                    $.ajax({
+                        url: "main-splash.html",
 
-                    //조회 성공일때
-                    success: function (result) {
-                        $("#root").append(result);
+                        //조회 성공일때
+                        success: function (result) {
+                            $("#root").append(result);
 
-                        //스플래시 실행시 페이지 1번에서 실행 이후 쿠키 작업예정
-                        window.location.href = location.origin + "/index.html#anchors1";
+                            //스플래시 실행시 페이지 1번에서 실행 이후 쿠키 작업예정
+                            window.location.href = location.origin + "/index.html#anchors1";
 
-                        const splashWrap = document.querySelectorAll(".splash-container");
-                        splashAnimate(splashWrap);
-                    },
+                            const splashWrap = document.querySelectorAll(".splash-container");
+                            splashAnimate(splashWrap);
+                        },
 
-                    beforeSend: function () {
-                        //add
-                    },
+                        beforeSend: function () {
+                            //add
+                        },
 
-                    complete: function () {
-                        //remove
-                    },
+                        complete: function () {
+                            //remove
+                        },
 
-                    error: function (e) {},
+                        error: function (e) {},
 
-                    timeout: 100000,
-                });
+                        timeout: 100000,
+                    });
+                    setCookie("test", "Y", 1);
+                }
             });
         </script>
 
