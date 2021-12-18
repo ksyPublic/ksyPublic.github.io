@@ -9,9 +9,15 @@
         <!-- //style -->
         <!-- vendor core -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
+        <script nomodule src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js" crossorigin="anonymous"></script>
+        <script
+            nomodule
+            src="https://polyfill.io/v3/polyfill.min.js?features=Object.assign%2CElement.prototype.append%2CNodeList.prototype.forEach%2CCustomEvent%2Csmoothscroll"
+            crossorigin="anonymous"
+        ></script>
         <script src="js/vendor/fullpage.js"></script>
-        <script src="js/vendor/ClipPath.js"></script>
+        <script src="js/vendor/locomotive.min.js"></script>
+
         <!-- //vendor core -->
 
         <!-- ui javascript -->
@@ -91,6 +97,7 @@
             }
 
             $(document).ready(function () {
+                console.log("COOKIE", getCookie("test"));
                 if (getCookie("test") !== "Y") {
                     $.ajax({
                         url: "main-splash.html",
@@ -98,20 +105,24 @@
                         //조회 성공일때
                         success: function (result) {
                             $("#root").append(result);
-
-                            //스플래시 실행시 페이지 1번에서 실행 이후 쿠키 작업예정
-                            window.location.href = location.origin + "/index.html#anchors1";
-
-                            const splashWrap = document.querySelectorAll(".splash-container");
-                            splashAnimate(splashWrap);
                         },
 
                         beforeSend: function () {
-                            //add
+                            loading().open();
                         },
 
                         complete: function () {
-                            //remove
+                            loading().close();
+                            //스플래시 실행시 페이지 1번에서 실행 이후 쿠키 작업예정
+                            window.location.href = location.origin + "/#anchors1";
+
+                            const splashParent = document.querySelector(".splash-interative");
+                            const splashWrap = document.querySelectorAll(".splash-container");
+                            splashAnimate(splashWrap);
+
+                            setTimeout(function () {
+                                splashParent.style.display = "none";
+                            }, 2000);
                         },
 
                         error: function (e) {},
@@ -122,12 +133,16 @@
                 }
             });
         </script>
-
+        <div class="loading-wrap">
+            <div class="loading-container">
+                <span class="loader"></span>
+            </div>
+        </div>
         <div class="wrap" id="root">
             <!-- 좌측 고정 메뉴 -->
             <div class="gnb">
                 <!-- logo -->
-                <a href="#none" class="logo" alt="홈">
+                <a href="javascript:void(0)" class="logo" alt="홈" onclick="goHome()">
                     <i class="logo-wrap">
                         <span></span>
                         <span></span>
@@ -139,32 +154,32 @@
                 <div class="nav">
                     <ul>
                         <li class="nav-depth" data-id="1">
-                            <a href="#none">
+                            <a href="javascript:void(0)">
                                 <div>Who</div>
                                 <div><span>we are</span></div>
                                 <ul class="nav-list">
-                                    <li><a href="#none" alt="About">About</a></li>
-                                    <li><a href="#none" alt="History">History</a></li>
-                                    <li><a href="#none" alt="Our team">Our team</a></li>
-                                    <li><a href="#none" alt="Service">Service</a></li>
+                                    <li><a href="javascript:void(0)" alt="About" onclick="openSubPages('about')">About</a></li>
+                                    <li><a href="javascript:void(0)" alt="History" onclick="openSubPages('history')">History</a></li>
+                                    <li><a href="javascript:void(0)" alt="Our team" onclick="openSubPages('ourTeam')">Our team</a></li>
+                                    <li><a href="javascript:void(0)" alt="Service" onclick="openSubPages('service')">Service</a></li>
                                 </ul>
                             </a>
                         </li>
                         <li class="nav-depth" data-id="2">
-                            <a href="#none">
+                            <a href="javascript:void(0)">
                                 <div>What</div>
                                 <div><span>we do</span></div>
                                 <ul class="nav-list">
-                                    <li><a href="#none" alt="Technical consulting">Technical consulting</a></li>
-                                    <li><a href="#none" alt="Mercury media viewability">Mercury media viewability</a></li>
-                                    <li><a href="#none" alt="Audience funnel planning">Audience funnel planning</a></li>
-                                    <li><a href="#none" alt="Operations by Mercury’s expert">Operations by Mercury’s expert</a></li>
-                                    <li><a href="#none" alt="Multi measurement & analysis">Multi measurement & analysis</a></li>
+                                    <li><a href="javascript:void(0)" alt="Technical consulting">Technical consulting</a></li>
+                                    <li><a href="javascript:void(0)" alt="Mercury media viewability">Mercury media viewability</a></li>
+                                    <li><a href="javascript:void(0)" alt="Audience funnel planning">Audience funnel planning</a></li>
+                                    <li><a href="javascript:void(0)" alt="Operations by Mercury’s expert">Operations by Mercury’s expert</a></li>
+                                    <li><a href="javascript:void(0)" alt="Multi measurement & analysis">Multi measurement & analysis</a></li>
                                 </ul>
                             </a>
                         </li>
                         <li class="nav-depth" data-id="3">
-                            <a href="#none">
+                            <a href="javascript:void(0)">
                                 <div>Contact</div>
                                 <div><span>us</span></div>
                             </a>
@@ -373,7 +388,80 @@
                     <!-- //04. 푸터 -->
                 </div>
                 <!-- //메인 풀페이지 -->
+
+                <div id="suv">
+                    <iframe src="pages/sub.html" id="WHOWEARE"></iframe>
+                </div>
             </div>
         </div>
     </body>
+
+    <script>
+        localStorage.setItem("key", true);
+
+        let ajaxLoad = true;
+        const suv = document.querySelector("#suv");
+
+        function openSubPages(param) {
+            const keys = localStorage.getItem("key");
+            //window.location.href = location.origin + "/#" + param + "";
+            //const id = getFrameDocuments("#suv");
+            //console.log("????", id);
+
+            history.pushState(null, null, "#" + param);
+
+            if (keys) {
+                suv.classList.add("open-suv");
+
+                setTimeout(function () {
+                    fullpage_api.destroy("all");
+                    document.body.style.overflow = "hidden";
+                }, 700);
+
+                localStorage.setItem("key", false);
+                localStorage.setItem("suvOpen", true);
+                ajaxLoad = false;
+            }
+
+            /*
+            if (!ajaxLoad) {
+                if (id) {
+                    const top = id.offsetTop;
+
+                    console.log("????", getFrameDocuments(".suv-container"));
+                    getFrameDocuments(".suv-container").scrollTo({
+                        top: top,
+                        left: 0,
+                        behavior: "smooth",
+                    });
+                }
+            }
+            */
+        }
+
+        function goHome() {
+            //ajaxLoad가 false와 같을때 아래 실행
+            if (localStorage.getItem("key") === "false") {
+                //1. 클릭시 서브페이지 이벤트 실행
+                suv.classList.remove("open-suv");
+                suv.classList.remove("loadOpen");
+                document.body.style.overflow = "";
+                //2. 풀페이지 재등록
+                fullpageLoad();
+
+                //4. 메뉴 클릭을 위해 true로 변경
+                localStorage.setItem("key", true);
+                localStorage.setItem("suvOpen", false);
+                ajaxLoad = true;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            //로컬 스토리지 key가 있을때 항상 오픈
+            if (localStorage.getItem("suvOpen") === "true") {
+                suv.classList.add("loadOpen");
+                localStorage.setItem("key", false);
+            }
+        });
+    </script>
 </html>
