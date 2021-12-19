@@ -301,12 +301,3 @@ function loading() {
 
     return { open: open, close: close };
 }
-
-function motive() {
-    const scroll = new LocomotiveScroll({
-        el: document.querySelector("[data-scroll-container]"),
-        smooth: true,
-    });
-
-    return scroll;
-}

@@ -62,6 +62,7 @@
     position: relative;
     z-index: 10;
     padding: 100px 0 0 330px;
+
     .suv-title-wrap {
       position: relative;
       margin-top: -4px;
@@ -401,10 +402,9 @@
   &-section {
     position: relative;
     width: 100%;
-    height: 1050px;
     &:not(:first-child) {
       .suv-contents {
-        padding-top: 160px;
+        padding-top: 120px;
       }
     }
 
@@ -421,6 +421,14 @@
         background-repeat: no-repeat;
       }
       &.-bg02 {
+        &.slideRight {
+          &:after {
+            content: '';
+            opacity: 1;
+            transition: opacity 1s cubic-bezier(.455, .03, .515, .955), transform .8s cubic-bezier(.455, .03, .515, .955);
+            transform: translateY(0px);
+          }
+        }
         &:after {
           position: absolute;
           top: 309px;
@@ -432,11 +440,15 @@
           background-position: right bottom;
           background-repeat: no-repeat;
           content: '';
+          opacity: 0;
+          transition: opacity 1s cubic-bezier(.455, .03, .515, .955), transform .8s cubic-bezier(.455, .03, .515, .955);
+          transform: translateX(200px);
 
           will-change: transform;
         }
       }
       &.-bg01 {
+        height: 1050px;
         background-image: url('../img/suv/sub-bg01.jpg');
 
 // background-attachment: fixed;
@@ -517,6 +529,16 @@
   }
   &-contents-wrap {
     margin-top: 30px;
+    opacity: 0;
+    transition: all .54s ease-out;
+    transition-delay: .5s;
+    transform: translateY(50px);
+    &.slideUp {
+      opacity: 1;
+      transition: all .54s ease-out;
+      transition-delay: .5s;
+      transform: translateY(0px);
+    }
   }
   &-content {
     display: none;
@@ -730,14 +752,222 @@
   }
 }
 
-.fixed-target {
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.google-platform-wrap {
   position: absolute;
-  top: -100vh;
-  right: 0;
-  bottom: -100vh;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  top: 450px;
+  right: 200px;
+  z-index: 100;
+  width: 650px;
+  height: 450px;
+
+  &.glu {
+    .google-circle-svg {
+      animation: dash 3s linear forwards;
+      animation-delay: 3s;
+
+      stroke-dasharray: 1135;
+      stroke-dashoffset: 1135;
+    }
+
+    .google-circle-color-box {
+      transition: transform 1s cubic-bezier(.77, 0, .175, 1);
+      transition-delay: 1.5s;
+      transform: translate(-50%, -50%);
+    }
+
+    .google-circle-gray-box {
+      transition: transform 1s cubic-bezier(.77, 0, .175, 1);
+      transition-delay: 2s;
+      transform: translate(-50%, -50%);
+    }
+    .manager-icon01 {
+      animation: fadein 1s cubic-bezier(.77, 0, .175, 1) forwards;
+      animation-delay: 4.3s;
+    }
+
+    .manager-icon02 {
+      animation: fadein 1s cubic-bezier(.77, 0, .175, 1) forwards;
+      animation-delay: 4.6s;
+    }
+
+    .manager-icon03 {
+      animation: fadein 1s cubic-bezier(.77, 0, .175, 1) forwards;
+      animation-delay: 2.5s;
+    }
+
+    .manager-icon04 {
+      animation: fadein 1s cubic-bezier(.77, 0, .175, 1) forwards;
+      animation-delay: 2.8s;
+    }
+
+    .manager-icon05 {
+      animation: fadein 1s cubic-bezier(.77, 0, .175, 1) forwards;
+      animation-delay: 3.1s;
+    }
+
+    .manager-icon06 {
+      animation: fadein 1s cubic-bezier(.77, 0, .175, 1) forwards;
+      animation-delay: 3.4s;
+    }
+
+    .manager-icon07 {
+      animation: fadein 1s cubic-bezier(.77, 0, .175, 1) forwards;
+      animation-delay: 3.7s;
+    }
+
+    .manager-icon08 {
+      animation: fadein 1s cubic-bezier(.77, 0, .175, 1) forwards;
+      animation-delay: 4s;
+    }
+  }
+
+  //
+  .google-platform {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .google-circle-gray-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 137px;
+    height: 140px;
+    background: url('../img/suv/bg04-gray.png') no-repeat;
+    transform: translate(10%, -50%);
+  }
+  .google-circle-color-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 104px;
+    height: 104px;
+    background: url('../img/suv/bg04-color-circle.png') no-repeat;
+    transform: translate(-20%, -50%);
+  }
+
+  ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    li {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 64px;
+      height: 64px;
+      text-align: center;
+      transform: translate(-50%, -50%);
+      span {
+        position: absolute;
+        display: inline-block;
+        text-align: right;
+        white-space: nowrap;
+        font-weight: 400;
+        font-size: 13px;
+        font-family: 'Spoqa Han Sans Neo', sans-serif;
+        line-height: 16px;
+        &.left {
+          text-align: left;
+        }
+      }
+      &.manager-icon01 {
+        top: -165px;
+        left: -22px;
+        opacity: 0;
+
+        span {
+          top: 13px;
+          right: 80px;
+        }
+      }
+      &.manager-icon02 {
+        top: -160px;
+        left: 120px;
+        opacity: 0;
+        span {
+          top: 14px;
+          left: 80px;
+        }
+      }
+
+      &.manager-icon03 {
+        top: -40px;
+        left: 187px;
+        opacity: 0;
+        span {
+          top: 7px;
+          left: 80px;
+        }
+      }
+
+      &.manager-icon04 {
+        top: 80px;
+        left: 159px;
+        opacity: 0;
+        span {
+          top: 14px;
+          left: 78px;
+        }
+      }
+
+      &.manager-icon05 {
+        top: 179px;
+        left: 40px;
+        opacity: 0;
+        span {
+          top: 14px;
+          left: 78px;
+        }
+      }
+
+      &.manager-icon06 {
+        top: 169px;
+        left: -125px;
+        opacity: 0;
+        span {
+          top: 6px;
+          right: 80px;
+        }
+      }
+
+      &.manager-icon07 {
+        top: 40px;
+        left: -180px;
+        opacity: 0;
+        span {
+          top: 15px;
+          right: 80px;
+        }
+      }
+
+      &.manager-icon08 {
+        top: -80px;
+        left: -135px;
+        opacity: 0;
+        span {
+          top: 6px;
+          right: 80px;
+        }
+      }
+    }
+  }
+
+  .google-circle-svg {
+    position: absolute;
+    top: 11%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+    transform: skew(-6deg, -8deg);
+  }
 }
 
 @media all and (max-width: 1820px) {
@@ -751,6 +981,18 @@
 
   .suv-section .suv-contents {
     padding-left: 200px;
+  }
+}
+
+@media all and (max-width: 1820px) {
+  .google-platform-wrap {
+    right: 0;
+  }
+}
+
+@media all and (max-width: 1500px) {
+  .google-platform-wrap {
+    right: 0;
   }
 }
 

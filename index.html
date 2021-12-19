@@ -157,10 +157,10 @@
                                 <div>Who</div>
                                 <div><span>we are</span></div>
                                 <ul class="nav-list">
-                                    <li><a href="javascript:void(0)" alt="About" onclick="openSubPages('about')">About</a></li>
-                                    <li><a href="javascript:void(0)" alt="History" onclick="openSubPages('history')">History</a></li>
-                                    <li><a href="javascript:void(0)" alt="Our team" onclick="openSubPages('ourTeam')">Our team</a></li>
-                                    <li><a href="javascript:void(0)" alt="Service" onclick="openSubPages('service')">Service</a></li>
+                                    <li><a href="javascript:void(0)" alt="About" onclick="openSubPages('about')" data-scroll-to>About</a></li>
+                                    <li><a href="javascript:void(0)" alt="History" onclick="openSubPages('history')" data-scroll-to>History</a></li>
+                                    <li><a href="javascript:void(0)" alt="Our team" onclick="openSubPages('ourTeam')" data-scroll-to>Our team</a></li>
+                                    <li><a href="javascript:void(0)" alt="Service" onclick="openSubPages('service')" data-scroll-to>Service</a></li>
                                 </ul>
                             </a>
                         </li>
@@ -423,20 +423,14 @@
                 ajaxLoad = false;
             }
 
-            /*
             if (!ajaxLoad) {
-                if (id) {
-                    const top = id.offsetTop;
-
-                    console.log("????", getFrameDocuments(".suv-container"));
-                    getFrameDocuments(".suv-container").scrollTo({
-                        top: top,
-                        left: 0,
-                        behavior: "smooth",
-                    });
-                }
+                test(param);
             }
-            */
+        }
+
+        function test(param) {
+            //
+            const test1 = document.getElementById("WHOWEARE").contentWindow.getObj(param);
         }
 
         function goHome() {
