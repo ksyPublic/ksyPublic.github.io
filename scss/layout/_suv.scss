@@ -18,6 +18,14 @@
   }
 }
 
+@mixin titleOn {
+  opacity: 1;
+  transition: opacity 1s cubic-bezier(.455, .03, .515, .955), transform .8s cubic-bezier(.455, .03, .515, .955);
+  transition-delay: .4s;
+  transform: translateY(0) translateZ(0) rotateX(0deg);
+  transform-origin: bottom center;
+}
+
 #suv {
   position: fixed;
   top: 0;
@@ -141,10 +149,13 @@
 
     .suv-assi-wrap {
       color: #fff;
+
       &.black {
         color: #000;
       }
       h2 {
+        display: inline-block;
+
         span {
           position: relative;
           display: inline-block;
@@ -155,13 +166,26 @@
           transition: opacity 1s cubic-bezier(.455, .03, .515, .955), transform .8s cubic-bezier(.455, .03, .515, .955);
           transform: translateY(10px) translateZ(-180px) rotateX(90deg);
           transform-origin: bottom center;
+          &:after {
+            position: relative;
+            bottom: 4px;
+            display: inline-block;
+            margin-left: 6px;
+            width: 17px;
+            height: 18px;
+            background: url('../img/suv/title-icon.png') no-repeat;
+            content: '';
+            vertical-align: bottom;
+            transition: transform 4s cubic-bezier(.455, .03, .515, .955);
+            transform: rotate(0);
+          }
 
           &.titleOn {
-            opacity: 1;
-            transition: opacity 1s cubic-bezier(.455, .03, .515, .955), transform .8s cubic-bezier(.455, .03, .515, .955);
-            transition-delay: .4s;
-            transform: translateY(0) translateZ(0) rotateX(0deg);
-            transform-origin: bottom center;
+            @include titleOn;
+            &:after {
+              transition: transform 4s cubic-bezier(.455, .03, .515, .955);
+              transform: rotate(-360deg);
+            }
           }
         }
 
@@ -192,10 +216,23 @@
         }
         + p {
           margin-top: 60px;
-          font-weight: 400;
-          font-size: 15px;
-          font-family: 'Spoqa Han Sans Neo', sans-serif;
-          line-height: 22px;
+          span {
+            position: relative;
+            display: inline-block;
+            font-weight: 400;
+            font-size: 15px;
+            font-family: 'Spoqa Han Sans Neo', sans-serif;
+            line-height: 22px;
+            opacity: 0;
+            transition: opacity 1s cubic-bezier(.455, .03, .515, .955), transform .8s cubic-bezier(.455, .03, .515, .955);
+            transform: translateX(50px);
+
+            &.slideRight {
+              opacity: 1;
+              transition: opacity 1s cubic-bezier(.455, .03, .515, .955), transform .8s cubic-bezier(.455, .03, .515, .955);
+              transform: translateY(0px);
+            }
+          }
         }
       }
       + .suv-org-wrap {
@@ -217,18 +254,81 @@
           font-family: 'Graphik', sans-serif;
         }
         dl {
-          border-color: #cecece;
-          &:first-child {
-            border-color: #cecece;
+          &:last-child {
+            &:before {
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              height: 1px;
+              background-color: transparent;
+              content: '';
+              transition: transform 1s ease-out;
+              transform: scaleX(0);
+              transform-origin: left;
+            }
+          }
+
+          &.borderScaleX {
+            &:last-child {
+              &:before {
+                background-color: #cecece;
+                content: '';
+                transition: transform 1s ease-out;
+                transition-delay: 2s;
+                transform: scaleX(1);
+                transform-origin: left;
+              }
+            }
+            &:after {
+              background-color: #cecece;
+              content: '';
+              transition: transform 1s ease-out;
+              transition-delay: 2s;
+              transform: scaleX(1);
+              transform-origin: left;
+            }
           }
         }
       }
       dl {
+        position: relative;
         display: flex;
         padding: 20px 0;
-        border-bottom: 1px solid #e96406;
 
         align-items: center;
+        &.borderScaleX {
+          &:last-child {
+            &:before {
+              background-color: #e96406;
+              content: '';
+              transition: transform 1s ease-out;
+              transition-delay: 2s;
+              transform: scaleX(1);
+              transform-origin: left;
+            }
+          }
+          &:after {
+            background-color: #e96406;
+            content: '';
+            transition: transform 1s ease-out;
+            transition-delay: 2s;
+            transform: scaleX(1);
+            transform-origin: left;
+          }
+        }
+        &:after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 1px;
+          background-color: transparent;
+          content: '';
+          transition: transform 1s ease-out;
+          transform: scaleX(0);
+          transform-origin: left;
+        }
         dt {
           display: inline-block;
           min-width: 150px;
@@ -237,6 +337,13 @@
           font-weight: bold;
           font-size: 40px;
           font-family: 'Spoqa Han Sans Neo', sans-serif;
+          opacity: 0;
+          transition: opacity 1s cubic-bezier(.455, .03, .515, .955), transform .8s cubic-bezier(.455, .03, .515, .955);
+          transform: translateY(10px) translateZ(-180px) rotateX(90deg);
+          transform-origin: bottom center;
+          &.titleOn {
+            @include titleOn;
+          }
         }
 
         dd {
@@ -250,6 +357,16 @@
             font-weight: 400;
             font-size: 15px;
             font-family: 'Spoqa Han Sans Neo', sans-serif;
+            opacity: 0;
+            transition: opacity 1s cubic-bezier(.455, .03, .515, .955), transform .8s cubic-bezier(.455, .03, .515, .955);
+            transition-delay: 1.2s;
+            transform: translateX(50px);
+            &.slideRight {
+              opacity: 1;
+              transition: opacity 1s cubic-bezier(.455, .03, .515, .955), transform .8s cubic-bezier(.455, .03, .515, .955);
+              transition-delay: 1.2s;
+              transform: translateY(0px);
+            }
             &:last-child {
               margin-bottom: 0;
             }
@@ -264,8 +381,19 @@
             }
           }
         }
-        &:first-child {
-          border-top: 1px solid #e96406;
+        &:last-child {
+          &:before {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            background-color: transparent;
+            content: '';
+            transition: transform 1s ease-out;
+            transform: scaleX(0);
+            transform-origin: left;
+          }
         }
       }
     }
@@ -274,14 +402,12 @@
     position: relative;
     width: 100%;
     height: 1050px;
-    .fixed-target {
-      position: absolute;
-      top: -100vh;
-      right: 0;
-      bottom: -100vh;
-      left: 0;
-      width: 100%;
+    &:not(:first-child) {
+      .suv-contents {
+        padding-top: 160px;
+      }
     }
+
     .fixed {
       width: 100%;
       height: 100%;
@@ -293,6 +419,22 @@
         background-position: right bottom;
         background-size: cover;
         background-repeat: no-repeat;
+      }
+      &.-bg02 {
+        &:after {
+          position: absolute;
+          top: 309px;
+          right: 0;
+          display: block;
+          width: 729px;
+          height: 548px;
+          background-image: url('../img/suv/bg02-timer.png');
+          background-position: right bottom;
+          background-repeat: no-repeat;
+          content: '';
+
+          will-change: transform;
+        }
       }
       &.-bg01 {
         background-image: url('../img/suv/sub-bg01.jpg');
@@ -332,6 +474,16 @@
   }
 }
 
+@keyframes scaled {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
 .tabs {
   &-title-wrap {
     display: block;
@@ -345,11 +497,10 @@
         width: 64px;
         height: 64px;
         vertical-align: top;
-        transition: all .4s ease-out;
         transform: scale(0);
         &.tabsListOper {
-          transition: all .4s ease-out;
-          transform: scale(1);
+          animation: scaled .4s ease-out forwards;
+          animation-delay: 1s;
         }
         &:first-child {
           margin-left: 0;
@@ -489,6 +640,106 @@
   }
 }
 
+@keyframes blink-effect {
+  0% {
+    background-color: #e96406;
+    opacity: 1;
+  }
+  50% {
+    background-color: #fff;
+    opacity: 0;
+  }
+
+  100% {
+    background-color: #e96406;
+    opacity: 1;
+  }
+}
+
+@keyframes blink-slide-right {
+  0% {
+    left: 161px;
+    opacity: 0;
+  }
+
+  100% {
+    left: 121px;
+    opacity: 1;
+  }
+}
+
+.motion-cate-wrap {
+  position: absolute;
+  top: 0;
+  top: 264px;
+  right: 400px;
+  z-index: 999;
+  transform: rotate(-45deg);
+  &.bg01-motion-grapik {
+    .motion-cate-bar {
+      transition: transform 1s ease-out;
+      transition-delay: 2s;
+      transform: scaleX(1);
+      transform-origin: left;
+      &:after {
+        animation: blink-effect 1s ease-out forwards;
+        animation-delay: 3s;
+      }
+    }
+
+    .motion-cate-text {
+      animation: blink-slide-right .6s ease-out forwards;
+      animation-delay: 3.3s;
+    }
+  }
+
+  .motion-cate-bar {
+    display: inline-block;
+    width: 178px;
+    height: 1px;
+    background-color: #e96406;
+    transition: transform 1s ease-out;
+    transform: scaleX(0);
+    transform-origin: left;
+
+    &:after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 12px;
+      height: 12px;
+      background-color: #e96406;
+      content: '';
+      opacity: 0;
+    }
+  }
+
+  .motion-cate-text {
+    position: absolute;
+    top: 118px;
+    left: 161px;
+    display: inline-block;
+    width: 330px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 15px;
+    font-family: 'Spoqa Han Sans Neo', sans-serif;
+    line-height: 22px;
+    opacity: 0;
+    transform: rotate(45deg);
+  }
+}
+
+.fixed-target {
+  position: absolute;
+  top: -100vh;
+  right: 0;
+  bottom: -100vh;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
 @media all and (max-width: 1820px) {
   .suv-section span.earth {
     right: calc(39% - 100px);
@@ -496,6 +747,10 @@
     height: 230px;
     background-size: 100%;
     transition: right .2s ease-out;
+  }
+
+  .suv-section .suv-contents {
+    padding-left: 200px;
   }
 }
 
