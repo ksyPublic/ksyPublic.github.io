@@ -59,19 +59,80 @@
       margin-top: -4px;
       color: #e96406;
       text-transform: uppercase;
+      @keyframes bgColor {
+        0% {
+          background-color: #000;
+        }
 
+        50% {
+          background-color: rgb(156, 81, 11);
+        }
+
+        100% {
+          background-color: #e96406;
+        }
+      }
       h1 {
+        display: inline-block;
         font-weight: bold;
         font-size: 60px;
         font-family: 'Graphik', sans-serif;
+        &:after {
+          position: absolute;
+          top: -2px;
+          right: 0;
+          left: 0;
+          display: inline-block;
+          height: 100%;
+          background-color: transparent;
+          content: '';
+          transition: transform 1s cubic-bezier(.215, .61, .355, 1);
+          transition-delay: .1s;
+          transform: scaleX(1);
+          transform-origin: right;
+        }
+        &.splateBar-animation {
+          &:after {
+            content: '';
+            transition: transform 1s cubic-bezier(.215, .61, .355, 1);
+            transition-delay: .1s;
+            transform: scaleX(0);
+            transform-origin: right;
+            animation: bgColor 1s cubic-bezier(.215, .61, .355, 1);
+          }
+        }
       }
       span {
         position: relative;
-        display: block;
+        display: inline-block;
         margin-top: 7px;
         font-weight: bolder;
         font-size: 24px;
         font-family: 'Graphik', sans-serif;
+        &:after {
+          position: absolute;
+          top: -9px;
+          right: 0;
+          left: 0;
+          display: inline-block;
+          height: calc(100% + 15px);
+          background-color: transparent;
+          content: '';
+          transition: transform 1s cubic-bezier(.215, .61, .355, 1);
+          transition-delay: .2s;
+          transform: scaleX(1);
+          transform-origin: right;
+        }
+        &.splateBar-animation {
+          &:after {
+            content: '';
+            transition: transform 1s cubic-bezier(.215, .61, .355, 1);
+            transition-delay: .2s;
+            transform: scaleX(0);
+            transform-origin: right;
+            animation: bgColor 1s cubic-bezier(.215, .61, .355, 1);
+          }
+        }
       }
       + .suv-assi-wrap {
         margin-top: 54px;
@@ -84,9 +145,26 @@
         color: #000;
       }
       h2 {
-        font-weight: bold;
-        font-size: 50px;
-        font-family: 'Spoqa Han Sans Neo', sans-serif;
+        span {
+          position: relative;
+          display: inline-block;
+          font-weight: bold;
+          font-size: 50px;
+          font-family: 'Spoqa Han Sans Neo', sans-serif;
+          opacity: 0;
+          transition: opacity 1s cubic-bezier(.455, .03, .515, .955), transform .8s cubic-bezier(.455, .03, .515, .955);
+          transform: translateY(10px) translateZ(-180px) rotateX(90deg);
+          transform-origin: bottom center;
+
+          &.titleOn {
+            opacity: 1;
+            transition: opacity 1s cubic-bezier(.455, .03, .515, .955), transform .8s cubic-bezier(.455, .03, .515, .955);
+            transition-delay: .4s;
+            transform: translateY(0) translateZ(0) rotateX(0deg);
+            transform-origin: bottom center;
+          }
+        }
+
         + ul {
           margin-top: 15px;
         }
@@ -94,10 +172,20 @@
       ul {
         li {
           margin-top: 52px;
-          font-weight: 400;
-          font-size: 15px;
-          font-family: 'Spoqa Han Sans Neo', sans-serif;
-          line-height: 22px;
+          p {
+            font-weight: 400;
+            font-size: 15px;
+            font-family: 'Spoqa Han Sans Neo', sans-serif;
+            line-height: 22px;
+            opacity: 0;
+            transition: opacity 1s cubic-bezier(.455, .03, .515, .955), transform .8s cubic-bezier(.455, .03, .515, .955);
+            transform: translateX(50px);
+            &.slideRight {
+              opacity: 1;
+              transition: opacity 1s cubic-bezier(.455, .03, .515, .955), transform .8s cubic-bezier(.455, .03, .515, .955);
+              transform: translateY(0px);
+            }
+          }
           &:first-child {
             margin-top: 0;
           }
@@ -257,6 +345,12 @@
         width: 64px;
         height: 64px;
         vertical-align: top;
+        transition: all .4s ease-out;
+        transform: scale(0);
+        &.tabsListOper {
+          transition: all .4s ease-out;
+          transform: scale(1);
+        }
         &:first-child {
           margin-left: 0;
         }
@@ -317,6 +411,7 @@
   &01 {
     background: url('../img/suv/tabs-title-icon01.png') no-repeat;
     transition: background .4s ease-out;
+
     &.active {
       background: url('../img/suv/tabs-title-icon01-on.png') no-repeat;
       transition: background .4s ease-out;
@@ -326,6 +421,7 @@
   &02 {
     background: url('../img/suv/tabs-title-icon02.png') no-repeat;
     transition: background .4s ease-out;
+
     &.active {
       background: url('../img/suv/tabs-title-icon02-on.png') no-repeat;
       transition: background .4s ease-out;
@@ -335,6 +431,7 @@
   &03 {
     background: url('../img/suv/tabs-title-icon03.png') no-repeat;
     transition: background .4s ease-out;
+
     &.active {
       background: url('../img/suv/tabs-title-icon03-on.png') no-repeat;
       transition: background .4s ease-out;
@@ -344,6 +441,7 @@
   &04 {
     background: url('../img/suv/tabs-title-icon04.png') no-repeat;
     transition: background .4s ease-out;
+
     &.active {
       background: url('../img/suv/tabs-title-icon04-on.png') no-repeat;
       transition: background .4s ease-out;
@@ -353,6 +451,7 @@
   &05 {
     background: url('../img/suv/tabs-title-icon05.png') no-repeat;
     transition: background .4s ease-out;
+
     &.active {
       background: url('../img/suv/tabs-title-icon05-on.png') no-repeat;
       transition: background .4s ease-out;
@@ -362,6 +461,7 @@
   &06 {
     background: url('../img/suv/tabs-title-icon06.png') no-repeat;
     transition: background .4s ease-out;
+
     &.active {
       background: url('../img/suv/tabs-title-icon06-on.png') no-repeat;
       transition: background .4s ease-out;
@@ -371,6 +471,7 @@
   &07 {
     background: url('../img/suv/tabs-title-icon07.png') no-repeat;
     transition: background .4s ease-out;
+
     &.active {
       background: url('../img/suv/tabs-title-icon07-on.png') no-repeat;
       transition: background .4s ease-out;
@@ -380,6 +481,7 @@
   &08 {
     background: url('../img/suv/tabs-title-icon08.png') no-repeat;
     transition: background .4s ease-out;
+
     &.active {
       background: url('../img/suv/tabs-title-icon08-on.png') no-repeat;
       transition: background .4s ease-out;
@@ -399,11 +501,11 @@
 
 @media all and(max-width: 1367px) {
   html.has-scroll-smooth {
-    overflow: visible !important;
+    // overflow: visible !important;
   }
   .has-scroll-smooth body {
-    overflow: auto !important;
-    overflow-y: hidden !important;
+    // overflow: auto !important;
+    // overflow-y: hidden !important;
   }
 
   .suv-container {

@@ -16,7 +16,6 @@
             crossorigin="anonymous"
         ></script>
         <script src="js/vendor/fullpage.js"></script>
-        <script src="js/vendor/locomotive.min.js"></script>
 
         <!-- //vendor core -->
 
@@ -397,6 +396,7 @@
     </body>
 
     <script>
+        //퍼블리싱 임시 로컬스토리지 오픈 이후 개발시 서버통신으로 바꿔주세요
         localStorage.setItem("key", true);
 
         let ajaxLoad = true;
@@ -446,10 +446,10 @@
                 suv.classList.remove("open-suv");
                 suv.classList.remove("loadOpen");
                 document.body.style.overflow = "";
+
                 //2. 풀페이지 재등록
                 fullpageLoad();
-
-                //4. 메뉴 클릭을 위해 true로 변경
+                //3. 메뉴 클릭을 위해 값을 변경
                 localStorage.setItem("key", true);
                 localStorage.setItem("suvOpen", false);
                 ajaxLoad = true;
@@ -457,10 +457,14 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-            //로컬 스토리지 key가 있을때 항상 오픈
+            fullpageLoad();
+
+            //로컬 스토리지 key가 true일때 항상 오픈
             if (localStorage.getItem("suvOpen") === "true") {
                 suv.classList.add("loadOpen");
                 localStorage.setItem("key", false);
+                fullpage_api.destroy("all");
+                document.body.style.overflow = "hidden";
             }
         });
     </script>
