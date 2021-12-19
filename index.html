@@ -157,10 +157,10 @@
                                 <div>Who</div>
                                 <div><span>we are</span></div>
                                 <ul class="nav-list">
-                                    <li><a href="javascript:void(0)" alt="About" onclick="openSubPages('about')" data-scroll-to>About</a></li>
-                                    <li><a href="javascript:void(0)" alt="History" onclick="openSubPages('history')" data-scroll-to>History</a></li>
-                                    <li><a href="javascript:void(0)" alt="Our team" onclick="openSubPages('ourTeam')" data-scroll-to>Our team</a></li>
-                                    <li><a href="javascript:void(0)" alt="Service" onclick="openSubPages('service')" data-scroll-to>Service</a></li>
+                                    <li><a href="javascript:void(0)" alt="About" onclick="openSubPages('about')">About</a></li>
+                                    <li><a href="javascript:void(0)" alt="History" onclick="openSubPages('history')">History</a></li>
+                                    <li><a href="javascript:void(0)" alt="Our team" onclick="openSubPages('ourTeam')">Our team</a></li>
+                                    <li><a href="javascript:void(0)" alt="Service" onclick="openSubPages('service')">Service</a></li>
                                 </ul>
                             </a>
                         </li>
@@ -396,7 +396,7 @@
     </body>
 
     <script>
-        //퍼블리싱 임시 로컬스토리지 오픈 이후 개발시 서버통신으로 바꿔주세요
+        //퍼블리싱 임시 로컬스토리지로 제작 | 개발시엔 서버통신으로 바꿔주세요
         localStorage.setItem("key", true);
 
         let ajaxLoad = true;
@@ -404,13 +404,10 @@
 
         function openSubPages(param) {
             const keys = localStorage.getItem("key");
-            //window.location.href = location.origin + "/#" + param + "";
-            //const id = getFrameDocuments("#suv");
-            //console.log("????", id);
 
             history.pushState(null, null, "#" + param);
 
-            if (keys) {
+            if (keys === "true") {
                 suv.classList.add("open-suv");
 
                 setTimeout(function () {
@@ -424,25 +421,27 @@
             }
 
             if (!ajaxLoad) {
-                test(param);
+                suvIframeFocusHandler(param);
             }
         }
 
-        function test(param) {
+        function suvIframeFocusHandler(param) {
             //
-            const test1 = document.getElementById("WHOWEARE").contentWindow.getObj(param);
+            document.getElementById("WHOWEARE").contentWindow.getObj(param);
         }
 
         function goHome() {
             //ajaxLoad가 false와 같을때 아래 실행
+
             if (localStorage.getItem("key") === "false") {
                 //1. 클릭시 서브페이지 이벤트 실행
                 suv.classList.remove("open-suv");
                 suv.classList.remove("loadOpen");
-                document.body.style.overflow = "";
 
                 //2. 풀페이지 재등록
                 fullpageLoad();
+                document.body.style.overflow = "";
+
                 //3. 메뉴 클릭을 위해 값을 변경
                 localStorage.setItem("key", true);
                 localStorage.setItem("suvOpen", false);
