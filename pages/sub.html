@@ -43,7 +43,7 @@
                     </div>
 
                     //bg01의 우측 우주복위 모션 -->
-                    <span class="earth" data-scroll data-scroll-position="top" data-scroll-speed="20"></span>
+                    <span class="earth" data-scroll data-scroll-call="slideUp2"></span>
                 </div>
 
                 <div class="suv-contents" data-scroll data-scroll-position="bottom" data-scroll-speed="0.1">
@@ -561,6 +561,8 @@
                     glu(func, i, e);
                 } else if (func === "slideUp") {
                     slideUp(func, i, e);
+                } else if (func === "slideUp2") {
+                    slideUp2(func, i, e);
                 }
             });
 
@@ -594,6 +596,10 @@
 
             function slideUp(func, i, e) {
                 e.target.classList.add("slideUp");
+            }
+
+            function slideUp2(func, i, e) {
+                e.target.classList.add("slideUp2");
             }
         });
     </script>

@@ -482,7 +482,15 @@ span {
         width: 322px;
         height: 322px;
         background: url("../img/suv/sub-bg01-mask-j.png") no-repeat;
-        transition: right 0.2s ease-out;
+        opacity: 0;
+        transform: translateY(400px);
+        transition-delay: 2s;
+        &.slideUp2 {
+            transition: transform 1.2s cubic-bezier(0.39, 0.58, 0.57, 1), opacity 1s cubic-bezier(0.39, 0.58, 0.57, 1);
+            transform: translateY(0px);
+            transition-delay: 2s;
+            opacity: 1;
+        }
     }
 }
 @keyframes scaled {
