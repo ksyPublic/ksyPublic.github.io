@@ -110,9 +110,18 @@ html.has-scroll-dragging {
 .fix,
 .fix_target {
     position: absolute;
-    top: -1050px;
+    top: -100vh;
     right: 0;
     left: 0;
+
+    &.-bg03 {
+        height: 100vh;
+
+        // background-attachment: fixed;
+        background-position: right bottom;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 
     &.-bg01 {
         + .suv-contents .suv-assi-wrap ul li p {

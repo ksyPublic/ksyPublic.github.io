@@ -115,7 +115,7 @@
                 position: relative;
                 display: inline-block;
                 margin-top: 7px;
-                font-weight: bolder;
+                font-weight: 500;
                 font-size: 24px;
                 font-family: "Graphik", sans-serif;
                 &:after {
@@ -966,6 +966,20 @@ span {
         left: 22%;
         transform: translate(-50%, -50%);
         transform: skew(-6deg, -8deg);
+    }
+}
+
+@media all and (min-width: 2050px) {
+    .google-platform-wrap {
+        right: 25%;
+    }
+
+    .google-transform {
+        transform: scale(1.3);
+
+        .google-platform-wrap {
+            top: 220px;
+        }
     }
 }
 
