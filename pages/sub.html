@@ -544,7 +544,6 @@
         document.addEventListener("DOMContentLoaded", function () {
             scroll.update();
             scroll.on("call", function (func, i, e) {
-                console.log("????", func, i, e);
                 if (func === "splatebar") {
                     splatebar(func, i, e);
                 } else if (func === "tabsListOper") {
