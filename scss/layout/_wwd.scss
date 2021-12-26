@@ -1,0 +1,15 @@
+.what-we-do {
+    .fix.-bg01::before,
+    .fix_target.-bg01::before {
+        display: none;
+    }
+
+    .suv-assi-wrap {
+        font-weight: 400;
+    }
+
+    .fix.-bg01 + .suv-contents .suv-assi-wrap ul li p,
+    .fix_target.-bg01 + .suv-contents .suv-assi-wrap ul li p {
+        font-weight: 400;
+    }
+}

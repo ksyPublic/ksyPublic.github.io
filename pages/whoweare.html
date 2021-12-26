@@ -23,7 +23,7 @@
         <script src="../js/common.js" defer></script>
         <!-- //ui javascript -->
 
-        <title>메인시안</title>
+        <title>WHO WE ARE</title>
     </head>
     <body>
         <div class="suv-container" data-scroll-container>
@@ -32,17 +32,6 @@
                 <div class="fix_target" id="fix-target"></div>
 
                 <div class="fix -bg01" data-scroll-repeat data-scroll data-scroll-sticky data-scroll-target="#fix-target" style="background-image: url('../img/suv/sub-bg01.jpg')">
-                    <!-- bg01의 우측 우주복위 모션 -
-                    <div class="motion-cate-wrap" data-scroll data-scroll-call="bg01-motion-grapik" data-scroll-position="top" data-scroll-repeat>
-                        <span class="motion-cate-bar"></span>
-                        <span class="motion-cate-text">
-                            머큐리 프로젝트는<br />
-                            1958년부터 1963년까지 미국 항공우주국에 의해<br />
-                            이루어진 미국 최초의 유인 우주 비행 탐사 계획이다.
-                        </span>
-                    </div>
-
-                    //bg01의 우측 우주복위 모션 -->
                     <span class="earth" data-scroll data-scroll-call="slideUp2"></span>
                 </div>
 
@@ -528,22 +517,25 @@
         </div>
     </body>
     <script>
-        const scroll = new LocomotiveScroll({
+        const scroll01 = new LocomotiveScroll({
             el: document.querySelector("[data-scroll-container]"),
             smooth: true,
+            getDirection: true,
+            tablet: { smooth: !1, direction: "vertical", gestureDirection: "vertical", breakpoint: 0 },
+            smartphone: { smooth: !1, direction: "vertical", gestureDirection: "vertical" },
         });
 
         function getObj(props) {
             const target = document.querySelector("#" + props);
             const el = document.querySelector("[data-scroll-container]");
 
-            scroll.scrollTo(target);
+            scroll01.scrollTo(target);
         }
 
         //현재 down만 구현 up은 미정
         document.addEventListener("DOMContentLoaded", function () {
-            scroll.update();
-            scroll.on("call", function (func, i, e) {
+            scroll01.update();
+            scroll01.on("call", function (func, i, e) {
                 if (func === "splatebar") {
                     splatebar(func, i, e);
                 } else if (func === "tabsListOper") {

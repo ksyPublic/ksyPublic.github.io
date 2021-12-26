@@ -26,7 +26,9 @@
     transform-origin: bottom center;
 }
 
-#suv {
+#suv,
+#suv02,
+#suv03 {
     position: fixed;
     top: 0;
     left: 0;
@@ -52,6 +54,14 @@
         transform: translateY(0%);
     }
 }
+#suv02 {
+    transform: translateX(-100%);
+    &.open-suv {
+        visibility: visible;
+        transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        transform: translateX(0%);
+    }
+}
 .suv {
     &-container {
         position: relative;
@@ -64,9 +74,10 @@
         padding: 100px 0 0 330px;
 
         .suv-title-wrap {
-            position: relative;
+            // position: relative;
             margin-top: -4px;
             color: #e96406;
+            display: inline-block;
             text-transform: uppercase;
             @keyframes bgColor {
                 0% {
@@ -999,26 +1010,16 @@ span {
         background-size: 100%;
         transition: right 0.2s ease-out;
     }
-
-    .google-platform-wrap {
-        right: 0;
-    }
-}
-
-@media all and (max-width: 1500px) {
-    .google-platform-wrap {
-        right: 0;
-    }
 }
 
 @media all and(max-width: 1367px) {
-    html.has-scroll-smooth {
-        // overflow: visible !important;
-    }
-    .has-scroll-smooth body {
-        // overflow: auto !important;
-        // overflow-y: hidden !important;
-    }
+    // html.has-scroll-smooth {
+    //     overflow: visible !important;
+    // }
+    // .has-scroll-smooth body {
+    //     overflow: auto !important;
+    //     overflow-y: hidden !important;
+    // }
 
     .suv-container {
         overflow-x: auto;

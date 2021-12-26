@@ -16,7 +16,6 @@
             crossorigin="anonymous"
         ></script>
         <script src="js/vendor/fullpage.js"></script>
-
         <!-- //vendor core -->
 
         <!-- ui javascript -->
@@ -157,10 +156,10 @@
                                 <div>Who</div>
                                 <div><span>we are</span></div>
                                 <ul class="nav-list">
-                                    <li><a href="javascript:void(0)" alt="About" onclick="openSubPages('about')">About</a></li>
-                                    <li><a href="javascript:void(0)" alt="History" onclick="openSubPages('history')">History</a></li>
-                                    <li><a href="javascript:void(0)" alt="Our team" onclick="openSubPages('ourTeam')">Our team</a></li>
-                                    <li><a href="javascript:void(0)" alt="Service" onclick="openSubPages('service')">Service</a></li>
+                                    <li><a href="javascript:void(0)" alt="About" onclick="openSubPages('about', this)">About</a></li>
+                                    <li><a href="javascript:void(0)" alt="History" onclick="openSubPages('history', this)">History</a></li>
+                                    <li><a href="javascript:void(0)" alt="Our team" onclick="openSubPages('ourTeam', this)">Our team</a></li>
+                                    <li><a href="javascript:void(0)" alt="Service" onclick="openSubPages('service', this)">Service</a></li>
                                 </ul>
                             </a>
                         </li>
@@ -169,11 +168,13 @@
                                 <div>What</div>
                                 <div><span>we do</span></div>
                                 <ul class="nav-list">
-                                    <li><a href="javascript:void(0)" alt="Technical consulting">Technical consulting</a></li>
-                                    <li><a href="javascript:void(0)" alt="Mercury media viewability">Mercury media viewability</a></li>
-                                    <li><a href="javascript:void(0)" alt="Audience funnel planning">Audience funnel planning</a></li>
-                                    <li><a href="javascript:void(0)" alt="Operations by Mercury’s expert">Operations by Mercury’s expert</a></li>
-                                    <li><a href="javascript:void(0)" alt="Multi measurement & analysis">Multi measurement & analysis</a></li>
+                                    <li><a href="javascript:void(0)" alt="Tech- Consulting" onclick="openSubPages('techConsulting', this)">Tech- Consulting</a></li>
+                                    <li><a href="javascript:void(0)" alt="Viewability" onclick="openSubPages('viewability', this)">Viewability</a></li>
+                                    <li><a href="javascript:void(0)" alt="Audience" onclick="openSubPages('audience', this)">Audience</a></li>
+                                    <li><a href="javascript:void(0)" alt="Operations" onclick="openSubPages('operations', this)">Operations</a></li>
+                                    <li><a href="javascript:void(0)" alt="Coverage" onclick="openSubPages('coverage', this)">Coverage</a></li>
+                                    <li><a href="javascript:void(0)" alt="Analysis" onclick="openSubPages('analysis', this)">Analysis</a></li>
+                                    <li><a href="javascript:void(0)" alt="Clients" onclick="openSubPages('clients', this)">Clients</a></li>
                                 </ul>
                             </a>
                         </li>
@@ -258,10 +259,10 @@
                                     <span>WHO WE ARE</span>
                                     <span class="small">MAKE OUR PARTNERS WINNER</span>
                                     <ul class="snb">
-                                        <li><a href="#none" alt="ABOUT">ABOUT</a></li>
-                                        <li><a href="#none" alt="HISTORY">HISTORY</a></li>
-                                        <li><a href="#none" alt="OUR TEAM">OUR TEAM</a></li>
-                                        <li><a href="#none" alt="SERVICE">SERVICE</a></li>
+                                        <li><a href="#none" alt="ABOUT" onclick="openSubPages('about', this)">ABOUT</a></li>
+                                        <li><a href="#none" alt="HISTORY" onclick="openSubPages('history', this)">HISTORY</a></li>
+                                        <li><a href="#none" alt="OUR TEAM" onclick="openSubPages('ourteam', this)">OUR TEAM</a></li>
+                                        <li><a href="#none" alt="SERVICE" onclick="openSubPages('service', this)">SERVICE</a></li>
                                     </ul>
                                 </div>
 
@@ -388,77 +389,160 @@
                 </div>
                 <!-- //메인 풀페이지 -->
 
+                <!-- 서브페이지 -->
                 <div id="suv">
-                    <iframe src="pages/sub.html" id="WHOWEARE"></iframe>
+                    <iframe src="pages/whoweare.html" id="WHOWEARE"></iframe>
                 </div>
+
+                <div id="suv02">
+                    <iframe src="pages/whatwedo.html" id="WHATWEDO"></iframe>
+                </div>
+                <!-- //서브페이지 -->
             </div>
         </div>
     </body>
 
     <script>
         //퍼블리싱 임시 로컬스토리지로 제작 | 개발시엔 서버통신으로 바꿔주세요
-        localStorage.setItem("key", true);
+        //로직은 전면 수정하셔서 사용하여야 합니다 감사합니다.
+        //localStorage.setItem("whoweare", true);
+        //localStorage.setItem("whatwedo", true);
 
         let ajaxLoad = true;
-        const suv = document.querySelector("#suv");
+        const suv = document.querySelector("#suv"); //who we ard
+        const suv02 = document.querySelector("#suv02"); //what we do
+        const suv03 = document.querySelector("#suv03"); //contact us
 
-        function openSubPages(param) {
-            const keys = localStorage.getItem("key");
+        function openSubPages(param, props) {
+            const getId = props.closest("li[data-id]").dataset.id;
 
             history.pushState(null, null, "#" + param);
 
-            if (keys === "true") {
+            if (getId === "1") {
+                //who we ard
                 suv.classList.add("open-suv");
 
-                setTimeout(function () {
-                    fullpage_api.destroy("all");
-                    document.body.style.overflow = "hidden";
-                }, 700);
+                localStorage.setItem("whoweare", true);
 
-                localStorage.setItem("key", false);
+                //오픈
                 localStorage.setItem("suvOpen", true);
                 ajaxLoad = false;
+
+                //리셋
+                setTimeout(function () {
+                    suv02.classList.remove("open-suv");
+                    suv02.classList.remove("loadOpen");
+                }, 600);
+
+                localStorage.setItem("whatwedo", false);
+            } else if (getId === "2") {
+                //what we do
+                suv02.classList.add("open-suv");
+
+                localStorage.setItem("whatwedo", true);
+
+                //오픈
+                localStorage.setItem("suvOpen", true);
+                ajaxLoad = false;
+
+                //리셋
+                setTimeout(function () {
+                    suv.classList.remove("open-suv");
+                    suv.classList.remove("loadOpen");
+                }, 600);
+
+                localStorage.setItem("whoweare", false);
+            } else {
+                //contact us
             }
 
             if (!ajaxLoad) {
-                suvIframeFocusHandler(param);
+                suvIframeFocusHandler(param, getId);
+                if (localStorage.getItem("whoweare") === "true") {
+                    //
+                    console.log("????");
+                } else if (localStorage.getItem("whatwedo") === "true") {
+                    //
+                    console.log("@@@@");
+                }
             }
         }
 
-        function suvIframeFocusHandler(param) {
-            //
-            document.getElementById("WHOWEARE").contentWindow.getObj(param);
+        function suvIframeFocusHandler(param, getId) {
+            if (getId === "1") {
+                document.getElementById("WHOWEARE").contentWindow.getObj(param);
+            } else if (getId === "2") {
+                document.getElementById("WHATWEDO").contentWindow.getObj(param);
+            } else {
+                //
+            }
         }
 
         function goHome() {
             //ajaxLoad가 false와 같을때 아래 실행
 
-            if (localStorage.getItem("key") === "false") {
+            if (localStorage.getItem("suvOpen") === "true") {
                 //1. 클릭시 서브페이지 이벤트 실행
                 suv.classList.remove("open-suv");
                 suv.classList.remove("loadOpen");
 
                 //2. 풀페이지 재등록
-                fullpageLoad();
+
                 document.body.style.overflow = "";
 
                 //3. 메뉴 클릭을 위해 값을 변경
-                localStorage.setItem("key", true);
+                localStorage.setItem("whoweare", false);
                 localStorage.setItem("suvOpen", false);
                 ajaxLoad = true;
+
+                //4. 리셋
+                suv02.classList.remove("open-suv");
+                suv02.classList.remove("loadOpen");
+            } else if (localStorage.getItem("suvOpen") === "true") {
+                //1. 클릭시 서브페이지 이벤트 실행
+                suv02.classList.remove("open-suv");
+                suv02.classList.remove("loadOpen");
+
+                //2. 풀페이지 재등록
+                document.body.style.overflow = "";
+
+                //3. 메뉴 클릭을 위해 값을 변경
+                localStorage.setItem("whatwedo", false);
+                localStorage.setItem("suvOpen", false);
+                ajaxLoad = true;
+
+                //4. 리셋
+                suv.classList.remove("open-suv");
+                suv.classList.remove("loadOpen");
+            } else {
+                //
             }
         }
 
         document.addEventListener("DOMContentLoaded", function () {
             fullpageLoad();
+            //subpagesOpen true일때 항상 오픈
+            const subpagesOpen = localStorage.getItem("suvOpen") === "true";
 
-            //로컬 스토리지 key가 true일때 항상 오픈
-            if (localStorage.getItem("suvOpen") === "true") {
+            if (subpagesOpen && localStorage.getItem("whoweare") === "true") {
                 suv.classList.add("loadOpen");
-                localStorage.setItem("key", false);
-                fullpage_api.destroy("all");
+                localStorage.setItem("whoweare", true);
+
                 document.body.style.overflow = "hidden";
                 ajaxLoad = false;
+                //
+                suv02.classList.remove("loadOpen");
+            } else if (subpagesOpen && localStorage.getItem("whatwedo") === "true") {
+                suv02.classList.add("loadOpen");
+                localStorage.setItem("whatwedo", true);
+
+                document.body.style.overflow = "hidden";
+                ajaxLoad = false;
+
+                //
+                suv.classList.remove("loadOpen");
+            } else {
+                //
             }
         });
     </script>
