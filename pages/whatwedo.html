@@ -294,6 +294,7 @@
         const scroll02 = new LocomotiveScroll({
             el: document.querySelector("[data-scroll-container]"),
             smooth: true,
+            getDirection: true,
             tablet: { smooth: !1, direction: "vertical", gestureDirection: "vertical", breakpoint: 0 },
             smartphone: { smooth: !1, direction: "vertical", gestureDirection: "vertical" },
         });
@@ -308,6 +309,11 @@
         //현재 down만 구현 up은 미정
         document.addEventListener("DOMContentLoaded", function () {
             scroll02.update();
+
+            scroll02.on("scroll", function (obj) {
+                console.log("???", obj.direction);
+            });
+
             scroll02.on("call", function (func, i, e) {
                 if (func === "splatebar") {
                     splatebar(func, i, e);
