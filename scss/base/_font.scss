@@ -1,58 +1,4 @@
 @charset "utf-8";
-@font-face {
-    //레귤러
-    font-family: "NanumSquare";
-    font-weight: 400;
-    src: url(../font/NanumSquare/NanumSquareR.eot);
-    src: url(../font/NanumSquare/NanumSquareR.eot?#iefix) format("embedded-opentype"), url(../font/NanumSquare/NanumSquareR.woff) format("woff"),
-        url(../font/NanumSquare/NanumSquareR.ttf) format("truetype");
-}
-@font-face {
-    //볼드
-    font-family: "NanumSquare";
-    font-weight: bold;
-    src: url(../font/NanumSquare/NanumSquareB.eot);
-    src: url(../font/NanumSquare/NanumSquareB.eot?#iefix) format("embedded-opentype"), url(../font/NanumSquare/NanumSquareB.woff) format("woff"),
-        url(../font/NanumSquare/NanumSquareB.ttf) format("truetype");
-}
-@font-face {
-    //볼더
-    font-family: "NanumSquare";
-    font-weight: bolder;
-    src: url(../font/NanumSquare/NanumSquareEB.eot);
-    src: url(../font/NanumSquare/NanumSquareEB.eot?#iefix) format("embedded-opentype"), url(../font/NanumSquare/NanumSquareEB.woff) format("woff"),
-        url(../font/NanumSquare/NanumSquareEB.ttf) format("truetype");
-}
-@font-face {
-    //라지
-    font-family: "NanumSquare";
-    font-weight: 300;
-    src: url(../font/NanumSquare/NanumSquareL.eot);
-    src: url(../font/NanumSquare/NanumSquareL.eot?#iefix) format("embedded-opentype"), url(../font/NanumSquare/NanumSquareL.woff) format("woff"),
-        url(../font/NanumSquare/NanumSquareL.ttf) format("truetype");
-}
-
-@font-face {
-    font-family: "GmarketSans";
-    font-weight: 400;
-    font-style: normal;
-    src: url(../font/GmarketSans/GmarketSansTTFBold.woff2) format("woff2"), url(../font/GmarketSans/GmarketSansTTFBold.woff) format("woff");
-    font-display: swap;
-}
-@font-face {
-    font-family: "GmarketSans";
-    font-weight: 500;
-    font-style: normal;
-    src: url(../font/GmarketSans/GmarketSansTTFMedium.woff2) format("woff2"), url(../font/GmarketSans/GmarketSansTTFMedium.woff) format("woff");
-    font-display: swap;
-}
-@font-face {
-    font-family: "GmarketSans";
-    font-weight: 300;
-    font-style: normal;
-    src: url(../font/GmarketSans/GmarketSansTTFLight.woff2) format("woff2"), url(../font/GmarketSans/GmarketSansTTFLight.woff) format("woff");
-    font-display: swap;
-}
 
 /**
  * Copyright (c) 2020 Spoqa, Inc.
@@ -140,4 +86,12 @@
     font-display: fallback;
     src: url("../font/Graphik/105007d99d9df64c50cc24d696d79555.woff2") format("woff2"), url("../font/Graphik/105007d99d9df64c50cc24d696d79555.woff") format("woff"),
         url("../font/Graphik/105007d99d9df64c50cc24d696d79555.ttf") format("truetype"), url("../font/Graphik/105007d99d9df64c50cc24d696d79555.svg#Graphik Web Regular") format("svg");
+}
+
+@font-face {
+    font-family: "Graphik";
+    font-weight: bold;
+    font-display: fallback;
+    src: url("../font/Graphik/d20eb52d29d9f6d56c1c8fc0eefc560e.woff2") format("woff2"), url("../font/Graphik/d20eb52d29d9f6d56c1c8fc0eefc560e.woff") format("woff"),
+        url("../font/Graphik/d20eb52d29d9f6d56c1c8fc0eefc560e.ttf") format("truetype"), url("../font/Graphik/d20eb52d29d9f6d56c1c8fc0eefc560e.svg#Graphik Bold") format("svg");
 }
