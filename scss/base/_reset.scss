@@ -84,11 +84,11 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-  font-size: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-size: 100%;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -104,53 +104,54 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+    display: block;
 }
 
 body {
-  line-height: 1;
+    line-height: 1;
 }
 
 ol,
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 blockquote,
 q {
-  quotes: none;
+    quotes: none;
 }
 
 blockquote {
-  &:before,
-  &:after {
-    content: '';
-    content: none;
-  }
+    &:before,
+    &:after {
+        content: "";
+        content: none;
+    }
 }
 
 q {
-  &:before,
-  &:after {
-    content: '';
-    content: none;
-  }
+    &:before,
+    &:after {
+        content: "";
+        content: none;
+    }
 }
 
 ul,
 li,
 ol {
-  list-style: none;
+    list-style: none;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
+    outline: 0;
 }
 
 table {
-  border-spacing: 0;
-  border-collapse: collapse;
+    border-spacing: 0;
+    border-collapse: collapse;
 }
 
 h1,
@@ -158,11 +159,11 @@ h2,
 h3,
 h4,
 h5 {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
