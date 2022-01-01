@@ -8,12 +8,15 @@
 //components
 @import "components/keyFrames";
 @import "components/splash";
+@import "components/tabs";
 
 //layout
 @import "layout/main";
 @import "layout/container";
-@import "layout/suv";
+@import "layout/sub";
 @import "layout/wwd";
+@import "layout/gnb";
+@import "layout/footer";
 
 //vendor
 @import "vendor/fullpage";
@@ -23,6 +26,11 @@ body,
 html,
 * {
     font-family: "Graphik", sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100%;
 }
 
 html {

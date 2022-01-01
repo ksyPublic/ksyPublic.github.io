@@ -609,3 +609,115 @@
         }
     }
 }
+
+.view-wrap {
+    margin-top: 38px;
+    .view-box {
+        z-index: 1;
+        margin-left: -3px;
+        .circle {
+            > span {
+                margin-top: 1px;
+                .text.small {
+                    margin-top: 2px;
+                }
+            }
+        }
+        text-align: center;
+        .view-centered {
+            padding-top: 45px;
+            position: relative;
+            width: 235px;
+            font-size: 18px;
+            line-height: 24px;
+            text-align: center;
+            &:after {
+                content: "";
+                position: absolute;
+                display: block;
+                margin: 0 auto;
+                width: 208px;
+                bottom: -63px;
+                left: 0px;
+                right: 0px;
+                height: 108px;
+                background: url("../img/wwd/view/view-arrow-area.png") no-repeat;
+            }
+        }
+
+        .view-loy {
+            position: relative;
+            z-index: 10;
+            margin-top: 101px;
+            height: 40px;
+            padding: 0 17px;
+            line-height: 40px;
+            border-radius: 20px;
+            display: inline-block;
+            text-align: center;
+            font-size: 24px;
+        }
+        .view-text {
+            position: relative;
+            display: block;
+            font-size: 24px;
+            margin-top: 13px;
+            z-index: 10;
+        }
+        .view-computer-box {
+            position: absolute;
+            right: -200px;
+            top: -98px;
+            width: 1374px;
+            height: 686px;
+            background: url("../img/wwd/view/view-computer-bg.png") no-repeat;
+            .view-monitor-wrap {
+                position: absolute;
+                padding-top: 95px;
+                right: 296px;
+                .view-text {
+                    font-size: 24px;
+                    line-height: 26px;
+                    margin-top: 0px;
+                }
+            }
+        }
+        display: inline-block;
+        vertical-align: top;
+        font-size: 0px;
+        .circle {
+            &.large {
+                > span {
+                    width: 100%;
+                    display: block;
+                    font-size: 24px;
+                    letter-spacing: -0.05em;
+                    .small {
+                        font-weight: 400;
+                        font-size: 15px;
+                        line-height: 20px;
+                        letter-spacing: 0em;
+                    }
+                }
+            }
+            + .circle {
+                &.orange {
+                    &:before {
+                        background: url("../img/wwd/wwd-orange-plus.png") no-repeat;
+                    }
+                }
+
+                &:before {
+                    content: "";
+                    width: 42px;
+                    height: 42px;
+                    position: absolute;
+                    top: calc(50% - 21px);
+                    left: -22px;
+                    vertical-align: top;
+                    background: url("../img/wwd/wwd-gray-plus.png") no-repeat;
+                }
+            }
+        }
+    }
+}

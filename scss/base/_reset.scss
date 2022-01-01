@@ -191,3 +191,14 @@ h5 {
 .upper {
     text-transform: uppercase;
 }
+
+.orange {
+    color: #ea6606;
+    &-bg {
+        background-color: #ea6606;
+    }
+}
+
+.white {
+    color: #fff;
+}

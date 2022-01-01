@@ -1,195 +1,160 @@
-body {
-  width: 100%;
-  height: 100%;
-}
-
-.main {
-  &-contents {
-    position: relative;
-    display: flex;
-    margin-top: 50px;
-    font-size: 0;
-
-    justify-content: center;
-
-    &.on {
-      li {
-        &:nth-child(3) {
-          animation: scale-in2 .5s forwards;
-          animation-delay: 1.6s;
-        }
-
-        &:nth-child(2) {
-          animation: scale-in2 .7s forwards;
-          animation-delay: 1.8s;
-        }
-
-        &:nth-child(4) {
-          animation: scale-in2 .9s forwards;
-          animation-delay: 2s;
-        }
-
-        &:nth-child(1) {
-          animation: scale-in2 .6s forwards;
-          animation-delay: 2.2s;
-        }
-
-        &:nth-child(5) {
-          animation: scale-in2 .5s forwards;
-          animation-delay: 2.4s;
-        }
-      }
-    }
-    li {
-      position: relative;
-      display: inline-block;
-      margin-left: 30px;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background-color: #e96406;
-      vertical-align: top;
-      opacity: 0;
-      transform: scale(0);
-      &:first-child {
-        margin-left: 0;
-      }
-
-      a {
-        display: block;
-      }
-    }
-  }
-}
-
 .icon {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  dd {
-    margin-top: 10px;
-    color: #e96406;
-    text-align: center;
-    font-size: 16px;
-    font-family: 'Graphik', sans-serif;
-    line-height: 20px;
-  }
-  dt {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100%;
-  }
-  &-tech {
-    background: url('../img/ic-core01.png') no-repeat center center;
-    dt {
-      left: 2px;
-      background: url('../img/ic-core-detail01.png') no-repeat center center;
-      animation: scale-in 2s infinite alternate;
+    dd {
+        margin-top: 10px;
+        color: #e96406;
+        text-align: center;
+        font-size: 16px;
+        font-family: "Graphik", sans-serif;
+        line-height: 20px;
     }
-  }
-
-  &-mercury {
-    background: url('../img/ic-core02.png') no-repeat center center;
     dt {
-      .core-detail-wrap {
-        position: absolute;
-        top: calc(50% - 1px);
-        left: calc(50% + 2px);
-        transform: translate(-50%, -50%);
-        span {
-          position: relative;
-          display: inline-block;
-          margin-left: 2px;
-          width: 5px;
-          height: 20px;
-          background: url('../img/ic-core-detail02.png') no-repeat center center;
-          vertical-align: top;
-          opacity: 0;
-          transform: translateX(-50%);
-
-          &:first-child {
-            margin-left: 0;
-          }
-
-          &:nth-child(1) {
-            animation: showup 6s infinite;
-            animation-delay: .4s;
-          }
-
-          &:nth-child(2) {
-            animation: showup 6s infinite;
-            animation-delay: .8s;
-          }
-
-          &:nth-child(3) {
-            animation: showup 6s infinite;
-            animation-delay: 1.2s;
-          }
-
-          &:nth-child(4) {
-            animation: showup 6s infinite;
-            animation-delay: 1.4s;
-          }
-          &:nth-child(5) {
-            animation: showup 6s infinite;
-            animation-delay: 1.8s;
-          }
-
-          &:nth-child(2),
-          &:nth-child(4) {
-            top: -7px;
-          }
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    &-tech {
+        background: url("../img/ic-core01.png") no-repeat center center;
+        dt {
+            left: 2px;
+            background: url("../img/ic-core-detail01.png") no-repeat center center;
+            animation: scale-in 2s infinite alternate;
         }
-      }
     }
-  }
 
-  &-aud {
-    background: url('../img/ic-core03.png') no-repeat center center;
-    dt {
-      top: 16px;
-      background: url('../img/ic-core-detail03.png') no-repeat center center;
-    }
-  }
+    &-mercury {
+        background: url("../img/ic-core02.png") no-repeat center center;
+        dt {
+            .core-detail-wrap {
+                position: absolute;
+                top: calc(50% - 1px);
+                left: calc(50% + 2px);
+                transform: translate(-50%, -50%);
+                span {
+                    position: relative;
+                    display: inline-block;
+                    margin-left: 2px;
+                    width: 5px;
+                    height: 20px;
+                    background: url("../img/ic-core-detail02.png") no-repeat center center;
+                    vertical-align: top;
+                    opacity: 0;
+                    transform: translateX(-50%);
 
-  &-oper {
-    background: url('../img/ic-core04.png') no-repeat center center;
-    dt {
-      top: 16px;
-      background: url('../img/ic-core-detail04.png') no-repeat center center;
-    }
-  }
+                    &:first-child {
+                        margin-left: 0;
+                    }
 
-  &-multi {
-    background: url('../img/ic-core05.png') no-repeat center center;
-    dt {
-      .core-detail-wrap {
-        position: absolute;
-        top: calc(50% - 6px);
-        left: calc(50% - 5px);
-        font-size: 0;
-        transform: translate(-50%, -50%);
-        span {
-          position: relative;
-          display: inline-block;
-          margin-left: 6px;
-          width: 8px;
-          background-color: #fff;
-          &:first-child {
-            margin-left: 0;
-            height: 16px;
-            animation: height1 1s infinite;
-          }
+                    &:nth-child(1) {
+                        animation: showup 6s infinite;
+                        animation-delay: 0.4s;
+                    }
 
-          &:nth-child(2) {
-            height: 32px;
-          }
+                    &:nth-child(2) {
+                        animation: showup 6s infinite;
+                        animation-delay: 0.8s;
+                    }
 
-          &:nth-child(3) {
-            height: 22px;
-          }
+                    &:nth-child(3) {
+                        animation: showup 6s infinite;
+                        animation-delay: 1.2s;
+                    }
+
+                    &:nth-child(4) {
+                        animation: showup 6s infinite;
+                        animation-delay: 1.4s;
+                    }
+                    &:nth-child(5) {
+                        animation: showup 6s infinite;
+                        animation-delay: 1.8s;
+                    }
+
+                    &:nth-child(2),
+                    &:nth-child(4) {
+                        top: -7px;
+                    }
+                }
+            }
         }
-      }
     }
-  }
+
+    @keyframes tie {
+        0% {
+            opacity: 0;
+            transform: translateY(0%);
+        }
+        20% {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+        80% {
+            opacity: 1;
+            transform: translateY(3%);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(10%);
+        }
+    }
+
+    &-aud {
+        background: url("../img/ic-core03.png") no-repeat center center;
+        dt {
+            top: 16px;
+            background: url("../img/ic-core-detail03.png") no-repeat center center;
+            animation: showup 6s infinite, rotated 6s infinite;
+            animation-delay: 0.4s;
+        }
+    }
+
+    &-oper {
+        background: url("../img/ic-core04.png") no-repeat center center;
+        dt {
+            top: 16px;
+            background: url("../img/ic-core-detail04.png") no-repeat center center;
+            animation: tie 6s infinite;
+            animation-delay: 0.4s;
+        }
+    }
+
+    &-multi {
+        background: url("../img/ic-core05.png") no-repeat center center;
+        dt {
+            .core-detail-wrap {
+                position: absolute;
+                top: calc(50% - 6px);
+                left: calc(50% - 5px);
+                font-size: 0;
+                transform: translate(-50%, -50%);
+                span {
+                    position: relative;
+                    display: inline-block;
+                    vertical-align: bottom;
+                    margin-left: 6px;
+                    width: 8px;
+                    background-color: #fff;
+                    &:first-child {
+                        margin-left: 0;
+                        height: 16px;
+                        animation: showup 4s infinite;
+                        animation-delay: 1.4s;
+                    }
+
+                    &:nth-child(2) {
+                        height: 32px;
+                        animation: showup 4s infinite;
+                        animation-delay: 2s;
+                    }
+
+                    &:nth-child(3) {
+                        height: 22px;
+                        animation: showup 4s infinite;
+                        animation-delay: 2.4s;
+                    }
+                }
+            }
+        }
+    }
 }

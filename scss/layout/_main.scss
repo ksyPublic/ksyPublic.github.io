@@ -1,199 +1,166 @@
-.gnb {
-    position: fixed;
-    top: 50px;
-    left: 30px;
-    z-index: 9999;
-    .nav {
-        position: relative;
-        margin-top: 9px;
-        .nav-depth {
-            overflow: hidden;
-            margin-top: 7px;
-            height: 28px;
-            transition: height 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
-            &:first-child {
-                margin-top: 0;
+.logo-text {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.logo-top,
+.logo-bottom {
+    ul {
+        font-size: 0px;
+    }
+}
+
+.logo-top {
+    padding-top: 5px;
+}
+
+.logo-bottom {
+    ul {
+        margin-top: 15px;
+    }
+    + .small {
+        margin-top: 16px !important;
+    }
+}
+
+.logo-top {
+    .logo-text {
+        &.img {
+            &01 {
+                width: 48px;
+                height: 47px;
+                background: url("../img/logo/logo-ft-images01.png") no-repeat;
             }
-
-            &.active {
-                transition: height 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
-                .nav-list {
-                    //
-                }
+            &02 {
+                width: 40px;
+                height: 47px;
+                background: url("../img/logo/logo-ft-images02.png") no-repeat;
             }
-        }
-        .nav-list {
-            position: relative;
-            padding-top: 5px;
-            li {
-                position: relative;
-                min-width: 100%;
-                color: #e96406;
-
-                &:first-child {
-                    margin-top: 13px;
-                }
-                &:last-child {
-                    margin-bottom: 10px;
-                }
-                &:before {
-                    position: relative;
-                    top: 0;
-                    display: inline-block;
-                    margin-right: 4px;
-                    content: "-";
-                    vertical-align: top;
-                    font-weight: normal;
-                    font-size: 16px;
-                }
-                a {
-                    display: inline-block;
-                    height: 19px;
-                    vertical-align: top;
-                    font-weight: 500;
-                    font-size: 16px;
-                }
+            &03 {
+                width: 40px;
+                height: 47px;
+                background: url("../img/logo/logo-ft-images03.png") no-repeat;
             }
-        }
-        ul {
-            li {
-                position: relative;
-                margin-top: 7px;
-                font-weight: bolder;
-                font-family: "Graphik", sans-serif;
-                &:first-child {
-                    margin-top: 0;
-                }
-                // &:nth-child(1) {
-                //   a {
-                //     > div {
-                //       &:last-of-type {
-                //         width: 0;
-                //         animation: reveal 7s infinite;
-                //         span {
-                //           margin-left: -355px;
-                //           animation: slidein 7s infinite;
-                //         }
-                //       }
-                //     }
-                //   }
-                // }
-
-                // &:nth-child(2) {
-                //   a {
-                //     > div {
-                //       &:last-of-type {
-                //         width: 0;
-                //         animation: reveal 7s infinite;
-                //         animation-delay: .4s;
-
-                //         span {
-                //           margin-left: -355px;
-                //           animation: slidein 7s infinite;
-                //           animation-delay: .4s;
-                //         }
-                //       }
-                //     }
-                //   }
-                // }
-
-                // &:nth-child(3) {
-                //   a {
-                //     > div {
-                //       &:last-of-type {
-                //         width: 0;
-                //         animation: reveal 7s infinite;
-                //         animation-delay: .8s;
-                //         span {
-                //           margin-left: -355px;
-                //           animation: slidein 7s infinite;
-                //           animation-delay: .8s;
-                //         }
-                //       }
-                //     }
-                //   }
-                // }
-
-                a {
-                    color: #e96406;
-                    font-weight: 500;
-                    font-size: 24px;
-                    font-family: "Graphik", sans-serif;
-
-                    div {
-                        display: inline-block;
-                        overflow: hidden;
-                        white-space: nowrap;
-                    }
-                }
+            &04 {
+                width: 44px;
+                height: 47px;
+                background: url("../img/logo/logo-ft-images04.png") no-repeat;
+            }
+            &05 {
+                width: 46px;
+                height: 47px;
+                background: url("../img/logo/logo-ft-images05.png") no-repeat;
+            }
+            &06 {
+                width: 40px;
+                height: 47px;
+                background: url("../img/logo/logo-ft-images06.png") no-repeat;
+            }
+            &07 {
+                width: 42px;
+                height: 47px;
+                background: url("../img/logo/logo-ft-images07.png") no-repeat;
             }
         }
     }
+}
 
-    .logo {
+.logo-bottom {
+    .logo-text {
+        &.img {
+            &01 {
+                width: 39px;
+                height: 47px;
+                background: url("../img/logo/logo-ft-images08.png") no-repeat;
+            }
+            &02 {
+                width: 45px;
+                height: 47px;
+                background: url("../img/logo/logo-ft-images09.png") no-repeat;
+            }
+            &03 {
+                width: 54px;
+                height: 47px;
+                background: url("../img/logo/logo-ft-images10.png") no-repeat;
+            }
+            &04 {
+                width: 35px;
+                height: 47px;
+                background: url("../img/logo/logo-ft-images11.png") no-repeat;
+            }
+            &05 {
+                width: 39px;
+                height: 47px;
+                background: url("../img/logo/logo-ft-images12.png") no-repeat;
+            }
+            &06 {
+                width: 45px;
+                height: 47px;
+                background: url("../img/logo/logo-ft-images13.png") no-repeat;
+            }
+            &07 {
+                width: 43px;
+                height: 47px;
+                background: url("../img/logo/logo-ft-images14.png") no-repeat;
+            }
+        }
+    }
+}
+
+.main {
+    &-contents {
         position: relative;
-        display: inline-block;
-        width: 74px;
-        height: 64px;
+        display: flex;
+        margin-top: 50px;
         font-size: 0;
-        &:hover {
-            span {
-                transition: all 0.4s cubic-bezier(0.53, 0.29, 1, 0.81);
 
-                &:nth-child(1),
-                &:nth-child(3),
-                &:nth-child(5) {
-                    top: 0;
+        justify-content: center;
+
+        &.on {
+            li {
+                &:nth-child(3) {
+                    animation: scale-in2 0.5s forwards;
+                    animation-delay: 1.6s;
                 }
 
-                &:nth-child(2),
+                &:nth-child(2) {
+                    animation: scale-in2 0.7s forwards;
+                    animation-delay: 1.8s;
+                }
+
                 &:nth-child(4) {
-                    top: 17px;
+                    animation: scale-in2 0.9s forwards;
+                    animation-delay: 2s;
+                }
+
+                &:nth-child(1) {
+                    animation: scale-in2 0.6s forwards;
+                    animation-delay: 2.2s;
+                }
+
+                &:nth-child(5) {
+                    animation: scale-in2 0.5s forwards;
+                    animation-delay: 2.4s;
                 }
             }
         }
-        i {
+        li {
             position: relative;
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-        span {
-            position: absolute;
             display: inline-block;
-            width: 10px;
-            height: 38px;
-            background: url("../img/logo-bg.png") no-repeat;
-            background-size: 100%;
+            margin-left: 30px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background-color: #e96406;
             vertical-align: top;
-            transition: all 0.3s cubic-bezier(0.53, 0.29, 1, 0.81);
-
+            opacity: 0;
+            transform: scale(0);
             &:first-child {
                 margin-left: 0;
             }
 
-            &:nth-child(2) {
-                top: 0;
-                left: 16px;
-            }
-
-            &:nth-child(3) {
-                left: 32px;
-            }
-
-            &:nth-child(4) {
-                top: 0;
-                left: 48px;
-            }
-
-            &:nth-child(5) {
-                left: 64px;
-            }
-
-            &:nth-child(1),
-            &:nth-child(3),
-            &:nth-child(5) {
-                top: 19px;
+            a {
+                display: block;
             }
         }
     }
@@ -345,7 +312,7 @@
 
             &.on {
                 .visual-text {
-                    span {
+                    > span {
                         &:nth-child(1) {
                             animation: hideed 0.1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
                         }
@@ -363,7 +330,7 @@
                 }
 
                 .visual-text-subline {
-                    span {
+                    > span {
                         &:nth-child(1) {
                             animation: hideed 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
                         }
@@ -418,6 +385,7 @@
                     a {
                         font-weight: bolder;
                         font-size: 24px;
+                        text-decoration: underline;
                     }
                 }
             }
@@ -429,7 +397,7 @@
                 text-align: center;
                 line-height: 48px;
 
-                span {
+                > span {
                     display: block;
                     word-break: keep-all;
                     font-weight: 500;
@@ -514,35 +482,6 @@
                         }
                     }
                 }
-            }
-        }
-    }
-}
-
-footer {
-    display: flex;
-    height: 200px;
-    background-color: #e9e9e9;
-
-    justify-content: center;
-    ul {
-        padding-top: 30px;
-        font-size: 0;
-        li {
-            display: inline-block;
-            margin-left: 34px;
-            color: #656565;
-            vertical-align: top;
-            font-weight: 400;
-            font-size: 14px;
-            font-family: "Spoqa Han Sans Neo", sans-serif;
-            &:first-child {
-                margin-left: 0;
-            }
-            a {
-                color: #656565;
-                font-weight: 400;
-                font-family: "Spoqa Han Sans Neo", sans-serif;
             }
         }
     }
