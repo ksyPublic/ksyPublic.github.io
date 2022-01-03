@@ -99,11 +99,11 @@
     }
 }
 #suv02 {
-    transform: translateX(-100%);
+    transform: translateY(100%);
     &.open-suv {
         visibility: visible;
         transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-        transform: translateX(0%);
+        transform: translateY(0%);
     }
 }
 .suv {
