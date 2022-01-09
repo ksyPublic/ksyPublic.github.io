@@ -1,0 +1,103 @@
+.address-bg {
+    position: absolute;
+    right: 394px;
+    top: 217px;
+    width: 868px;
+    height: 588px;
+    background: url("../img/ctu/address-bg.png") no-repeat;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    transform: translateY(10%);
+    &.slideUp {
+        opacity: 1;
+        transition: opacity 1s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        transform: translateY(0);
+    }
+}
+.request-bg {
+    position: absolute;
+    top: 280px;
+    right: 265px;
+    width: 568px;
+    height: 492px;
+    background: url("../img/ctu/request-bg.png") no-repeat;
+}
+.suv-contents .suv-assi-wrap + .suv-org-wrap.right.recustom {
+    margin-top: 0px;
+}
+.suv-contents .suv-org-wrap {
+    &.right.recustom {
+        max-width: 1260px;
+        dl {
+            padding: 30px 0;
+            align-items: start;
+
+            dt {
+                font-size: 40px;
+                line-height: 40px;
+                width: 207px;
+                text-align: right;
+                margin-right: 62px;
+                position: relative;
+                top: -3px;
+            }
+
+            dd {
+                width: 496px;
+                h5 {
+                    &.title {
+                        display: block;
+                        font-size: 20px;
+                        margin-bottom: 4px;
+                        font-weight: bold;
+                        font-family: "Spoqa Han Sans Neo", sans-serif;
+                        opacity: 0;
+                        transition: opacity 1s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+                        transform: translateX(50px);
+                        &.slideRight {
+                            opacity: 1;
+                            transition: opacity 1s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+                            transform: translateY(0px);
+                        }
+                    }
+                }
+                span {
+                    margin-bottom: 0px;
+                    display: flex;
+                    line-height: 24px;
+                    &:before {
+                        display: inline-block;
+                        vertical-align: top;
+                        content: "";
+                        position: relative;
+                        top: 10px;
+                        display: inline-block;
+                        margin-right: 5px;
+                        width: 7px;
+                        height: 7px;
+                        background: url("../img/suv/title-icon.png") no-repeat;
+                        background-size: 7px 7px;
+                    }
+                }
+            }
+            &.borderScaleX {
+                &:after {
+                    background-color: #e96406;
+                }
+            }
+
+            &:first-child {
+                padding-top: 0px;
+                &:after {
+                    display: none;
+                }
+            }
+
+            &:last-child {
+                &:before {
+                    display: none;
+                }
+            }
+        }
+    }
+}

@@ -20,9 +20,39 @@ if (!Element.prototype.closest) {
     const nav = document.querySelector(".nav");
     const tabsTitles = document.querySelectorAll(".tabs-title-wrap li");
     const tabsContents = document.querySelectorAll(".tabs-contents-wrap .tabs-content");
+    const buttonGroup = document.querySelectorAll(".button-group .button");
+    const select = document.querySelectorAll(".select");
     //default ui Interective
 
     const ui = {
+        selectColorRize: function () {
+            [].forEach.call(select, function (x) {
+                x.addEventListener("change", function (e) {
+                    e.target.style.color = "#000";
+                });
+            });
+        },
+        buttonSelection: function () {
+            [].forEach.call(buttonGroup, function (x) {
+                x.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const type = e.currentTarget.parentElement.dataset.selection;
+
+                    if (type === "single") {
+                        //single
+
+                        [].forEach.call(buttonGroup, function (x) {
+                            x.classList.remove("active");
+                        });
+
+                        e.target.classList.toggle("active");
+                    } else {
+                        //multiple
+                        e.target.classList.toggle("active");
+                    }
+                });
+            });
+        },
         tabs: function () {
             if (tabsTitles) {
                 [].forEach.call(tabsTitles, function (tabsTarget) {
@@ -71,6 +101,8 @@ if (!Element.prototype.closest) {
     function init() {
         ui.gnb();
         ui.tabs();
+        ui.buttonSelection();
+        ui.selectColorRize();
     }
 
     //document load

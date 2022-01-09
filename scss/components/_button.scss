@@ -1,0 +1,85 @@
+.button {
+    border: 1px solid #b5b5b5;
+    height: 50px;
+    padding-bottom: 1px;
+    font-size: 18px;
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+    font-weight: 400;
+    background-color: #fff;
+    color: #888;
+    margin-left: 10px;
+
+    font-size: 18px;
+    &:last-child {
+        margin-right: 0px;
+    }
+
+    width: 100%;
+    &.active {
+        background-color: #e96406;
+        color: #fff;
+        border-color: #e96406;
+    }
+
+    &.small {
+        max-width: 145px;
+    }
+
+    &-group {
+        margin-bottom: -10px;
+        &.flex {
+            display: flex;
+        }
+        width: calc(100% + 10px);
+        font-size: 0;
+        margin-left: -10px;
+        &.col3 {
+            .button,
+            .input {
+                margin-bottom: 10px;
+                margin-left: 10px;
+                width: calc(33.33% - 10px);
+            }
+        }
+    }
+}
+.nav {
+    .button-group {
+        margin-top: 23px;
+        margin-left: 6px;
+    }
+}
+.switch-button {
+    display: inline-block;
+    vertical-align: top;
+    width: 24px;
+    height: 24px;
+    margin-right: 11px;
+    color: #e96406;
+
+    z-index: 10;
+    position: relative;
+    background-color: #fff;
+    border: 2px solid #e96406;
+    transform: rotate(-45deg);
+    margin-left: 4px;
+    &:first-child {
+        margin-left: 0px;
+    }
+    &.active {
+        background-color: #e96406;
+        border-color: #e96406;
+        color: #fff;
+    }
+
+    span {
+        left: 2px;
+        font-family: "Graphik", sans-serif;
+        top: 4px;
+        position: absolute;
+        vertical-align: top;
+        transform: rotate(45deg);
+        font-size: 12px;
+        font-weight: 500;
+    }
+}

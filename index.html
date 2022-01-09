@@ -182,9 +182,22 @@
                             <a href="javascript:void(0)">
                                 <div>Contact</div>
                                 <div><span>us</span></div>
+                                <ul class="nav-list">
+                                    <li><a href="javascript:void(0)" alt="Address" onclick="openSubPages('address', this)">Address</a></li>
+                                    <li><a href="javascript:void(0)" alt="Request" onclick="openSubPages('request', this)">Request</a></li>
+                                    <li><a href="javascript:void(0)" alt="Recruit" onclick="openSubPages('recruit', this)">Recruit</a></li>
+                                </ul>
                             </a>
                         </li>
                     </ul>
+                    <div class="button-group">
+                        <a href="#none" alt="한글" class="switch-button active">
+                            <span>KR</span>
+                        </a>
+                        <a href="#none" alt="영문" class="switch-button">
+                            <span>EN</span>
+                        </a>
+                    </div>
                 </div>
                 <!-- //logo -->
             </div>
@@ -417,6 +430,10 @@
                 <div id="suv02">
                     <iframe src="pages/whatwedo.html" id="WHATWEDO"></iframe>
                 </div>
+
+                <div id="suv03">
+                    <iframe src="pages/contactus.html" id="CONTACTUS"></iframe>
+                </div>
                 <!-- //서브페이지 -->
             </div>
         </div>
@@ -450,9 +467,12 @@
                 setTimeout(function () {
                     suv02.classList.remove("open-suv");
                     suv02.classList.remove("loadOpen");
+                    suv03.classList.remove("open-suv");
+                    suv03.classList.remove("loadOpen");
                 }, 600);
 
                 localStorage.setItem("whatwedo", false);
+                localStorage.setItem("contactus", false);
             } else if (getId === "2") {
                 //what we do
                 suv02.classList.add("open-suv");
@@ -467,11 +487,32 @@
                 setTimeout(function () {
                     suv.classList.remove("open-suv");
                     suv.classList.remove("loadOpen");
+                    suv03.classList.remove("open-suv");
+                    suv03.classList.remove("loadOpen");
                 }, 600);
 
                 localStorage.setItem("whoweare", false);
+                localStorage.setItem("contactus", false);
             } else {
                 //contact us
+                suv03.classList.add("open-suv");
+
+                localStorage.setItem("contactus", true);
+
+                //오픈
+                localStorage.setItem("suvOpen", true);
+                ajaxLoad = false;
+
+                //리셋
+                setTimeout(function () {
+                    suv.classList.remove("open-suv");
+                    suv.classList.remove("loadOpen");
+                    suv02.classList.remove("open-suv");
+                    suv02.classList.remove("loadOpen");
+                }, 600);
+
+                localStorage.setItem("whoweare", false);
+                localStorage.setItem("whatwedo", false);
             }
 
             if (!ajaxLoad) {
@@ -485,7 +526,7 @@
             } else if (getId === "2") {
                 document.getElementById("WHATWEDO").contentWindow.getObj(param);
             } else {
-                //
+                document.getElementById("CONTACTUS").contentWindow.getObj(param);
             }
         }
 
@@ -509,6 +550,8 @@
                 //4. 리셋
                 suv02.classList.remove("open-suv");
                 suv02.classList.remove("loadOpen");
+                suv03.classList.remove("open-suv");
+                suv03.classList.remove("loadOpen");
             } else if (localStorage.getItem("suvOpen") === "true") {
                 //1. 클릭시 서브페이지 이벤트 실행
                 suv02.classList.remove("open-suv");
@@ -525,8 +568,26 @@
                 //4. 리셋
                 suv.classList.remove("open-suv");
                 suv.classList.remove("loadOpen");
+                suv03.classList.remove("open-suv");
+                suv03.classList.remove("loadOpen");
             } else {
-                //
+                //1. 클릭시 서브페이지 이벤트 실행
+                suv03.classList.remove("open-suv");
+                suv03.classList.remove("loadOpen");
+
+                //2. 풀페이지 재등록
+                document.body.style.overflow = "";
+
+                //3. 메뉴 클릭을 위해 값을 변경
+                localStorage.setItem("contactus", false);
+                localStorage.setItem("suvOpen", false);
+                ajaxLoad = true;
+
+                //4. 리셋
+                suv.classList.remove("open-suv");
+                suv.classList.remove("loadOpen");
+                suv02.classList.remove("open-suv");
+                suv02.classList.remove("loadOpen");
             }
         }
 
@@ -543,6 +604,7 @@
                 ajaxLoad = false;
                 //
                 suv02.classList.remove("loadOpen");
+                suv03.classList.remove("loadOpen");
             } else if (subpagesOpen && localStorage.getItem("whatwedo") === "true") {
                 suv02.classList.add("loadOpen");
                 localStorage.setItem("whatwedo", true);
@@ -552,8 +614,18 @@
 
                 //
                 suv.classList.remove("loadOpen");
-            } else {
+                suv03.classList.remove("loadOpen");
+            } else if (subpagesOpen && localStorage.getItem("contactus") === "true") {
+                console.log("@@@");
+                suv03.classList.add("loadOpen");
+                localStorage.setItem("CONTACTUS", true);
+
+                document.body.style.overflow = "hidden";
+                ajaxLoad = false;
+
                 //
+                suv.classList.remove("loadOpen");
+                suv02.classList.remove("loadOpen");
             }
         });
     </script>

@@ -1,0 +1,93 @@
+.form {
+    max-width: 920px;
+    .fields {
+        width: 100%;
+        + .fields {
+            margin-top: 40px;
+        }
+        display: flex;
+        .field {
+            flex: 1 1 0;
+
+            &:nth-child(2) {
+                margin-left: auto;
+                flex: none;
+            }
+        }
+    }
+    .title {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: "Spoqa Han Sans Neo", sans-serif;
+        + .select,
+        + .input,
+        + .button-group,
+        + .textarea {
+            margin-top: 10px;
+        }
+    }
+}
+
+.privacy-wrap {
+    width: 100%;
+    .privacy-box {
+        margin-top: 10px;
+        border: 1px solid #b5b5b5;
+        background-color: #f5f5f5;
+        iframe {
+            width: 100%;
+            height: 286px;
+        }
+        + .control-line {
+            margin-top: 20px;
+        }
+    }
+}
+
+.privacy-info {
+    background-color: #f5f5f5;
+    font-size: 15px;
+    ul {
+        li {
+            margin-top: 19px;
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 10px;
+            }
+        }
+    }
+    h4 {
+        font-weight: bold;
+        font-family: "Spoqa Han Sans Neo", sans-serif;
+        + p {
+            margin-top: 4px;
+        }
+    }
+    p {
+        color: #888888;
+        line-height: 24px;
+        font-weight: 400;
+        font-family: "Spoqa Han Sans Neo", sans-serif;
+    }
+    padding: 21px 19px 0px 19px;
+}
+
+.control-line {
+    display: flex;
+    align-items: center;
+    .control-left {
+        flex: 1 1 0;
+    }
+
+    .control-right {
+        margin-left: auto;
+        button {
+            background-color: #000;
+            color: #fff;
+            width: 200px;
+        }
+    }
+}

@@ -111,11 +111,6 @@ body {
     line-height: 1;
 }
 
-ol,
-ul {
-    list-style: none;
-}
-
 blockquote,
 q {
     quotes: none;
@@ -140,6 +135,8 @@ q {
 ul,
 li,
 ol {
+    margin: 0;
+    padding: 0;
     list-style: none;
 }
 
@@ -201,4 +198,18 @@ h5 {
 
 .white {
     color: #fff;
+}
+
+.tel {
+    margin-top: 20px;
+    font-size: 40px !important;
+    display: block;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    transform: translateX(50px);
+    &.slideRight {
+        opacity: 1;
+        transition: opacity 1s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        transform: translateY(0px);
+    }
 }

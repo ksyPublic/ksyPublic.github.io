@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- style -->
+        <link rel="stylesheet" href="../scss/style.css" />
+        <!-- //style -->
+        <!-- vendor core -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script nomodule src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js" crossorigin="anonymous"></script>
+        <script
+            nomodule
+            src="https://polyfill.io/v3/polyfill.min.js?features=Object.assign%2CElement.prototype.append%2CNodeList.prototype.forEach%2CCustomEvent%2Csmoothscroll"
+            crossorigin="anonymous"
+        ></script>
+        <script src="../js/vendor/locomotive.min.js"></script>
+
+        <!-- //vendor core -->
+
+        <!-- ui javascript -->
+        <script src="../js/common.js" defer></script>
+        <!-- //ui javascript -->
+
+        <title>CONTACT US</title>
+    </head>
+    <body>
+        <div class="suv-container contact-us" data-scroll-container>
+            <!-- ADDRESS 찾아오시는 길-->
+            <section class="suv-section" data-scroll-section id="address" style="height: 100vh">
+                <div class="fixed" data-scroll data-scroll-position="top" data-scroll-speed="0.1">
+                    <div class="suv-contents">
+                        <div class="suv-title-wrap">
+                            <h1 data-scroll data-scroll-call="splatebar" data-scroll-position="top" data-scroll-speed="0.1">ADDRESS</h1>
+                            <h2>
+                                <span data-scroll data-scroll-call="splatebar" data-scroll-position="top" data-scroll-speed="0.1">MERCURY PROCESS TO SUCCESS</span>
+                            </h2>
+                        </div>
+
+                        <div class="suv-assi-wrap black">
+                            <h2 data-scroll data-scroll-position="top" data-scroll-speed="0.1">
+                                <span data-scroll data-scroll-call="titleOn">찾아오시는 길</span>
+                            </h2>
+                            <ul>
+                                <li data-scroll data-scroll-position="top" data-scroll-speed="0.1">
+                                    <p data-scroll data-scroll-call="slideRight" style="transition-delay: 0.9s">머큐리프로젝트 주식회사에 찾아오시는 길입니다.</p>
+                                </li>
+
+                                <li data-scroll data-scroll-position="top" data-scroll-speed="0.1">
+                                    <p data-scroll data-scroll-call="slideRight" style="transition-delay: 1.1s">
+                                        서울특별시 강남구 역삼동 봉은사로 38길 13 3,4,5층<br />
+                                        sales@mercuryproject.com
+                                    </p>
+
+                                    <span class="spq bold tel" data-scroll data-scroll-call="slideRight" style="transition-delay: 1.3s">02.565.0829</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="address-bg" data-scroll data-scroll-call="slideUp" style="transition-delay: 1.5s"></div>
+                    </div>
+                </div>
+            </section>
+            <!--//ADDRESS 찾아오시는 길-->
+
+            <!-- REQUEST 문의하기 -->
+            <section class="fix_wrapper" data-scroll-section id="request" style="height: 1913px">
+                <div class="fix_target" id="fix-target"></div>
+
+                <div class="fix" data-scroll-repeat data-scroll data-scroll-sticky data-scroll-target="#fix-target">
+                    <span class="request-bg"></span>
+                </div>
+                <div class="suv-contents none-animation">
+                    <div class="suv-title-wrap" data-scroll>
+                        <h1 data-scroll data-scroll-position="top" data-scroll-speed="0.1">REQUEST</h1>
+                        <h2>
+                            <span data-scroll data-scroll-position="top" data-scroll-speed="0.1">MERCURY PROCESS TO SUCCESS</span>
+                        </h2>
+                    </div>
+
+                    <div class="suv-assi-wrap black" data-scroll>
+                        <h2 data-scroll data-scroll-position="top" data-scroll-speed="0.1">
+                            <span data-scroll>문의하기</span>
+                        </h2>
+                        <ul data-scroll data-scroll-position="top" data-scroll-speed="0.1">
+                            <li>
+                                <p data-scroll style="transition-delay: 0.9s">문의하실 내용을 알려주세요.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="ui form" data-scroll data-scroll-position="top" data-scroll-speed="0.1">
+                        <div class="fields">
+                            <div class="field">
+                                <h3 class="title">캠페인의 대상 지역을 선택해 주세요.</h3>
+                                <div class="button-group flex" data-selection="single">
+                                    <button class="ui button small active">국내</button>
+                                    <button class="ui button small">국외</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fields">
+                            <div class="field">
+                                <h3 class="title">진행하고 싶은 캠페인의 광고주/브랜드명을 입력해 주세요.</h3>
+                                <input type="text" class="ui input active" value="캠페인 광고주/브랜드명입니다." />
+                            </div>
+                        </div>
+
+                        <div class="fields">
+                            <div class="field">
+                                <h3 class="title">캠페인을 통해 얻고 싶은 성과를 선택해 주세요. (중복선택 가능)</h3>
+                                <div class="button-group col3" data-selection="multiple">
+                                    <button class="ui button">브랜드 인지도 증가</button>
+                                    <button class="ui button">브랜드 메시지/이미지 전달</button>
+                                    <button class="ui button">신규 이용자 확보</button>
+                                    <button class="ui button">서비스 활성화</button>
+                                    <button class="ui button">전환 및 구매증가</button>
+                                    <button class="ui button">기타</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fields">
+                            <div class="field">
+                                <h3 class="title">집행을 고려하고 있는 매체를 선택해 주세요.</h3>
+                                <select class="ui select">
+                                    <option value="" selected disabled hidden>매체를 선택해 주세요.</option>
+                                    <option>매체1</option>
+                                    <option>매체2</option>
+                                    <option>매체3</option>
+                                    <option>매체4</option>
+                                    <option>매체5</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="fields">
+                            <div class="field">
+                                <h3 class="title">캠페인 예산 규모를 선택해 주세요.</h3>
+                                <select class="ui select">
+                                    <option value="" selected disabled hidden>예산을 선택해 주세요.</option>
+                                    <option>value1</option>
+                                    <option>value2</option>
+                                    <option>value3</option>
+                                    <option>value4</option>
+                                    <option>value5</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <h3 class="title">캠페인 예상 시기를 선택해 주세요.</h3>
+                                <select class="ui select">
+                                    <option value="" selected disabled hidden>예상 시기를 선택해 주세요.</option>
+                                    <option>value1</option>
+                                    <option>value2</option>
+                                    <option>value3</option>
+                                    <option>value4</option>
+                                    <option>value5</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="fields">
+                            <div class="field">
+                                <h3 class="title">문의하실 내용을 입력해 주세요.</h3>
+                                <div class="textarea-wrap">
+                                    <textarea class="ui textarea">
+가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하
+                                    </textarea>
+                                </div>
+                                <span class="text-info">
+                                    캠페인을 집행하실 브랜드/서비스의 진행상태(신규 런칭, 리브랜딩, 연간 캠페인, 이벤트 진행 등)와 캠페인 타킷 및 고려 매체 등을 자세하게 기입해<br />
+                                    주시면 정확한 답변을 드리겠습니다.
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="fields">
+                            <div class="field">
+                                <h3 class="title">의뢰인 정보입력해 주세요.</h3>
+                                <div class="button-group col3">
+                                    <input class="ui input" placeholder="이름을 입력해 주세요. (필수)" />
+                                    <input class="ui input" placeholder="이메일을 입력해 주세요. (필수)" />
+                                    <input class="ui input" placeholder="연락처를 입력해 주세요. (필수)" />
+                                    <input class="ui input" placeholder="회사명을 입력해 주세요." />
+                                    <input class="ui input" placeholder="부서명을 입력해 주세요." />
+                                    <input class="ui input" placeholder="직함을 입력해 주세요." />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fields">
+                            <div class="field">
+                                <h3 class="title">개인정보 수집 및 이용동의</h3>
+                                <div class="privacy-wrap">
+                                    <div class="privacy-box">
+                                        <iframe src="./privacy.html" id="privacyInfo"></iframe>
+                                    </div>
+
+                                    <div class="control-line">
+                                        <div class="control-left">
+                                            <div class="checkbox">
+                                                <input type="checkbox" id="chk01" />
+                                                <label for="chk01">개인정보 수집 및 이용에 동의합니다.</label>
+                                            </div>
+                                        </div>
+                                        <div class="control-right">
+                                            <button class="ui button">문의하기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- //REQUEST 문의하기 -->
+
+            <!-- recruit 채용안내 -->
+            <section class="suv-section" id="recruit" data-scroll-section style="height: 1050px">
+                <div class="fixed" data-scroll>
+                    <div class="suv-contents" data-scroll>
+                        <div class="suv-title-wrap" data-scroll data-scroll-target="#recruit">
+                            <h1 data-scroll data-scroll-call="splatebar" data-scroll-position="top" data-scroll-speed="0.1" data-scroll-delay="0.1">RECRUIT</h1>
+                            <h2>
+                                <span data-scroll data-scroll-call="splatebar" data-scroll-position="top" data-scroll-speed="0.1" data-scroll-delay="0.1">MERCURY PROCESS TO SUCCESS</span>
+                            </h2>
+                        </div>
+
+                        <div class="suv-assi-wrap black" data-scroll>
+                            <h2 data-scroll data-scroll-position="top" data-scroll-speed="0.1">
+                                <span data-scroll data-scroll-call="titleOn">채용안내</span>
+                            </h2>
+                            <ul data-scroll data-scroll-position="top" data-scroll-speed="0.1">
+                                <li>
+                                    <p data-scroll data-scroll-call="slideRight" style="transition-delay: 0.9s">
+                                        아무도 가지 않은 곳으로, 누구도 하지 못한 방식으로 새로운 영역을 함께 개척해 나아갈 인재를 찾습니다.
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="suv-org-wrap right recustom" data-scroll data-scroll-position="top" data-scroll-speed="-0.1">
+                            <dl data-scroll data-scroll-call="borderScaleX">
+                                <dt data-scroll data-scroll-call="titleOn">ACCOUNT<br />TEAM</dt>
+                                <dd>
+                                    <h5 data-scroll data-scroll-call="slideRight" class="title">담당업무</h5>
+                                    <span data-scroll data-scroll-call="slideRight">광고집행을 위한 매체 전량 수집 및 운영</span>
+                                    <span data-scroll data-scroll-call="slideRight">캠페인의 목적에 따른 매체 컨설팅, 제안서 작성</span>
+                                    <span data-scroll data-scroll-call="slideRight">캠페인 효과 분석 및 데이터 관리</span>
+                                </dd>
+                                <dd>
+                                    <h5 data-scroll data-scroll-call="slideRight" class="title">자격요건 및 우대사항</h5>
+                                    <span data-scroll data-scroll-call="slideRight">브랜드 및 시장에 대한 이해가 있는분</span>
+                                    <span data-scroll data-scroll-call="slideRight">데이터 기반의 커뮤니케이션이 원활한 분</span>
+                                    <span data-scroll data-scroll-call="slideRight">디지털 솔루션에 대한 이해가 높은 분</span>
+                                    <span data-scroll data-scroll-call="slideRight">브랜드에 대한 생각을 제안서로 잘 표현하는 분</span>
+                                </dd>
+                            </dl>
+                            <dl data-scroll data-scroll-call="borderScaleX">
+                                <dt data-scroll data-scroll-call="titleOn">TRADING<br />TEAM</dt>
+                                <dd>
+                                    <h5 data-scroll data-scroll-call="slideRight" class="title">담당업무</h5>
+                                    <span data-scroll data-scroll-call="slideRight">디지털 캠페인 집행 전 과정(준비,집행,보고)에서의 DSP솔루션 운영</span>
+                                    <span data-scroll data-scroll-call="slideRight">캠페인 목표 및 KPI 달성에 적합한 운영 및 최적화</span>
+                                    <span data-scroll data-scroll-call="slideRight">전문 솔루션을 활용한 전략적 광고 트레이딩 및 효율관리</span>
+                                </dd>
+                                <dd>
+                                    <h5 data-scroll data-scroll-call="slideRight" class="title">자격요건 및 우대사항</h5>
+                                    <span data-scroll data-scroll-call="slideRight">애드테크 전방(애드서버/DSP/DMP/Analytics 등)에 대한 이해도를 갖춘 분</span>
+                                    <span data-scroll data-scroll-call="slideRight">웹 및 앱환경에 대한 개괄적인 이해도를 갖춘 분</span>
+                                </dd>
+                            </dl>
+                            <dl data-scroll data-scroll-call="borderScaleX">
+                                <dt data-scroll data-scroll-call="titleOn">TECH<br />TEAM</dt>
+                                <dd>
+                                    <h5 data-scroll data-scroll-call="slideRight" class="title">담당업무</h5>
+                                    <span data-scroll data-scroll-call="slideRight">웹 및 앱 EVENT 설계 및 Tracking System 설치</span>
+                                    <span data-scroll data-scroll-call="slideRight">외부 Marketing Tool과 Tracking System 연동</span>
+                                    <span data-scroll data-scroll-call="slideRight">Tracking System data 정합성 모니터링</span>
+                                    <span data-scroll data-scroll-call="slideRight">데이터 파이프라인, 웨어하우스 환경 구축 및 운영</span>
+                                </dd>
+                                <dd>
+                                    <h5 data-scroll data-scroll-call="slideRight" class="title">자격요건 및 우대사항</h5>
+                                    <span data-scroll data-scroll-call="slideRight">웹 개발 업무 3년 경력</span>
+                                    <span data-scroll data-scroll-call="slideRight">javascript, html, css, 등 frontend side에 대한 전반적 이해를 갖춘 분</span>
+                                    <span data-scroll data-scroll-call="slideRight">Python 및 Django/Flask등 Python 기반 웹프레임워크 경험이 있으신 분</span>
+                                    <span data-scroll data-scroll-call="slideRight">Python ORM 및 SQL 경험이 있으신 분</span>
+                                    <span data-scroll data-scroll-call="slideRight">Github을 사용 및 개발 협업 경험이 있으신 분</span>
+                                    <span data-scroll data-scroll-call="slideRight">
+                                        글로벌 광고 플랫폼 개발 및 연동 경험이 있으신 분<br />
+                                        (GMP, Facebook, GA, GTM, Appsflyer 등)
+                                    </span>
+                                    <span data-scroll data-scroll-call="slideRight">프로그램 개발 관련 전공이신 분</span>
+                                    <span data-scroll data-scroll-call="slideRight">디지털 광고 산업에 대한 전반적인 이해와 관심 있으신 분</span>
+                                    <span data-scroll data-scroll-call="slideRight">서비스 개선에 필요한 업무에 대한 적극적인 자세를 갖추신 분</span>
+                                    <span data-scroll data-scroll-call="slideRight">vue front framework 경험이 있으신 분</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- //recruit 채용안내 -->
+        </div>
+    </body>
+    <script>
+        const scroll02 = new LocomotiveScroll({
+            el: document.querySelector("[data-scroll-container]"),
+            smooth: true,
+            getDirection: true,
+            tablet: { smooth: !1, direction: "vertical", gestureDirection: "vertical", breakpoint: 0 },
+            smartphone: { smooth: !1, direction: "vertical", gestureDirection: "vertical" },
+        });
+
+        function getObj(props) {
+            const target = document.querySelector("#" + props);
+            const el = document.querySelector("[data-scroll-container]");
+
+            scroll02.scrollTo(target);
+        }
+
+        //현재 down만 구현 up은 미정
+        document.addEventListener("DOMContentLoaded", function () {
+            scroll02.update();
+
+            scroll02.on("scroll", function (obj) {
+                //console.log("???", obj, obj.direction);
+            });
+
+            scroll02.on("call", function (func, i, e) {
+                if (func === "splatebar") {
+                    splatebar(func, i, e);
+                } else if (func === "tabsListOper") {
+                    tabsListOper(func, i, e);
+                } else if (func === "titleOn") {
+                    titleOn(func, i, e);
+                } else if (func === "slideRight") {
+                    slideRight(func, i, e);
+                } else if (func === "borderScaleX") {
+                    borderScaleX(func, i, e);
+                } else if (func === "slideUp") {
+                    slideUp(func, i, e);
+                }
+            });
+
+            function splatebar(func, i, e) {
+                e.target.classList.add("splateBar-animation");
+            }
+
+            function tabsListOper(func, i, e) {
+                e.target.classList.add("tabsListOper");
+            }
+
+            function titleOn(func, i, e) {
+                e.target.classList.add("titleOn");
+            }
+
+            function slideRight(func, i, e) {
+                e.target.classList.add("slideRight");
+            }
+
+            function borderScaleX(func, i, e) {
+                e.target.classList.add("borderScaleX");
+            }
+
+            function slideUp(func, i, e) {
+                e.target.classList.add("slideUp");
+            }
+        });
+    </script>
+</html>

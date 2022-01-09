@@ -117,6 +117,15 @@
         z-index: 10;
         padding: 100px 200px 0 330px;
 
+        &.none-animation {
+            .suv-assi-wrap {
+                * {
+                    transform: none;
+                    opacity: 1;
+                }
+            }
+        }
+
         .suv-title-wrap {
             // position: relative;
             margin-top: -4px;
@@ -206,6 +215,10 @@
         .suv-assi-wrap {
             color: #fff;
 
+            + .form {
+                margin-top: 54px;
+            }
+
             &.black {
                 color: #000;
             }
@@ -224,7 +237,7 @@
                     transform-origin: bottom center;
                     &:after {
                         position: relative;
-                        bottom: 4px;
+                        bottom: 1px;
                         display: inline-block;
                         margin-left: 6px;
                         width: 17px;
