@@ -442,11 +442,11 @@
     <script>
         //퍼블리싱 임시 로컬스토리지로 모션 제작 | 개발시엔 서버통신으로 바꿔주세요
         //로직은 전면 수정하셔서 사용하여야 합니다 감사합니다.
-
         let ajaxLoad = true;
         const suv = document.querySelector("#suv"); //who we ard
         const suv02 = document.querySelector("#suv02"); //what we do
         const suv03 = document.querySelector("#suv03"); //contact us
+        const subpagesOpen = localStorage.getItem("suvOpen") === "true";
 
         function openSubPages(param, props) {
             const getId = props.closest("li[data-id]").dataset.id;
@@ -593,9 +593,8 @@
 
         document.addEventListener("DOMContentLoaded", function () {
             fullpageLoad();
-            //subpagesOpen true일때 항상 오픈
-            const subpagesOpen = localStorage.getItem("suvOpen") === "true";
 
+            //subpagesOpen true일때 항상 오픈
             if (subpagesOpen && localStorage.getItem("whoweare") === "true") {
                 suv.classList.add("loadOpen");
                 localStorage.setItem("whoweare", true);
@@ -617,7 +616,7 @@
                 suv03.classList.remove("loadOpen");
             } else if (subpagesOpen && localStorage.getItem("contactus") === "true") {
                 suv03.classList.add("loadOpen");
-                localStorage.setItem("CONTACTUS", true);
+                localStorage.setItem("contactus", true);
 
                 document.body.style.overflow = "hidden";
                 ajaxLoad = false;

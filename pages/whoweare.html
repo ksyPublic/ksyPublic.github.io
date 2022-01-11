@@ -566,10 +566,6 @@
         document.addEventListener("DOMContentLoaded", function () {
             scroll01.update();
 
-            scroll01.on("scroll", function (args) {
-                console.log("???", args.direction);
-            });
-
             scroll01.on("call", function (func, i, e) {
                 if (func === "splatebar") {
                     splatebar(func, i, e);

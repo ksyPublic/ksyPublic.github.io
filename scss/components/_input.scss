@@ -7,15 +7,12 @@
     font-weight: 400;
     font-family: "Spoqa Han Sans Neo", sans-serif;
     border: 1px solid #b5b5b5;
-    &.active {
-        border: 2px solid #e96406;
-        font-weight: bold;
-        &:focus {
-            outline: 0;
-        }
-    }
+
     &:focus {
         outline: 2px solid #e96406;
         outline-offset: -1px;
+        &::placeholder {
+            color: transparent;
+        }
     }
 }

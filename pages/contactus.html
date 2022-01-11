@@ -103,7 +103,7 @@
                         <div class="fields">
                             <div class="field">
                                 <h3 class="title">진행하고 싶은 캠페인의 광고주/브랜드명을 입력해 주세요.</h3>
-                                <input type="text" class="ui input active" value="캠페인 광고주/브랜드명입니다." />
+                                <input type="text" class="ui input active" placeholder="캠페인 광고주/브랜드명입니다." />
                             </div>
                         </div>
 
@@ -302,6 +302,15 @@
                     </div>
                 </div>
             </section>
+
+            <section class="suv-section" data-scroll-section>
+                <footer>
+                    <ul>
+                        <li><a href="#none" alt="개인정보 처리방침">개인정보 처리방침</a></li>
+                        <li>Copyright ⓒ 2021 Mercury Project All rights reserved</li>
+                    </ul>
+                </footer>
+            </section>
             <!-- //recruit 채용안내 -->
         </div>
     </body>
@@ -324,10 +333,6 @@
         //현재 down만 구현 up은 미정
         document.addEventListener("DOMContentLoaded", function () {
             scroll02.update();
-
-            scroll02.on("scroll", function (obj) {
-                //console.log("???", obj, obj.direction);
-            });
 
             scroll02.on("call", function (func, i, e) {
                 if (func === "splatebar") {
