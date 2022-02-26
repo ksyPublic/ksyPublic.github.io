@@ -16,7 +16,7 @@
 
 .flex {
     display: flex;
-    margin-top: 54px;
+    margin-top: 94px;
     dl {
         width: 604px;
         font-size: 0px;
@@ -62,7 +62,7 @@
 //전문적인 트래킹
 .tech-rt-wrap {
     position: absolute;
-    top: 440px;
+    top: 350px;
     right: 358px;
     font-size: 0px;
     .tech-box {
@@ -262,7 +262,7 @@
 
 /*오디언스 플래닝 */
 .audience-wrap {
-    margin-top: 34px;
+    margin-top: 74px;
     font-size: 0px;
 
     .circle {
@@ -495,7 +495,7 @@
 }
 
 .oper-wrap {
-    margin-top: 58px;
+    margin-top: 98px;
     font-size: 0px;
     .oper-box {
         display: inline-block;
@@ -571,17 +571,34 @@
 }
 
 .clients-wrap {
+    margin-top: 32px;
     width: 100%;
     display: block;
+    .clients-text {
+        margin-bottom: 20px;
+        position: relative;
+        font-size: 15px;
+        font-family: "Spoqa Han Sans Neo", sans-serif;
+        font-weight: 400;
+        transition: opacity 1s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        transform: translateX(50px);
+        opacity: 0;
+        &.slideRight {
+            opacity: 1;
+            transition: opacity 1s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            transform: translateX(0px);
+        }
+    }
     ul {
+        font-size: 0;
         li {
             width: 120px;
             height: 120px;
             border: 1px solid #d5d5d5;
             display: inline-block;
             vertical-align: top;
-            margin-right: 20px;
-            margin-bottom: 20px;
+            margin-right: 10px;
+            margin-bottom: 10px;
             opacity: 0;
             transition: opacity 1s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
             transform: translateY(100%);
@@ -596,7 +613,24 @@
 
 .cover-wrap {
     position: relative;
+    margin-top: 55px;
     width: 1133px;
+    .cover-text {
+        margin-bottom: 20px;
+        margin-left: 150px;
+        position: relative;
+        font-size: 15px;
+        font-family: "Spoqa Han Sans Neo", sans-serif;
+        font-weight: 400;
+        transition: opacity 1s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        transform: translateX(50px);
+        opacity: 0;
+        &.slideRight {
+            opacity: 1;
+            transition: opacity 1s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            transform: translateX(0px);
+        }
+    }
     &.svgon {
         &:before {
             color: #777;
@@ -691,7 +725,7 @@
     }
     svg {
         position: absolute;
-        top: 57px;
+        top: 92px;
         left: 73px;
         line {
             &:first-child {
@@ -757,12 +791,12 @@
 
         &.polygon-left {
             left: 21px;
-            top: calc(50% - 52px);
+            top: calc(50% - 35px);
         }
 
         &.polygon-right {
             right: 21px;
-            top: calc(50% - 52px);
+            top: calc(50% - 35px);
 
             span {
                 font-size: 24px;
@@ -846,7 +880,7 @@
 
 .analy-wrap {
     font-size: 0px;
-    margin-top: 60px;
+    margin-top: 97px;
     .analy-box {
         z-index: 20;
         position: relative;
@@ -951,7 +985,7 @@
 }
 
 .view-wrap {
-    margin-top: 38px;
+    margin-top: 142px;
     .view-box {
         z-index: 1;
         margin-left: -3px;

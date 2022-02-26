@@ -1,7 +1,7 @@
 .address-bg {
     position: absolute;
-    right: 394px;
-    top: 217px;
+    right: 396px;
+    top: 220px;
     width: 868px;
     height: 588px;
     background: url("../img/ctu/address-bg.png") no-repeat;
@@ -25,25 +25,31 @@
 .suv-contents .suv-assi-wrap + .suv-org-wrap.right.recustom {
     margin-top: 0px;
 }
+
+.suv-contents .suv-title-wrap + .suv-org-wrap {
+    &.right.recustom {
+        margin-top: 36px;
+    }
+}
 .suv-contents .suv-org-wrap {
     &.right.recustom {
         max-width: 1260px;
         dl {
-            padding: 30px 0;
+            display: inline-block;
+            vertical-align: top;
             align-items: start;
+            width: 356px;
+            padding: 0;
 
             dt {
-                font-size: 40px;
-                line-height: 40px;
-                width: 207px;
-                text-align: right;
-                margin-right: 62px;
+                font-size: 30px;
+                line-height: 30px;
+                text-align: left;
                 position: relative;
-                top: -3px;
             }
 
             dd {
-                width: 496px;
+                margin-top: 34px;
                 h5 {
                     &.title {
                         display: block;
