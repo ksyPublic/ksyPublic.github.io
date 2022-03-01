@@ -154,6 +154,7 @@
                 display: inline-block;
                 font-weight: bold;
                 font-size: 60px;
+                line-height: 48px;
                 font-family: "Graphik", sans-serif;
                 &:after {
                     position: absolute;
@@ -535,7 +536,7 @@
 
         &:not(:first-child) {
             .suv-contents {
-                padding-top: 120px;
+                padding-top: 160px;
             }
         }
 
@@ -785,7 +786,7 @@ span {
 
 .google-platform-wrap {
     position: absolute;
-    top: 390px;
+    top: 507px;
     right: 200px;
     z-index: 100;
     width: 650px;

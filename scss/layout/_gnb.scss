@@ -5,7 +5,7 @@
     z-index: 9999;
     .nav {
         position: relative;
-        margin-top: 9px;
+        margin-top: 13px;
         .nav-depth {
             overflow: hidden;
             margin-top: 7px;
@@ -20,12 +20,16 @@
                 .nav-list {
                     //
                 }
+                + .nav-depth {
+                    margin-top: 17px;
+                }
             }
         }
         .nav-list {
             position: relative;
-            padding-top: 5px;
+            margin-top: -4px;
             li {
+                font-size: 0;
                 position: relative;
                 min-width: 100%;
                 color: #e96406;
@@ -33,9 +37,7 @@
                 &:first-child {
                     margin-top: 13px;
                 }
-                &:last-child {
-                    margin-bottom: 10px;
-                }
+
                 &:before {
                     position: relative;
                     top: 0;
@@ -48,7 +50,7 @@
                 }
                 a {
                     display: inline-block;
-                    height: 19px;
+                    line-height: 21px;
                     vertical-align: top;
                     font-weight: 500;
                     font-size: 16px;
@@ -58,7 +60,7 @@
         ul {
             li {
                 position: relative;
-                margin-top: 7px;
+                margin-top: 5px;
                 font-weight: bolder;
                 font-family: "Graphik", sans-serif;
                 &:first-child {
