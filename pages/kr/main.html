@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- style -->
+        <link rel="stylesheet" href="../../scss/style.css" />
+        <!-- //style -->
+        <!-- vendor core -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script nomodule src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js" crossorigin="anonymous"></script>
+        <script
+            nomodule
+            src="https://polyfill.io/v3/polyfill.min.js?features=Object.assign%2CElement.prototype.append%2CNodeList.prototype.forEach%2CCustomEvent%2Csmoothscroll"
+            crossorigin="anonymous"
+        ></script>
+        <script src="../../js/vendor/fullpage.js"></script>
+        <!-- //vendor core -->
+
+        <!-- ui javascript -->
+        <script src="../../js/common.js" defer></script>
+        <!-- //ui javascript -->
+
+        <title>메인시안</title>
+    </head>
+    <body>
+        <script>
+            const setCookie = function (name, value, day) {
+                var date = new Date();
+                date.setTime(date.getTime() + day * 60 * 60 * 24 * 1000);
+                document.cookie = name + "=" + value + ";expires=" + date.toUTCString() + ";path=/";
+            };
+
+            const getCookie = function (name) {
+                var value = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
+                return value ? value[2] : null;
+            };
+
+            const deleteCookie = function (name) {
+                var date = new Date();
+                document.cookie = name + "= " + "; expires=" + date.toUTCString() + "; path=/";
+            };
+
+            const total = 1920 / 40;
+
+            let createSpan = null;
+
+            //메인 스플래쉬 애니메이션
+            function splashAnimate(splashWrap) {
+                const total = window.innerWidth / 2;
+                const min = total / 24 + 2;
+                //바르게 출력
+
+                for (let i = 0; i < Number(min.toFixed(0)); i++) {
+                    createSpan = document.createElement("SPAN");
+                    spanedBar = createSpan.classList.add("splash-bar");
+                    splashWrap[1].appendChild(createSpan);
+
+                    if (i.toFixed(0) % 2 == 0) {
+                        createSpan.classList.add("clipathed" + i);
+                        createSpan.style.animation = "splsh-down 1s cubic-bezier(0.3, 0.71, 0.51, 0.9) forwards";
+                        createSpan.style.animationDelay = i.toFixed(0) * 0.03 + "s";
+                        createSpan.style.right = i * 40 + "px";
+                        // ClipPath(".clipathed" + i + "", "" + i * 24 + "px 0, " + ((i * 24) + 24) + "px 0, " + ((i * 24) + 24) + "px 100%, " + i * 24 + "px 100%");
+                    } else {
+                        createSpan.classList.add("clipathed" + i);
+                        createSpan.style.animation = "splsh-up 1s cubic-bezier(0.3, 0.71, 0.51, 0.9) forwards";
+                        createSpan.style.animationDelay = i.toFixed(0) * 0.03 + "s";
+                        createSpan.style.right = i * 40 + "px";
+                        // ClipPath(".clipathed" + i + "", "" + i * 24 + "px 0, " + ((i * 24) + 24) + "px 0, " + ((i * 24) + 24) + "px 100%, " + i * 24 + "px 100%");
+                    }
+                }
+
+                //거꾸로 출력
+                for (let i = Number(min.toFixed(0)); i >= 0; i--) {
+                    createSpan = document.createElement("SPAN");
+                    spanedBar = createSpan.classList.add("splash-bar");
+                    splashWrap[0].appendChild(createSpan);
+
+                    if (i.toFixed(0) % 2 == 0) {
+                        createSpan.classList.add("clipathed" + i);
+                        createSpan.style.animation = "splsh-down 1s cubic-bezier(0.3, 0.71, 0.51, 0.9) forwards";
+                        createSpan.style.animationDelay = i.toFixed(0) * 0.03 + "s";
+                        createSpan.style.left = i * 40 + "px";
+                        // ClipPath(".clipathed" + i + "", "" + i * 24 + "px 0, " + ((i * 24) + 24) + "px 0, " + ((i * 24) + 24) + "px 100%, " + i * 24 + "px 100%");
+                    } else {
+                        createSpan.classList.add("clipathed" + i);
+                        createSpan.style.animation = "splsh-up 1s cubic-bezier(0.3, 0.71, 0.51, 0.9) forwards";
+                        createSpan.style.animationDelay = i.toFixed(0) * 0.03 + "s";
+                        createSpan.style.left = i * 40 + "px";
+                        // ClipPath(".clipathed" + i + "", "" + i * 24 + "px 0, " + ((i * 24) + 24) + "px 0, " + ((i * 24) + 24) + "px 100%, " + i * 24 + "px 100%");
+                    }
+                }
+            }
+
+            $(document).ready(function () {
+                console.log("COOKIE", getCookie("test"));
+                if (getCookie("test") !== "Y") {
+                    $.ajax({
+                        url: "main-splash.html",
+
+                        //조회 성공일때
+                        success: function (result) {
+                            $("#root").append(result);
+                        },
+
+                        beforeSend: function () {
+                            loading().open();
+                        },
+
+                        complete: function () {
+                            loading().close();
+                            //스플래시 실행시 페이지 1번에서 실행 이후 쿠키 작업예정
+                            window.location.href = location.origin + "/#anchors1";
+
+                            const splashParent = document.querySelector(".splash-interative");
+                            const splashWrap = document.querySelectorAll(".splash-container");
+                            splashAnimate(splashWrap);
+
+                            setTimeout(function () {
+                                splashParent.style.display = "none";
+                            }, 2000);
+                        },
+
+                        error: function (e) {},
+
+                        timeout: 100000,
+                    });
+                    setCookie("test", "Y", 1);
+                }
+            });
+        </script>
+        <div class="loading-wrap">
+            <div class="loading-container">
+                <span class="loader"></span>
+            </div>
+        </div>
+        <div class="wrap" id="root">
+            <!-- 좌측 고정 메뉴 -->
+            <div class="gnb">
+                <!-- logo -->
+                <a href="javascript:void(0)" class="logo" alt="홈" onclick="goHome()">
+                    <i class="logo-wrap">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </i>
+                </a>
+                <div class="nav">
+                    <ul>
+                        <li class="nav-depth" data-id="1">
+                            <a href="javascript:void(0)">Who we are</a>
+                            <ul class="nav-list">
+                                <li><a href="javascript:void(0)" alt="About" onclick="openSubPages('about', this)">About</a></li>
+                                <li><a href="javascript:void(0)" alt="History" onclick="openSubPages('history', this)">History</a></li>
+                                <li><a href="javascript:void(0)" alt="Our team" onclick="openSubPages('ourTeam', this)">Our team</a></li>
+                                <li>
+                                    <a href="javascript:void(0)" alt="Google Marketing Platform" onclick="openSubPages('goolemarketing', this)">Google Marketing<br />Platform</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-depth" data-id="2">
+                            <a href="javascript:void(0)">What we do</a>
+                            <ul class="nav-list">
+                                <li><a href="javascript:void(0)" alt="Tech-Consulting" onclick="openSubPages('techConsulting', this)">Tech-Consulting</a></li>
+                                <li><a href="javascript:void(0)" alt="Viewability" onclick="openSubPages('viewability', this)">Viewability</a></li>
+                                <li><a href="javascript:void(0)" alt="Audience" onclick="openSubPages('audience', this)">Audience</a></li>
+                                <li><a href="javascript:void(0)" alt="Operations" onclick="openSubPages('operations', this)">Operations</a></li>
+                                <li><a href="javascript:void(0)" alt="Coverage" onclick="openSubPages('coverage', this)">Coverage</a></li>
+                                <li><a href="javascript:void(0)" alt="Analysis" onclick="openSubPages('analysis', this)">Analysis</a></li>
+                                <li><a href="javascript:void(0)" alt="Clients" onclick="openSubPages('clients', this)">Clients</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-depth" data-id="3">
+                            <a href="javascript:void(0)">Contact us</a>
+                            <ul class="nav-list">
+                                <li><a href="javascript:void(0)" alt="Address" onclick="openSubPages('address', this)">Address</a></li>
+                                <li><a href="javascript:void(0)" alt="Request" onclick="openSubPages('request', this)">Request</a></li>
+                                <li><a href="javascript:void(0)" alt="Recruit" onclick="openSubPages('recruit', this)">Recruit</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="button-group">
+                        <a href="#none" alt="한글" class="switch-button active">
+                            <span>KR</span>
+                        </a>
+                        <a href="#none" alt="영문" class="switch-button">
+                            <span>EN</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- //logo -->
+            </div>
+            <!-- //좌측 고정 메뉴 -->
+
+            <div class="pg-wrapper">
+                <!-- 우측 앵커 -->
+                <div class="pg-vertical">
+                    <div class="pg-pips">
+                        <ul>
+                            <li data-menuanchor="anchors1" class="active">
+                                <a href="#anchors1"></a>
+                            </li>
+                            <li data-menuanchor="anchors2">
+                                <a href="#anchors2"></a>
+                            </li>
+                            <li data-menuanchor="anchors3">
+                                <a href="#anchors3"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--// 우측 앵커 -->
+                <!-- 메인 풀페이지 -->
+                <div class="pg-container" id="fullpage">
+                    <div id="page-1" class="section">
+                        <div class="visual-wrap">
+                            <!-- 비쥬얼 로고 -->
+                            <div class="visual-logo" data-logo="0">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <!-- //비쥬얼 로고 -->
+
+                            <!-- 01. 비쥬얼 텍스트 -->
+                            <div class="visual" data-text="0">
+                                <div class="visual-text">
+                                    <span class="logo-top">
+                                        <ul>
+                                            <li class="logo-text img01"></li>
+                                            <li class="logo-text img02"></li>
+                                            <li class="logo-text img03"></li>
+                                            <li class="logo-text img04"></li>
+                                            <li class="logo-text img05"></li>
+                                            <li class="logo-text img06"></li>
+                                            <li class="logo-text img07"></li>
+                                        </ul>
+                                    </span>
+                                    <span class="logo-bottom">
+                                        <ul>
+                                            <li class="logo-text img01"></li>
+                                            <li class="logo-text img02"></li>
+                                            <li class="logo-text img03"></li>
+                                            <li class="logo-text img04"></li>
+                                            <li class="logo-text img05"></li>
+                                            <li class="logo-text img06"></li>
+                                            <li class="logo-text img07"></li>
+                                        </ul>
+                                    </span>
+                                    <span class="small">INSPIRATIONS THROUGH MEDIA</span>
+                                </div>
+                            </div>
+                            <!-- //01. 비쥬얼 텍스트 -->
+                        </div>
+                        <!-- 별 -->
+                        <div class="night">
+                            <div class="shooting-star"></div>
+                            <div class="shooting-star"></div>
+                            <div class="shooting-star"></div>
+                            <div class="shooting-star"></div>
+                        </div>
+                        <!-- //별 -->
+                    </div>
+                    <div id="page-2" class="section">
+                        <div class="visual-wrap">
+                            <!-- 비쥬얼 로고 -->
+                            <div class="visual-logo" data-logo="1">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <!-- //비쥬얼 로고 -->
+
+                            <!-- 02. 비쥬얼 텍스트 -->
+                            <div class="visual" data-text="1">
+                                <div class="visual-text">
+                                    <span>WHO WE ARE</span>
+                                    <span class="small">MAKE OUR PARTNERS WINNER</span>
+                                    <ul class="snb">
+                                        <li data-id="1"><a href="javascript:void(0)" alt="ABOUT" onclick="openSubPages('about', this)">ABOUT</a></li>
+                                        <li data-id="1"><a href="javascript:void(0)" alt="HISTORY" onclick="openSubPages('history', this)">HISTORY</a></li>
+                                        <li data-id="1"><a href="javascript:void(0)" alt="OUR TEAM" onclick="openSubPages('ourTeam', this)">OUR TEAM</a></li>
+                                        <li data-id="1"><a href="javascript:void(0)" alt="Google Marketing Platform" onclick="openSubPages('goolemarketing', this)">GOOGLE MARKETING PLATFORM</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="visual-text-subline">
+                                    <span class="small">다양한 브랜드 상황에 맞는 서비스를 제공하는 최상의 비즈니스 파트너 머큐리프로젝트입니다.</span>
+                                </div>
+                            </div>
+                            <!-- //02. 비쥬얼 텍스트 -->
+                        </div>
+                        <!-- 구름 이미지 -->
+                        <div class="cloud">
+                            <div class="cd cloud-bg01"></div>
+
+                            <!-- 로켓 애니메이션 -->
+                            <div class="rocket-wrap">
+                                <div class="rocket"></div>
+                            </div>
+                            <!-- //로켓 애니메이션 -->
+                            <div class="cd cloud-bg02"></div>
+                        </div>
+                        <!-- //구름 이미지 -->
+
+                        <!-- 별 -->
+                        <div class="night">
+                            <div class="shooting-star"></div>
+                            <div class="shooting-star"></div>
+                        </div>
+                        <!-- //별 -->
+                    </div>
+                    <div id="page-3" class="section">
+                        <div class="visual-wrap">
+                            <!-- 비쥬얼 로고 -->
+                            <div class="visual-logo" data-logo="2">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <!-- //비쥬얼 로고 -->
+
+                            <!-- 03. 비쥬얼 텍스트 -->
+                            <div class="visual" data-text="2">
+                                <div class="visual-text">
+                                    <span>WHAT WE DO</span>
+                                    <span class="small">MERCURY PROCESS TO SUCCESS</span>
+                                </div>
+                            </div>
+                            <!-- //03. 비쥬얼 텍스트 -->
+
+                            <!-- 컨텐츠 -->
+                            <div class="main-contents">
+                                <ul>
+                                    <li class="main-contents-list" data-id="2">
+                                        <a href="javascript:void(0)" alt="Technical consulting" onclick="openSubPages('techConsulting', this)">
+                                            <dl class="icon icon-tech">
+                                                <dt></dt>
+                                                <dd>Technical<br />consulting</dd>
+                                            </dl>
+                                        </a>
+                                    </li>
+                                    <li class="main-contents-list" data-id="2">
+                                        <a href="javascript:void(0)" alt="Mercury media viewability" onclick="openSubPages('viewability', this)">
+                                            <dl class="icon icon-mercury">
+                                                <dt>
+                                                    <div class="core-detail-wrap">
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                    </div>
+                                                </dt>
+                                                <dd>Mercury media<br />viewability</dd>
+                                            </dl>
+                                        </a>
+                                    </li>
+                                    <li class="main-contents-list" data-id="2">
+                                        <a href="javascript:void(0)" alt="Audience funnel planning" onclick="openSubPages('audience', this)">
+                                            <dl class="icon icon-aud">
+                                                <dt></dt>
+                                                <dd>Audience funnel<br />planning</dd>
+                                            </dl>
+                                        </a>
+                                    </li>
+                                    <li class="main-contents-list" data-id="2">
+                                        <a href="javascript:void(0)" alt="Operations by Mercury’s expert" onclick="openSubPages('operations', this)">
+                                            <dl class="icon icon-oper">
+                                                <dt></dt>
+                                                <dd>Operations by<br />Mercury’s expert</dd>
+                                            </dl>
+                                        </a>
+                                    </li>
+                                    <li class="main-contents-list" data-id="2">
+                                        <a href="javascript:void(0)" alt="Multi measurement & analysis" onclick="openSubPages('analysis', this)">
+                                            <dl class="icon icon-multi">
+                                                <dt>
+                                                    <div class="core-detail-wrap">
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                    </div>
+                                                </dt>
+                                                <dd>Multi measurement<br />& analysis</dd>
+                                            </dl>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- //컨텐츠 -->
+                        </div>
+                    </div>
+
+                    <!-- 04. 푸터 -->
+                    <div id="page-4" class="section fp-auto-height">
+                        <footer>
+                            <ul>
+                                <li><a href="#none" alt="개인정보 처리방침">개인정보 처리방침</a></li>
+                                <li>Copyright ⓒ 2021 Mercury Project All rights reserved</li>
+                            </ul>
+                        </footer>
+                    </div>
+                    <!-- //04. 푸터 -->
+                </div>
+                <!-- //메인 풀페이지 -->
+
+                <!-- 서브페이지 -->
+                <div id="suv">
+                    <iframe src="./whoweare.html" id="WHOWEARE"></iframe>
+                </div>
+
+                <div id="suv02">
+                    <iframe src="./whatwedo.html" id="WHATWEDO"></iframe>
+                </div>
+
+                <div id="suv03">
+                    <iframe src="./contactus.html" id="CONTACTUS"></iframe>
+                </div>
+                <!-- //서브페이지 -->
+            </div>
+        </div>
+    </body>
+
+    <script>
+        //퍼블리싱 임시 로컬스토리지로 모션 제작 | 개발시엔 서버통신으로 바꿔주세요
+        //로직은 전면 수정하셔서 사용하여야 합니다 감사합니다.
+        let ajaxLoad = true;
+        const suv = document.querySelector("#suv"); //who we ard
+        const suv02 = document.querySelector("#suv02"); //what we do
+        const suv03 = document.querySelector("#suv03"); //contact us
+        const subpagesOpen = localStorage.getItem("suvOpen") === "true";
+
+        function openSubPages(param, props) {
+            const getId = props.closest("li[data-id]").dataset.id;
+
+            history.pushState(null, null, "#" + param);
+
+            if (getId === "1") {
+                //who we ard
+                suv.classList.add("open-suv");
+
+                localStorage.setItem("whoweare", true);
+
+                //오픈
+                localStorage.setItem("suvOpen", true);
+                ajaxLoad = false;
+
+                //리셋
+                setTimeout(function () {
+                    suv02.classList.remove("open-suv");
+                    suv02.classList.remove("loadOpen");
+                    suv03.classList.remove("open-suv");
+                    suv03.classList.remove("loadOpen");
+                }, 600);
+
+                localStorage.setItem("whatwedo", false);
+                localStorage.setItem("contactus", false);
+            } else if (getId === "2") {
+                //what we do
+                suv02.classList.add("open-suv");
+
+                localStorage.setItem("whatwedo", true);
+
+                //오픈
+                localStorage.setItem("suvOpen", true);
+                ajaxLoad = false;
+
+                //리셋
+                setTimeout(function () {
+                    suv.classList.remove("open-suv");
+                    suv.classList.remove("loadOpen");
+                    suv03.classList.remove("open-suv");
+                    suv03.classList.remove("loadOpen");
+                }, 600);
+
+                localStorage.setItem("whoweare", false);
+                localStorage.setItem("contactus", false);
+            } else {
+                //contact us
+                suv03.classList.add("open-suv");
+
+                localStorage.setItem("contactus", true);
+
+                //오픈
+                localStorage.setItem("suvOpen", true);
+                ajaxLoad = false;
+
+                //리셋
+                setTimeout(function () {
+                    suv.classList.remove("open-suv");
+                    suv.classList.remove("loadOpen");
+                    suv02.classList.remove("open-suv");
+                    suv02.classList.remove("loadOpen");
+                }, 600);
+
+                localStorage.setItem("whoweare", false);
+                localStorage.setItem("whatwedo", false);
+            }
+
+            if (!ajaxLoad) {
+                suvIframeFocusHandler(param, getId);
+            }
+        }
+
+        function suvIframeFocusHandler(param, getId) {
+            if (getId === "1") {
+                document.getElementById("WHOWEARE").contentWindow.getObj(param);
+            } else if (getId === "2") {
+                document.getElementById("WHATWEDO").contentWindow.getObj(param);
+            } else {
+                document.getElementById("CONTACTUS").contentWindow.getObj(param);
+            }
+        }
+
+        function goHome() {
+            //ajaxLoad가 false와 같을때 아래 실행
+
+            if (localStorage.getItem("suvOpen") === "true") {
+                //1. 클릭시 서브페이지 이벤트 실행
+                suv.classList.remove("open-suv");
+                suv.classList.remove("loadOpen");
+
+                //2. 풀페이지 재등록
+
+                document.body.style.overflow = "";
+
+                //3. 메뉴 클릭을 위해 값을 변경
+                localStorage.setItem("whoweare", false);
+                localStorage.setItem("suvOpen", false);
+                ajaxLoad = true;
+
+                //4. 리셋
+                suv02.classList.remove("open-suv");
+                suv02.classList.remove("loadOpen");
+                suv03.classList.remove("open-suv");
+                suv03.classList.remove("loadOpen");
+            } else if (localStorage.getItem("suvOpen") === "true") {
+                //1. 클릭시 서브페이지 이벤트 실행
+                suv02.classList.remove("open-suv");
+                suv02.classList.remove("loadOpen");
+
+                //2. 풀페이지 재등록
+                document.body.style.overflow = "";
+
+                //3. 메뉴 클릭을 위해 값을 변경
+                localStorage.setItem("whatwedo", false);
+                localStorage.setItem("suvOpen", false);
+                ajaxLoad = true;
+
+                //4. 리셋
+                suv.classList.remove("open-suv");
+                suv.classList.remove("loadOpen");
+                suv03.classList.remove("open-suv");
+                suv03.classList.remove("loadOpen");
+            } else {
+                //1. 클릭시 서브페이지 이벤트 실행
+                suv03.classList.remove("open-suv");
+                suv03.classList.remove("loadOpen");
+
+                //2. 풀페이지 재등록
+                document.body.style.overflow = "";
+
+                //3. 메뉴 클릭을 위해 값을 변경
+                localStorage.setItem("contactus", false);
+                localStorage.setItem("suvOpen", false);
+                ajaxLoad = true;
+
+                //4. 리셋
+                suv.classList.remove("open-suv");
+                suv.classList.remove("loadOpen");
+                suv02.classList.remove("open-suv");
+                suv02.classList.remove("loadOpen");
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            fullpageLoad();
+
+            //subpagesOpen true일때 항상 오픈
+            if (subpagesOpen && localStorage.getItem("whoweare") === "true") {
+                suv.classList.add("loadOpen");
+                localStorage.setItem("whoweare", true);
+
+                document.body.style.overflow = "hidden";
+                ajaxLoad = false;
+                //
+                suv02.classList.remove("loadOpen");
+                suv03.classList.remove("loadOpen");
+            } else if (subpagesOpen && localStorage.getItem("whatwedo") === "true") {
+                suv02.classList.add("loadOpen");
+                localStorage.setItem("whatwedo", true);
+
+                document.body.style.overflow = "hidden";
+                ajaxLoad = false;
+
+                //
+                suv.classList.remove("loadOpen");
+                suv03.classList.remove("loadOpen");
+            } else if (subpagesOpen && localStorage.getItem("contactus") === "true") {
+                suv03.classList.add("loadOpen");
+                localStorage.setItem("contactus", true);
+
+                document.body.style.overflow = "hidden";
+                ajaxLoad = false;
+
+                //
+                suv.classList.remove("loadOpen");
+                suv02.classList.remove("loadOpen");
+            }
+        });
+    </script>
+</html>
