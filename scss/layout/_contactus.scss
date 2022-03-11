@@ -13,6 +13,18 @@
         transition: opacity 1s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
         transform: translateY(0);
     }
+
+    @at-root {
+        .eng {
+            .address-bg {
+                right: 387px;
+                top: 214px;
+                width: 870px;
+                height: 589px;
+                background: url("../img/ctu/address-eng-bg.png") no-repeat;
+            }
+        }
+    }
 }
 .request-bg {
     position: absolute;
@@ -34,6 +46,29 @@
 .suv-contents .suv-org-wrap {
     &.right.recustom {
         max-width: 1260px;
+        @at-root {
+            .eng {
+                .suv-contents .suv-org-wrap.right.recustom {
+                    font-size: 0;
+                    margin-top: 0;
+                    max-width: 1355px;
+                }
+                .suv-contents .suv-org-wrap.right.recustom dl {
+                    margin-bottom: 55px;
+                    width: 630px;
+                    margin-right: 47px;
+                    dt {
+                        height: auto;
+                    }
+                    dd {
+                        margin-top: 22px;
+                        + dd {
+                            margin-top: 27px;
+                        }
+                    }
+                }
+            }
+        }
         dl {
             display: inline-block;
             vertical-align: top;
@@ -42,6 +77,8 @@
             padding: 0;
 
             dt {
+                height: 60px;
+
                 font-size: 30px;
                 line-height: 30px;
                 text-align: left;

@@ -47,6 +47,29 @@
         &.active {
             display: block;
         }
+        @at-root {
+            .eng {
+                .tabs-content h3 + p + ul li i {
+                    display: block;
+                    font-size: 16px;
+                }
+
+                .tabs-content h3 + p + ul li {
+                    line-height: 22px;
+                    font-size: 16px;
+                    + li {
+                        margin-top: 8px;
+                    }
+                }
+                .tabs-content h3 + p {
+                    font-size: 16px;
+                    margin-top: 6px;
+                }
+                .tabs-content h3 + p + ul {
+                    margin-top: 23px;
+                }
+            }
+        }
         h3 {
             font-weight: bolder;
             font-size: 24px;

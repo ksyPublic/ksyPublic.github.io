@@ -14,6 +14,14 @@
     }
 }
 
+.eng {
+    .contact-us {
+        .suv-contents .suv-title-wrap + .suv-assi-wrap {
+            margin-top: 100px;
+        }
+    }
+}
+
 .flex {
     display: flex;
     margin-top: 94px;
@@ -65,6 +73,16 @@
     top: 350px;
     right: 358px;
     font-size: 0px;
+    @at-root {
+        .eng .tech-rt-wrap .tech-box span {
+            top: 145px;
+            line-height: 22px;
+        }
+
+        .tech-rt-wrap {
+            top: 346px;
+        }
+    }
     .tech-box {
         position: absolute;
         opacity: 0;
@@ -152,6 +170,7 @@
         }
 
         span {
+            line-height: 22px;
             position: absolute;
             bottom: -24px;
             left: 50%;
@@ -396,17 +415,25 @@
         }
 
         &:last-child {
-            left: -67px;
+            left: -87px;
             top: -13px;
         }
 
         .audience-tt {
             margin-bottom: 69px;
-
+            line-height: 26px;
             font-size: 20px;
             opacity: 0;
             transition: opacity 1s cubic-bezier(0.455, 0.03, 0.515, 0.955), transform 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
             transform: translateY(10px) translateZ(-180px) rotateX(90deg);
+
+            @at-root {
+                .eng {
+                    .audience-wrap .audience-box .audience-tt.dpi {
+                        margin-bottom: 44px;
+                    }
+                }
+            }
             &.titleOn {
                 @include titleOn;
             }
@@ -571,8 +598,16 @@
 }
 
 .clients-wrap {
+    @at-root {
+        .eng {
+            .clients-wrap {
+                margin-top: 0;
+            }
+        }
+    }
     margin-top: 32px;
     width: 100%;
+    max-width: 1260px;
     display: block;
     .clients-text {
         margin-bottom: 20px;
@@ -887,6 +922,13 @@
         padding: 52px 30px 30px;
         width: 340px;
         height: 300px;
+        @at-root {
+            .eng {
+                .analy-wrap .analy-box {
+                    height: 382px;
+                }
+            }
+        }
         margin-right: 60px;
         border: 1px solid #b5b5b5;
         display: inline-block;
@@ -930,6 +972,16 @@
                     letter-spacing: -0.03em;
                     font-weight: 400;
                     line-height: 22px;
+                    @at-root {
+                        .eng {
+                            .analy-wrap .analy-box dl dd:nth-child(3) {
+                                line-height: 20px;
+                            }
+                            .analy-wrap .analy-box dl dd:nth-child(2) {
+                                height: 48px;
+                            }
+                        }
+                    }
                 }
                 span {
                     top: -1px;
@@ -985,6 +1037,13 @@
 }
 
 .view-wrap {
+    @at-root {
+        .eng {
+            .view-wrap {
+                margin-top: 100px;
+            }
+        }
+    }
     margin-top: 142px;
     .view-box {
         z-index: 1;

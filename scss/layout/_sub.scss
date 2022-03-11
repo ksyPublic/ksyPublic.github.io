@@ -136,6 +136,14 @@
             }
             + .suv-org-wrap {
                 margin-top: 97px;
+
+                @at-root {
+                    .eng {
+                        .suv-contents .suv-title-wrap + .suv-org-wrap {
+                            margin-top: 60px;
+                        }
+                    }
+                }
             }
             @keyframes bgColor {
                 0% {
@@ -215,6 +223,14 @@
             }
             + .suv-assi-wrap {
                 margin-top: 92px;
+            }
+
+            @at-root {
+                .eng {
+                    .suv-contents .suv-title-wrap + .suv-assi-wrap {
+                        margin-top: 60px;
+                    }
+                }
             }
         }
 
@@ -318,6 +334,13 @@
 
             + .tabs {
                 margin-top: 96px;
+                @at-root {
+                    .eng {
+                        .suv-contents .suv-assi-wrap + .tabs {
+                            margin-top: 60px;
+                        }
+                    }
+                }
             }
         }
 
@@ -483,8 +506,8 @@
                     vertical-align: top;
                     span {
                         position: relative;
-                        display: block;
-                        margin-bottom: 7px;
+                        display: flex;
+                        line-height: 22px;
                         font-weight: 400;
                         font-size: 15px;
                         font-family: "Spoqa Han Sans Neo", sans-serif;
@@ -791,6 +814,15 @@ span {
     z-index: 100;
     width: 650px;
     height: 450px;
+
+    @at-root {
+        .eng {
+            .google-platform-wrap {
+                top: 464px;
+                right: 196px;
+            }
+        }
+    }
 
     &.glu {
         .google-circle-svg {
