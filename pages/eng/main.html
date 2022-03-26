@@ -112,7 +112,7 @@
                         complete: function () {
                             loading().close();
                             //스플래시 실행시 페이지 1번에서 실행 이후 쿠키 작업예정
-                            window.location.href = location.origin + "/#anchors1";
+                            window.location.href = location.origin + location.pathname + "/#anchors1";
 
                             const splashParent = document.querySelector(".splash-interative");
                             const splashWrap = document.querySelectorAll(".splash-container");
