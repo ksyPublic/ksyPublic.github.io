@@ -170,6 +170,7 @@
         }
 
         span {
+            text-align: center;
             line-height: 22px;
             position: absolute;
             bottom: -24px;
@@ -245,6 +246,7 @@
         height: 110px;
         span {
             line-height: 18px;
+            font-size: 15px;
         }
     }
 
@@ -431,6 +433,12 @@
                 .eng {
                     .audience-wrap .audience-box .audience-tt.dpi {
                         margin-bottom: 44px;
+                        margin-left: 10px;
+                    }
+                    .audience-wrap {
+                        .circle > span {
+                            font-weight: 500;
+                        }
                     }
                 }
             }
@@ -649,7 +657,7 @@
 .cover-wrap {
     position: relative;
     margin-top: 55px;
-    width: 1133px;
+    width: 1103px;
     .cover-text {
         margin-bottom: 20px;
         margin-left: 150px;
@@ -728,15 +736,16 @@
             }
         }
     }
+
     &:before {
         content: "ONLINE";
         position: absolute;
         display: block;
         right: -6px;
-        top: 88px;
+        top: 122px;
         font-size: 16px;
         font-family: "Graphik", sans-serif;
-        font-weight: bolder;
+        font-weight: 500;
         color: transparent;
         width: 70px;
         text-align: left;
@@ -751,12 +760,60 @@
         bottom: 84px;
         font-size: 16px;
         font-family: "Graphik", sans-serif;
-        font-weight: bolder;
+        font-weight: 500;
         color: transparent;
         width: 70px;
         text-align: left;
         transition: color 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
         transition-delay: 5s;
+    }
+
+    .cover-list-wrap {
+        position: absolute;
+        right: -114px;
+        top: calc(50% - 158px);
+        .cover-list {
+            opacity: 0;
+            transition: opacity 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            &.opaon {
+                opacity: 1;
+                transition: opacity 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            }
+            + .cover-list {
+                margin-top: 110px;
+            }
+            position: relative;
+            ul {
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 8px;
+                    height: calc(100% - 16px);
+                    width: 1px;
+                    background-color: #d5d5d5;
+                }
+                li {
+                    margin-top: 4px;
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                    font-size: 16px;
+                    font-weight: 400;
+                    font-family: "Spoqa Han Sans Neo", sans-serif;
+                    &:before {
+                        content: "";
+                        position: relative;
+                        display: inline-block;
+                        vertical-align: top;
+                        top: 7px;
+                        margin-right: 4px;
+                        width: 7px;
+                        height: 1px;
+                        background-color: #d5d5d5;
+                    }
+                }
+            }
+        }
     }
     svg {
         position: absolute;
@@ -1041,6 +1098,12 @@
         .eng {
             .view-wrap {
                 margin-top: 100px;
+            }
+            .view-wrap .view-box .circle.large > span .small {
+                margin-top: 13px;
+            }
+            .view-wrap .view-box .circle.large > span {
+                line-height: 26px;
             }
         }
     }

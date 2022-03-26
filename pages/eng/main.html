@@ -293,7 +293,10 @@
                                 </div>
 
                                 <div class="visual-text-subline">
-                                    <span class="small">It is the best business partner Mercury Project that provides services tailored to various brand situations.</span>
+                                    <span class="small"
+                                        >MERCURY PROJECT, a top-class digital partner,<br />
+                                        provides the best tailored advertising services considering various brand conditions.</span
+                                    >
                                 </div>
                             </div>
                             <!-- //02. 비쥬얼 텍스트 -->
@@ -406,7 +409,9 @@
                     <div id="page-4" class="section fp-auto-height">
                         <footer>
                             <ul>
-                                <li><a href="#none" alt="privacy policy">Privacy policy</a></li>
+                                <li data-id="4">
+                                    <a href="javascript:void(0)" alt="privacy policy" onclick="parent.openSubPages('privacy', this)">Privacy policy</a>
+                                </li>
                                 <li>Copyright ⓒ 2021 Mercury Project All rights reserved</li>
                             </ul>
                         </footer>
@@ -427,18 +432,24 @@
                 <div id="suv03">
                     <iframe src="./contactus.html" id="CONTACTUS"></iframe>
                 </div>
+
+                <div id="suv04">
+                    <iframe src="./privacy.html" id="PRIVACY"></iframe>
+                </div>
                 <!-- //서브페이지 -->
             </div>
         </div>
     </body>
 
     <script>
+        localStorage.clear(); //초기화
         //퍼블리싱 임시 로컬스토리지로 모션 제작 | 개발시엔 서버통신으로 바꿔주세요
         //로직은 전면 수정하셔서 사용하여야 합니다 감사합니다.
         let ajaxLoad = true;
         const suv = document.querySelector("#suv"); //who we ard
         const suv02 = document.querySelector("#suv02"); //what we do
         const suv03 = document.querySelector("#suv03"); //contact us
+        const suv04 = document.querySelector("#suv04"); //privacy
         const subpagesOpen = localStorage.getItem("suvOpen") === "true";
 
         function openSubPages(param, props) {
@@ -447,7 +458,7 @@
             history.pushState(null, null, "#" + param);
 
             if (getId === "1") {
-                //who we ard
+                //who we are
                 suv.classList.add("open-suv");
 
                 localStorage.setItem("whoweare", true);
@@ -462,10 +473,13 @@
                     suv02.classList.remove("loadOpen");
                     suv03.classList.remove("open-suv");
                     suv03.classList.remove("loadOpen");
+                    suv04.classList.remove("open-suv");
+                    suv04.classList.remove("loadOpen");
                 }, 600);
 
                 localStorage.setItem("whatwedo", false);
                 localStorage.setItem("contactus", false);
+                localStorage.setItem("privacy", false);
             } else if (getId === "2") {
                 //what we do
                 suv02.classList.add("open-suv");
@@ -482,11 +496,14 @@
                     suv.classList.remove("loadOpen");
                     suv03.classList.remove("open-suv");
                     suv03.classList.remove("loadOpen");
+                    suv04.classList.remove("open-suv");
+                    suv04.classList.remove("loadOpen");
                 }, 600);
 
                 localStorage.setItem("whoweare", false);
                 localStorage.setItem("contactus", false);
-            } else {
+                localStorage.setItem("privacy", false);
+            } else if (getId === "3") {
                 //contact us
                 suv03.classList.add("open-suv");
 
@@ -502,10 +519,36 @@
                     suv.classList.remove("loadOpen");
                     suv02.classList.remove("open-suv");
                     suv02.classList.remove("loadOpen");
+                    suv04.classList.remove("open-suv");
+                    suv04.classList.remove("loadOpen");
                 }, 600);
 
                 localStorage.setItem("whoweare", false);
                 localStorage.setItem("whatwedo", false);
+                localStorage.setItem("privacy", false);
+            } else {
+                //개인정보 처리방침
+                suv04.classList.add("open-suv");
+
+                localStorage.setItem("privacy", true);
+
+                //오픈
+                localStorage.setItem("suvOpen", true);
+                ajaxLoad = false;
+
+                //리셋
+                setTimeout(function () {
+                    suv.classList.remove("open-suv");
+                    suv.classList.remove("loadOpen");
+                    suv02.classList.remove("open-suv");
+                    suv02.classList.remove("loadOpen");
+                    suv03.classList.remove("open-suv");
+                    suv03.classList.remove("loadOpen");
+                }, 600);
+
+                localStorage.setItem("whoweare", false);
+                localStorage.setItem("whatwedo", false);
+                localStorage.setItem("contactus", false);
             }
 
             if (!ajaxLoad) {
@@ -518,8 +561,10 @@
                 document.getElementById("WHOWEARE").contentWindow.getObj(param);
             } else if (getId === "2") {
                 document.getElementById("WHATWEDO").contentWindow.getObj(param);
-            } else {
+            } else if (getId === "3") {
                 document.getElementById("CONTACTUS").contentWindow.getObj(param);
+            } else {
+                document.getElementById("PRIVACY").contentWindow.getObj(param);
             }
         }
 
@@ -545,6 +590,8 @@
                 suv02.classList.remove("loadOpen");
                 suv03.classList.remove("open-suv");
                 suv03.classList.remove("loadOpen");
+                suv04.classList.remove("open-suv");
+                suv04.classList.remove("loadOpen");
             } else if (localStorage.getItem("suvOpen") === "true") {
                 //1. 클릭시 서브페이지 이벤트 실행
                 suv02.classList.remove("open-suv");
@@ -563,7 +610,9 @@
                 suv.classList.remove("loadOpen");
                 suv03.classList.remove("open-suv");
                 suv03.classList.remove("loadOpen");
-            } else {
+                suv04.classList.remove("open-suv");
+                suv04.classList.remove("loadOpen");
+            } else if (localStorage.getItem("suvOpen") === "true") {
                 //1. 클릭시 서브페이지 이벤트 실행
                 suv03.classList.remove("open-suv");
                 suv03.classList.remove("loadOpen");
@@ -581,6 +630,28 @@
                 suv.classList.remove("loadOpen");
                 suv02.classList.remove("open-suv");
                 suv02.classList.remove("loadOpen");
+                suv04.classList.remove("open-suv");
+                suv04.classList.remove("loadOpen");
+            } else {
+                //1. 클릭시 서브페이지 이벤트 실행
+                suv04.classList.remove("open-suv");
+                suv04.classList.remove("loadOpen");
+
+                //2. 풀페이지 재등록
+                document.body.style.overflow = "";
+
+                //3. 메뉴 클릭을 위해 값을 변경
+                localStorage.setItem("privacy", false);
+                localStorage.setItem("suvOpen", false);
+                ajaxLoad = true;
+
+                //4. 리셋
+                suv.classList.remove("open-suv");
+                suv.classList.remove("loadOpen");
+                suv02.classList.remove("open-suv");
+                suv02.classList.remove("loadOpen");
+                suv03.classList.remove("open-suv");
+                suv03.classList.remove("loadOpen");
             }
         }
 
@@ -597,6 +668,7 @@
                 //
                 suv02.classList.remove("loadOpen");
                 suv03.classList.remove("loadOpen");
+                suv04.classList.remove("loadOpen");
             } else if (subpagesOpen && localStorage.getItem("whatwedo") === "true") {
                 suv02.classList.add("loadOpen");
                 localStorage.setItem("whatwedo", true);
@@ -607,6 +679,7 @@
                 //
                 suv.classList.remove("loadOpen");
                 suv03.classList.remove("loadOpen");
+                suv04.classList.remove("loadOpen");
             } else if (subpagesOpen && localStorage.getItem("contactus") === "true") {
                 suv03.classList.add("loadOpen");
                 localStorage.setItem("contactus", true);
@@ -617,6 +690,18 @@
                 //
                 suv.classList.remove("loadOpen");
                 suv02.classList.remove("loadOpen");
+                suv04.classList.remove("loadOpen");
+            } else if (subpagesOpen && localStorage.getItem("privacy") === "true") {
+                suv04.classList.add("loadOpen");
+                localStorage.setItem("privacy", true);
+
+                document.body.style.overflow = "hidden";
+                ajaxLoad = false;
+
+                //
+                suv.classList.remove("loadOpen");
+                suv02.classList.remove("loadOpen");
+                suv03.classList.remove("loadOpen");
             }
         });
     </script>

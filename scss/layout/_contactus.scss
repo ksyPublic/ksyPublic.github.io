@@ -45,6 +45,7 @@
 }
 .suv-contents .suv-org-wrap {
     &.right.recustom {
+        font-size: 0;
         max-width: 1260px;
         @at-root {
             .eng {
@@ -73,19 +74,20 @@
             display: inline-block;
             vertical-align: top;
             align-items: start;
-            width: 356px;
+            width: 570px;
             padding: 0;
+            margin-bottom: 60px;
 
             dt {
-                height: 60px;
-
                 font-size: 30px;
                 line-height: 30px;
                 text-align: left;
                 position: relative;
+                display: block;
             }
 
             dd {
+                display: block;
                 margin-top: 34px;
                 h5 {
                     &.title {

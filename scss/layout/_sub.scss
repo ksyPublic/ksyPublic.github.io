@@ -72,7 +72,8 @@
 
 #suv,
 #suv02,
-#suv03 {
+#suv03,
+#suv04 {
     position: fixed;
     top: 0;
     left: 0;
@@ -98,14 +99,7 @@
         transform: translateY(0%);
     }
 }
-#suv02 {
-    transform: translateY(100%);
-    &.open-suv {
-        visibility: visible;
-        transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-        transform: translateY(0%);
-    }
-}
+
 .suv {
     &-container {
         position: relative;

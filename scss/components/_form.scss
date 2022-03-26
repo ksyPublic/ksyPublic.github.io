@@ -43,13 +43,33 @@
         }
     }
 }
+.privacy-title {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+    color: #e96406;
+    + .privacy-sub-text {
+        margin-top: 36px;
+    }
+}
+
+.privacy-sub-text {
+    line-height: 24px;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+    + .privacy-info {
+        margin-top: 34px;
+    }
+}
 
 .privacy-info {
-    background-color: #f5f5f5;
+    padding-bottom: 100px;
+    max-width: 1260px;
     font-size: 15px;
     ul {
         li {
-            margin-top: 19px;
+            margin-top: 34px;
             &:first-child {
                 margin-top: 0;
             }
@@ -62,17 +82,62 @@
     h4 {
         font-weight: bold;
         font-family: "Spoqa Han Sans Neo", sans-serif;
+        font-size: 20px;
         + p {
             margin-top: 4px;
         }
     }
     p {
-        color: #888888;
+        color: #000;
         line-height: 24px;
+        font-size: 15px;
         font-weight: 400;
         font-family: "Spoqa Han Sans Neo", sans-serif;
     }
-    padding: 21px 19px 0px 19px;
+
+    span {
+        font-size: 15px;
+        font-family: "Spoqa Han Sans Neo", sans-serif;
+    }
+
+    ol {
+        margin-left: 18px;
+        margin-top: 10px;
+        &.float-ol {
+            li {
+                display: block;
+                font-size: 15px;
+                p {
+                    font-family: "Spoqa Han Sans Neo", sans-serif;
+                    display: flex;
+                }
+            }
+        }
+        li {
+            display: flex;
+            font-size: 15px;
+            line-height: 24px;
+            font-family: "Spoqa Han Sans Neo", sans-serif;
+            margin-top: 0;
+            span {
+                margin-right: 2px;
+            }
+        }
+    }
+
+    i {
+        margin-left: 16px;
+        display: flex;
+        font-style: normal;
+        font-size: 15px;
+        font-family: "Spoqa Han Sans Neo", sans-serif;
+        &:before {
+            margin-right: 3px;
+            content: "-";
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
 }
 
 .control-line {
