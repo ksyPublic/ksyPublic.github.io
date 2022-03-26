@@ -96,41 +96,44 @@
 
             $(document).ready(function () {
                 console.log("COOKIE", getCookie("test"));
+                $.ajax({
+                    url: "../../main-splash.html",
+
+                    //조회 성공일때
+                    success: function (result) {
+                        $("#root").append(result);
+                    },
+
+                    beforeSend: function () {
+                        loading().open();
+                    },
+
+                    complete: function () {
+                        loading().close();
+                        //스플래시 실행시 페이지 1번에서 실행 이후 쿠키 작업예정
+                        window.location.href = location.origin + location.pathname + "#anchors1";
+
+                        const splashParent = document.querySelector(".splash-interative");
+                        const splashWrap = document.querySelectorAll(".splash-container");
+                        splashAnimate(splashWrap);
+
+                        setTimeout(function () {
+                            splashParent.style.display = "none";
+                        }, 2000);
+                    },
+
+                    error: function (e) {
+                        console.log(e);
+                    },
+
+                    timeout: 100000,
+                });
+                /*
                 if (getCookie("test") !== "Y") {
-                    $.ajax({
-                        url: "main-splash.html",
-
-                        //조회 성공일때
-                        success: function (result) {
-                            $("#root").append(result);
-                        },
-
-                        beforeSend: function () {
-                            loading().open();
-                        },
-
-                        complete: function () {
-                            loading().close();
-                            //스플래시 실행시 페이지 1번에서 실행 이후 쿠키 작업예정
-                            window.location.href = location.origin + location.pathname + "#anchors1";
-
-                            const splashParent = document.querySelector(".splash-interative");
-                            const splashWrap = document.querySelectorAll(".splash-container");
-                            splashAnimate(splashWrap);
-
-                            setTimeout(function () {
-                                splashParent.style.display = "none";
-                            }, 2000);
-                        },
-
-                        error: function (e) {
-                            console.log(e);
-                        },
-
-                        timeout: 100000,
-                    });
+                    
                     setCookie("test", "Y", 1);
                 }
+                */
             });
         </script>
         <div class="loading-wrap">
