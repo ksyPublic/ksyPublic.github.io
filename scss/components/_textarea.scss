@@ -1,3 +1,9 @@
+.eng {
+    .textarea {
+        font-size: 16px;
+    }
+}
+
 .textarea {
     resize: none;
     width: 100%;
@@ -10,7 +16,6 @@
     position: relative;
     border: 0;
     line-height: 24px;
-    border: 0;
     border-top: 1px solid #b5b5b5;
     border-left: 1px solid #b5b5b5;
     border-right: 1px solid #b5b5b5;

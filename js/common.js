@@ -22,7 +22,7 @@ if (!Element.prototype.closest) {
     const tabsContents = document.querySelectorAll(".tabs-contents-wrap .tabs-content");
     const buttonGroup = document.querySelectorAll(".button-group .button");
     const select = document.querySelectorAll(".select");
-    const privacyInfo = document.getElementById("privacyInfo");
+    // const privacyInfo = document.getElementById("privacyInfo");
     //default ui Interective
 
     const ui = {
@@ -97,23 +97,23 @@ if (!Element.prototype.closest) {
         },
         //
 
-        iframeInnerPrivayCSS: function () {
-            if (privacyInfo) {
-                const priv = privacyInfo.contentWindow.document;
-                const contents = priv.getElementsByClassName("suv-contents")[0];
-                const container = priv.getElementsByClassName("suv-container")[0];
-                const title = priv.getElementsByClassName("privacy-title")[0];
-                const section2 = priv.getElementsByClassName("suv-section")[1];
-                const info = priv.getElementsByClassName("privacy-info")[0];
-                contents.style.padding = "20px";
-                container.style.minWidth = "auto";
-                container.style.overflow = "hidden";
-                priv.body.style.minWidth = "auto";
-                info.style.paddingBottom = 0;
-                title.remove();
-                section2.remove();
-            }
-        },
+        // iframeInnerPrivayCSS: function () {
+        //     if (privacyInfo) {
+        //         const priv = privacyInfo.contentWindow.document;
+        //         const contents = priv.getElementsByClassName("suv-contents")[0];
+        //         const container = priv.getElementsByClassName("suv-container")[0];
+        //         const title = priv.getElementsByClassName("privacy-title")[0];
+        //         const section2 = priv.getElementsByClassName("suv-section")[1];
+        //         const info = priv.getElementsByClassName("privacy-info")[0];
+        //         contents.style.padding = "20px";
+        //         container.style.minWidth = "auto";
+        //         container.style.overflow = "hidden";
+        //         priv.body.style.minWidth = "auto";
+        //         info.style.paddingBottom = 0;
+        //         title.remove();
+        //         section2.remove();
+        //     }
+        // },
     };
     //init
     function init() {
@@ -133,9 +133,9 @@ if (!Element.prototype.closest) {
         document.addEventListener("DOMContentLoaded", loaded);
     }
 
-    window.onload = function () {
-        ui.iframeInnerPrivayCSS();
-    };
+    // window.onload = function () {
+    //     ui.iframeInnerPrivayCSS();
+    // };
 
     //first func
     eventBindingFunc();

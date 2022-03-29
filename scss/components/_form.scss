@@ -1,3 +1,10 @@
+.eng {
+    .form .title {
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+
 .form {
     max-width: 920px;
     .fields {
@@ -48,6 +55,7 @@
     font-weight: bold;
     font-family: "Spoqa Han Sans Neo", sans-serif;
     color: #e96406;
+
     + .privacy-sub-text {
         margin-top: 36px;
     }
@@ -63,10 +71,49 @@
     }
 }
 
+.eng {
+    .privacy-info {
+        &.collect {
+            padding: 11px 20px;
+            h4 + p {
+                margin-top: 0px;
+            }
+
+            p {
+                line-height: 20px;
+            }
+
+            ul {
+                li {
+                    margin-top: 6px;
+                }
+            }
+        }
+    }
+}
+
 .privacy-info {
     padding-bottom: 100px;
     max-width: 1260px;
     font-size: 15px;
+    line-height: 24px;
+    &.collect {
+        padding-bottom: 0px;
+        padding: 23px 20px;
+        h4 {
+            font-size: 15px;
+        }
+        p {
+            font-size: 15px;
+            font-weight: 400;
+            color: #888888;
+        }
+        ul {
+            li {
+                margin-top: 19px;
+            }
+        }
+    }
     ul {
         li {
             margin-top: 34px;
@@ -89,7 +136,7 @@
     }
     p {
         color: #000;
-        line-height: 24px;
+        line-height: 22px;
         font-size: 15px;
         font-weight: 400;
         font-family: "Spoqa Han Sans Neo", sans-serif;
