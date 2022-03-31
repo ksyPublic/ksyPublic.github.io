@@ -438,6 +438,7 @@
                     .audience-wrap {
                         .circle > span {
                             font-weight: 500;
+                            letter-spacing: 0.005em;
                         }
                     }
                 }
@@ -1104,6 +1105,7 @@
             }
             .view-wrap .view-box .circle.large > span {
                 line-height: 26px;
+                letter-spacing: 0.005em;
             }
         }
     }
