@@ -454,6 +454,7 @@
 
         function openSubPages(param, props) {
             const getId = props.closest("li[data-id]").dataset.id;
+            document.documentElement.classList.add("hidden");
 
             history.pushState(null, null, "#" + param);
 
@@ -570,6 +571,7 @@
 
         function goHome() {
             //ajaxLoad가 false와 같을때 아래 실행
+            document.documentElement.classList.remove("hidden");
 
             if (localStorage.getItem("suvOpen") === "true") {
                 //1. 클릭시 서브페이지 이벤트 실행
