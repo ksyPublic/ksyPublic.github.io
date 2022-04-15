@@ -371,3 +371,41 @@ function loading() {
 
     return { open: open, close: close };
 }
+
+//메뉴 재설정
+const gnb = document.querySelector(".gnb");
+const root = document.querySelector("#root");
+function reBuildMenuUpdate() {
+    root.classList.add("flex");
+    setTimeout(function () {
+        root.classList.add("trans-menu");
+        setTimeout(function () {
+            root.classList.add("psa");
+        }, 600);
+    }, 700);
+}
+
+function removeBuildMenuUpdate(props) {
+    root.classList.remove("psa");
+    root.classList.remove("flex");
+    root.classList.remove("trans-menu");
+
+    root.classList.add("trans-menu-hide");
+
+    [].forEach.call(props, function (x) {
+        const suvContents = x.childNodes[1].contentWindow.document.querySelectorAll(".suv-contents");
+        [].forEach.call(suvContents, function (j) {
+            j.style.paddingLeft = 330 + "px";
+        });
+    });
+
+    setTimeout(function () {
+        root.classList.remove("trans-menu-hide");
+        [].forEach.call(props, function (x) {
+            const suvContents = x.childNodes[1].contentWindow.document.querySelectorAll(".suv-contents");
+            [].forEach.call(suvContents, function (j) {
+                j.style.paddingLeft = 87 + "px";
+            });
+        });
+    }, 700);
+}

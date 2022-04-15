@@ -455,7 +455,6 @@
         function openSubPages(param, props) {
             const getId = props.closest("li[data-id]").dataset.id;
             document.documentElement.classList.add("hidden");
-
             history.pushState(null, null, "#" + param);
 
             if (getId === "1") {
@@ -555,6 +554,9 @@
             if (!ajaxLoad) {
                 suvIframeFocusHandler(param, getId);
             }
+
+            //서브페이지 오픈시 함수 메뉴 변경
+            reBuildMenuUpdate();
         }
 
         function suvIframeFocusHandler(param, getId) {
@@ -570,6 +572,9 @@
         }
 
         function goHome() {
+            //홈버튼 클릭시 메뉴 재설정
+            removeBuildMenuUpdate([suv, suv02, suv03, suv04]);
+
             //ajaxLoad가 false와 같을때 아래 실행
             document.documentElement.classList.remove("hidden");
 
