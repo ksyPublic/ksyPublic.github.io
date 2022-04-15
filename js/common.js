@@ -376,20 +376,23 @@ function loading() {
 const gnb = document.querySelector(".gnb");
 const root = document.querySelector("#root");
 function reBuildMenuUpdate() {
-    root.classList.add("flex");
-    setTimeout(function () {
-        root.classList.add("trans-menu");
+    //중복이벤트 방지를 위해 flex class가 있을때만 실행
+    if (!root.classList.contains("flex")) {
         setTimeout(function () {
-            root.classList.add("psa");
-        }, 600);
-    }, 700);
+            root.classList.add("trans-menu");
+            setTimeout(function () {
+                root.classList.add("psa");
+            }, 600);
+        }, 700);
+    }
+    root.classList.add("flex");
 }
 
 function removeBuildMenuUpdate(props) {
-    root.classList.remove("psa");
-    root.classList.remove("flex");
-    root.classList.remove("trans-menu");
+    //초기화
+    root.setAttribute("class", "wrap");
 
+    //홈버튼 클릭시 실행됨
     root.classList.add("trans-menu-hide");
 
     [].forEach.call(props, function (x) {

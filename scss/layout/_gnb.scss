@@ -85,6 +85,7 @@
     }
 
     .logo {
+        pointer-events: auto !important;
         position: relative;
         display: inline-block;
         width: 74px;
